@@ -28,7 +28,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
         { }
         
         // shows the signin screen
-        public ActionResult SignIn(string returnUrl, bool mobile=false)
+        public virtual ActionResult SignIn(string returnUrl, bool mobile=false)
         {
             // you can call AuthenticationHelper.GetRelyingPartyDetailsFromReturnUrl to get more information about the requested relying party
 
@@ -43,7 +43,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
 
         // handles the signin
         [HttpPost]
-        public ActionResult SignIn(SignInModel model)
+        public virtual ActionResult SignIn(SignInModel model)
         {
             if (ModelState.IsValid)
             {
