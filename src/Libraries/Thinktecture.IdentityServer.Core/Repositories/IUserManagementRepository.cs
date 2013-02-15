@@ -9,6 +9,8 @@ namespace Thinktecture.IdentityServer.Repositories
         IEnumerable<string> GetUsers();
         IEnumerable<string> GetUsers(string filter);
 
+        void SetPassword(string userName, string password);
+
         void SetRolesForUser(string userName, IEnumerable<string> roles);
         IEnumerable<string> GetRolesForUser(string userName);
 

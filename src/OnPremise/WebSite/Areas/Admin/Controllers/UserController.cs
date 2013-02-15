@@ -164,5 +164,20 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
 
             return View(vm);
         }
+
+        public ActionResult ChangePassword(string id)
+        {
+            UserPasswordModel model = new UserPasswordModel();
+            model.Username = id;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(UserPasswordModel model)
+        {
+            this.UserManagementRepository.SetPassword(model.Username, model.Password);
+            return RedirectToAction("Index");
+        }
     }
 }

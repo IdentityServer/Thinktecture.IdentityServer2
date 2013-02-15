@@ -83,5 +83,19 @@ namespace Thinktecture.IdentityServer.Repositories
                 select user.UserName;
             return query;
         }
+
+
+        public void SetPassword(string userName, string password)
+        {
+            try
+            {
+                var user = Membership.GetUser(userName);
+                user.ChangePassword(user.ResetPassword(), password);
+            }
+            catch (MembershipPasswordException mex)
+            {
+                throw new ValidationException(mex.Message, mex);
+            }
+        }
     }
 }
