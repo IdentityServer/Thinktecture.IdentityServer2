@@ -39,7 +39,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     keys.Update(this.ConfigurationRepository);
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.KeyConfigurationController.UpdateSuccessful;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -48,7 +48,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating keys.");
+                    ModelState.AddModelError("", Resources.KeyConfigurationController.ErrorUpdatingKeys);
                 }
             }
 

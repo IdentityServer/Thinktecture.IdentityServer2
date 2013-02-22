@@ -57,7 +57,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                             this.clientCertificatesRepository.Delete(setting);
                         }
                     }
-                    TempData["Message"] = "User Certificates Deleted";
+                    TempData["Message"] = Resources.ClientCertificateController.UserCertificatesDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -66,7 +66,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error deleting client certificates.");
+                    ModelState.AddModelError("", Resources.ClientCertificateController.ErrorDeletingClientCertificates);
                 }
             }
 
@@ -98,7 +98,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.clientCertificatesRepository.Add(newCertificate);
-                    TempData["Message"] = "Certificate Added";
+                    TempData["Message"] = Resources.ClientCertificateController.CertificateAdded;
                     return RedirectToAction("Configure", new { id = newCertificate.UserName });
                 }
                 catch (ValidationException ex)
@@ -107,7 +107,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error adding client certificate.");
+                    ModelState.AddModelError("", Resources.ClientCertificateController.ErrorAddingClientCertificate);
                 }
             }
 
@@ -125,7 +125,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.clientCertificatesRepository.Delete(model);
-                    TempData["Message"] = "Certificate Removed";
+                    TempData["Message"] = Resources.ClientCertificateController.CertificateRemoved;
                     return RedirectToAction("Configure", new { id = model.UserName });
                 }
                 catch (ValidationException ex)
@@ -134,7 +134,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error removing client certificate.");
+                    ModelState.AddModelError("", Resources.ClientCertificateController.ErrorRemovingClientCertificate);
                 }
             }
 

@@ -1,11 +1,12 @@
-﻿@{
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Shared.EditorTemplates
+@{
     var id = ViewData.ModelMetadata.PropertyName+"file";
     var name = id;
 }
 <div class="inline-editor">
     @Html.TextBox("", Model as string)
     <div>
-        <label for="@id">Upload</label>
+        <label for="@id">@Thumbprint_cshtml.Upload</label>
         <input type="file" id="@id" name="@name" />
     </div>
 </div>

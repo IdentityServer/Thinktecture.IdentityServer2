@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             if (action == "new") return RedirectToAction("Edit");
             if (action == "delete") return Delete(list);
 
-            ModelState.AddModelError("", "Invalid Action");
+            ModelState.AddModelError("", Resources.OAuthClientController.InvalidAction);
             return Index();
         }
 
@@ -52,7 +52,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                     {
                         this.clientRepository.Delete(client.ID);
                     }
-                    TempData["Message"] = "Clients Deleted";
+                    TempData["Message"] = Resources.OAuthClientController.ClientsDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -61,7 +61,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error deleting clients.");
+                    ModelState.AddModelError("", Resources.OAuthClientController.ErrorDeletingClients);
                 }
             }
             
@@ -93,7 +93,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.clientRepository.Create(model);
-                    TempData["Message"] = "Client Created";
+                    TempData["Message"] = Resources.OAuthClientController.ClientCreated;
                     return RedirectToAction("Edit", new { id = model.ID });
                 }
                 catch (ValidationException ex)
@@ -102,7 +102,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error creating client.");
+                    ModelState.AddModelError("", Resources.OAuthClientController.ErrorCreatingClient);
                 }
             }
 
@@ -118,7 +118,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.clientRepository.Update(model);
-                    TempData["Message"] = "Client updated";
+                    TempData["Message"] = Resources.OAuthClientController.ClientUpdated;
                     return RedirectToAction("Edit", new { id = model.ID });
                 }
                 catch (ValidationException ex)
@@ -127,7 +127,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error creating client.");
+                    ModelState.AddModelError("", Resources.OAuthClientController.ErrorUpdatingClient);
                 }
             }
 
@@ -143,7 +143,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.clientRepository.Delete(id);
-                    TempData["Message"] = "Client Deleted";
+                    TempData["Message"] = Resources.OAuthClientController.ClientDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -152,7 +152,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error deleting client.");
+                    ModelState.AddModelError("", Resources.OAuthClientController.ErrorDeletingClient);
                 }
             }
 

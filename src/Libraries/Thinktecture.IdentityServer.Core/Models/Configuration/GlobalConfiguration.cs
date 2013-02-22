@@ -10,56 +10,57 @@ namespace Thinktecture.IdentityServer.Models.Configuration
 {
     public class GlobalConfiguration
     {
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "SiteName", Description = "SiteNameDescription")]
         [Required]
-        [Display(Name = "Site Name", Description = "Descriptive name of your STS.")]
         public String SiteName { get; set; }
 
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "IssuerUri", Description = "IssuerUriDescription")]
         [Required]
-        [Display(Name = "Site ID", Description = "Unique identifier for your STS. Must be a URI and will be the identifier issued in tokens and replying parties will use to identify your identity provider (this STS).")]
         public String IssuerUri { get; set; }
 
-        [Display(Name = "Contact Email", Description = "Email of the contact person that administrates this STS.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "IssuerContactEmail", Description = "IssuerContactEmailDescription")]
         //[RegularExpression(@"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]\b", ErrorMessage = "{0} must be in the form of an email address.")]
         [Required]
         public String IssuerContactEmail { get; set; }
 
-        [Display(Name = "Default WS* Token", Description = "Default token type to be issues for WS-Federation and WS-Trust token requests.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "DefaultWSTokenType", Description = "DefaultWSTokenTypeDescription")]
         [Required]
         public string DefaultWSTokenType { get; set; }
 
-        [Display(Name = "Default HTTP Token", Description = "Default token type to be issued for HTTP (non WS-*) token requests.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.GlobalConfiguration), Name = "DefaultHttpTokenType", Description = "DefaultHttpTokenTypeDescription")]
         [Required]
         public string DefaultHttpTokenType { get; set; }
 
-        [Display(Name = "Default Token Lifetime", Description = "The default lifetime (in hours) of tokens issued from this STS.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "DefaultTokenLifetime", Description = "DefaultTokenLifetimeDescription")]
         [Range(0, Int32.MaxValue)]
         public int DefaultTokenLifetime { get; set; }
 
-        [Display(Name = "Maximum Token Lifetime", Description = "The maximum lifetime (in hours) of tokens issued from this STS if a relying party requests a lifetime longer than the default.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "MaximumTokenLifetime", Description = "MaximumTokenLifetimeDescription")]
         [Range(0, Int32.MaxValue)]
         public int MaximumTokenLifetime { get; set; }
 
-        [Display(Name = "SSO Duration", Description = "The duration (in hours) of the single sign-on cookies used for this web site.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "SsoCookieLifetime", Description = "SsoCookieLifetimeDescription")]
         [Range(0, Int32.MaxValue)]
         public int SsoCookieLifetime { get; set; }
 
-        [Display(Name = "Require Token Encryption", Description = "When enabled this setting requires all outgoing tokens to be encrypted.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "RequireEncryption", Description = "RequireEncryptionDescription")]
         public Boolean RequireEncryption { get; set; }
 
-        [Display(Name = "Require RP Registration", Description = "When enabled the STS will only issue tokens for relying parties that are registed.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "RequireRelyingPartyRegistration", Description = "RequireRelyingPartyRegistrationDescription")]
         public Boolean RequireRelyingPartyRegistration { get; set; }
 
-        [Display(Name = "Enable Client Certificates", Description = "Allow users to authenticate in the web frontend with client certificates.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "EnableClientCertificateAuthentication", Description = "EnableClientCertificateAuthenticationDescription")]
         public Boolean EnableClientCertificateAuthentication { get; set; }
 
-        [Display(Name = "Only Users in the '" + Constants.Roles.IdentityServerUsers + "' role can request tokens", Description = "When enabled this setting will cause the STS to only issue tokens for users that are in the '" + Constants.Roles.IdentityServerUsers + "' role.")]
+        // TODO : Name = "Only Users in the '" + Constants.Roles.IdentityServerUsers + "' role can request tokens"
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "EnforceUsersGroupMembership", Description = "EnforceUsersGroupMembershipDescription")]
         public Boolean EnforceUsersGroupMembership { get; set; }
 
-        [Display(Name = "HTTP Port", Description = "Port number the STS using for HTTP.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "HttpPort", Description = "HttpPortDescription")]
         [Range(0, Int32.MaxValue)]
         public int HttpPort { get; set; }
 
-        [Display(Name = "HTTPS Port", Description = "Port number the STS is using for HTTPS.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.GlobalConfiguration), Name = "HttpsPort", Description = "HttpsPortDescription")]
         [Range(0, Int32.MaxValue)]
         public int HttpsPort { get; set; }
     }

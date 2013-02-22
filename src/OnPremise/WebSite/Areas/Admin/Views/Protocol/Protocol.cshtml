@@ -1,21 +1,22 @@
-﻿@model ProtocolViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Protocol
+@model ProtocolViewModel
 
 @{
-    ViewBag.Title = "Protocol Configuration : " + Model.DisplayName;
+    ViewBag.Title = string.Format(Protocol_cshtml.ProtocolConfiguration, Model.DisplayName);
 }
 
 @using (Html.BeginForm("UpdateProtocol", "Protocol", new { id = Model.ID }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating protocol")
+    @Html.ValidationSummary(Protocol_cshtml.ErrorUpdatingProtocol)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
         @Html.EditorFor(x => x.Protocol)
 
         <div class="buttons">
-            <button type="submit">Save Changes</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Protocol_cshtml.SaveChanges</button>
+            <button type="reset">@Protocol_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

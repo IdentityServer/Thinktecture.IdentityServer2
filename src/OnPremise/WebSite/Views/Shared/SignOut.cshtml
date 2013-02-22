@@ -1,16 +1,17 @@
-﻿@model IEnumerable<string>
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Shared
+@model IEnumerable<string>
 
 @{
-    ViewBag.Title = "Sign Out";
+    ViewBag.Title = SignOut_cshtml.SignOut;
     ViewBag.HideMenu = true;
 }
 
-<h2>Sign Out</h2>
+<h2>@SignOut_cshtml.SignOut</h2>
 
 @if (!string.IsNullOrWhiteSpace(ViewBag.ReturnUrl))
 {
     <p>
-        <a href='@ViewBag.ReturnUrl'>Return to application</a>
+        <a href='@ViewBag.ReturnUrl'>@SignOut_cshtml.ReturnToRP</a>
     </p>
 }
 

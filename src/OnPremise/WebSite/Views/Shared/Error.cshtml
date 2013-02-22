@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Shared
+@{
     Layout = null;
 }
 
@@ -6,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Error</title>
+    <title>@Error_cshtml.ErrorTitle</title>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="~/Content/Site.css" rel="stylesheet" />
@@ -14,7 +15,7 @@
 
 <body>
     <section id="main-section">
-        <h2>Sorry, an error occurred while processing your request.</h2>
+        <h2>@Error_cshtml.ErrorMessage</h2>
     </section>
 </body>
 </html>

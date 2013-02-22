@@ -1,13 +1,14 @@
-﻿@{
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Home
+@{
     ViewBag.Title = ViewBag.SiteName;
 }
 
-<h2>Welcome to @ViewBag.SiteName</h2>
+<h2>@string.Format(Index_cshtml.WelcomeToSite, ViewBag.SiteName)</h2>
 
 <p>
-    @Html.ActionLink("View WS-Federation Metadata", "Generate", "FederationMetadata")
+    @Html.ActionLink(Index_cshtml.ViewWsFederationMetadata, "Generate", "FederationMetadata")
 </p>
 
 <p>
-    @Html.ActionLink("Application integration", "appintegration", "home")
+    @Html.ActionLink(Index_cshtml.ApplicationIntegration, "appintegration", "home")
 </p>

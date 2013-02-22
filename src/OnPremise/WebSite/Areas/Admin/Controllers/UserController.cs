@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             if (action == "new") return Create();
             if (action == "delete") return Delete(list);
 
-            ModelState.AddModelError("", "Invalid action.");
+            ModelState.AddModelError("", Resources.UserController.InvalidAction);
             var vm = new UsersViewModel(UserManagementRepository, null);
             return View("Index", vm);
 
@@ -69,7 +69,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                             this.UserManagementRepository.SetRolesForUser(model.Username, roles);
                         }
                     }
-                    TempData["Message"] = "User Created";
+                    TempData["Message"] = Resources.UserController.UserCreated;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -78,7 +78,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error creating user.");
+                    ModelState.AddModelError("", Resources.UserController.ErrorCreatingUser);
                 }
             }
 
@@ -95,7 +95,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                     {
                         this.UserManagementRepository.DeleteUser(name);
                     }
-                    TempData["Message"] = "Users Deleted";
+                    TempData["Message"] = Resources.UserController.UsersDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -104,7 +104,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error deleting user.");
+                    ModelState.AddModelError("", Resources.UserController.ErrorDeletingUser);
                 }
             }
             return Index();
@@ -128,7 +128,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                     var currentRoles =
                         roleAssignments.Where(x => x.InRole).Select(x => x.Role);
                     this.UserManagementRepository.SetRolesForUser(id, currentRoles);
-                    TempData["Message"] = "Roles Assigned Successfully";
+                    TempData["Message"] = Resources.UserController.RolesAssignedSuccessfully;
                     return RedirectToAction("Roles", new { id });
                 }
                 catch (ValidationException ex)
@@ -137,7 +137,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error deleting roles.");
+                    ModelState.AddModelError("", Resources.UserController.ErrorAssigningRoles);
                 }
             }
 
@@ -158,7 +158,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
 
             if (vm.UpdateProfileFromValues(ModelState))
             {
-                TempData["Message"] = "Profile Updated";
+                TempData["Message"] = Resources.UserController.ProfileUpdated;
                 return RedirectToAction("Profile", new { id });
             }
 

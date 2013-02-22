@@ -15,31 +15,31 @@ namespace Thinktecture.IdentityServer.Models
         public int ID { get; set; }
 
         [Required]
-        [Display(Order = 1, Name = "Identifier", Description = "Unique identifier of the identity provider.")]
+        [Display(Order = 1, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "Name", Description = "NameDescription")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Order = 2, Name = "Display Name", Description = "Descriptive Name of the identity provider (for logging).")]
+        [Display(Order = 2, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "DisplayName", Description = "DisplayNameDescription")]
         public string DisplayName { get; set; }
 
-        [Display(Order = 3, Name = "Enabled", Description = "Specifies whether this provider will used.")]
+        [Display(Order = 3, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "Enabled", Description = "EnabledDescription")]
         public bool Enabled { get; set; }
 
-        [Display(Order = 4, Name = "Include in Home Realm Discovery", Description = "Specifies whether this provider will be shown in the HRD screen.")]
+        [Display(Order = 4, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "ShowInHrdSelection", Description = "ShowInHrdSelectionDescription")]
         public bool ShowInHrdSelection { get; set; }
 
         [Required]
         [UIHint("Enum")]
-        [Display(Order = 5, Name = "Type", Description = "Specifies the type of the identity provider.")]
+        [Display(Order = 5, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "Type", Description = "TypeDescription")]
         public Models.IdentityProviderTypes Type { get; set; }
 
-        [Display(Order = 6, Name = "WS-Federation Endpoint", Description = "Specifies the endpoint of for the WS-Federation protocol.")]
+        [Display(Order = 6, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "WSFederationEndpoint", Description = "WSFederationEndpointDescription")]
         [AbsoluteUri]
         public string WSFederationEndpoint { get; set; }
 
         string _IssuerThumbprint;
         [UIHint("Thumbprint")]
-        [Display(Order = 7, Name = "Issuer Thumbprint", Description = "Specifies the issuer thumbprint for X.509 certificate based signature validation.")]
+        [Display(Order = 7, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "IssuerThumbprint", Description = "IssuerThumbprintDescription")]
         public string IssuerThumbprint
         {
             get
@@ -53,12 +53,14 @@ namespace Thinktecture.IdentityServer.Models
             }
         }
 
-        [Display(Order = 8, Name = "OAuth2 Provider", Description = "")]
+        [Display(Order = 8, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "ProviderType", Description = "ProviderTypeDescription")]
         [UIHint("Enum")]
         public OAuth2ProviderTypes? ProviderType { get; set; }
-        [Display(Order = 9, Name = "Client ID", Description = "")]
+
+        [Display(Order = 9, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "ClientID", Description = "ClientIDDescription")]
         public string ClientID { get; set; }
-        [Display(Order = 10, Name = "Client Secret", Description = "")]
+
+        [Display(Order = 10, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "ClientSecret", Description = "ClientSecretDescription")]
         public string ClientSecret { get; set; }
 
         public System.Collections.Generic.IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -69,26 +71,26 @@ namespace Thinktecture.IdentityServer.Models
             {
                 if (String.IsNullOrEmpty(this.WSFederationEndpoint))
                 {
-                    errors.Add(new ValidationResult("WS-Federation Endpoint is required.", new string[] { "WSFederationEndpoint" }));
+                    errors.Add(new ValidationResult(Resources.Models.IdentityProvider.WSFederationEndpointRequiredError, new string[] { "WSFederationEndpoint" }));
                 }
                 if (String.IsNullOrEmpty(this.IssuerThumbprint))
                 {
-                    errors.Add(new ValidationResult("Issuer Thumbprint is required.", new string[] { "IssuerThumbprint" }));
+                    errors.Add(new ValidationResult(Resources.Models.IdentityProvider.IssuerThumbprintRequiredError, new string[] { "IssuerThumbprint" }));
                 }
             }
             if (this.Type == IdentityProviderTypes.OAuth2)
             {
                 if (String.IsNullOrEmpty(this.ClientID))
                 {
-                    errors.Add(new ValidationResult("Client ID is required.", new string[] { "ClientID" }));
+                    errors.Add(new ValidationResult(Resources.Models.IdentityProvider.ClientIDRequiredError, new string[] { "ClientID" }));
                 }
                 if (String.IsNullOrEmpty(this.ClientSecret))
                 {
-                    errors.Add(new ValidationResult("Client Secret is required.", new string[] { "ClientSecret" }));
+                    errors.Add(new ValidationResult(Resources.Models.IdentityProvider.ClientSecretRequiredError, new string[] { "ClientSecret" }));
                 }
                 if (this.ProviderType == null)
                 {
-                    errors.Add(new ValidationResult("Profile Type is required.", new string[] { "ProfileType" }));
+                    errors.Add(new ValidationResult(Resources.Models.IdentityProvider.ProviderTypeRequiredError, new string[] { "ProfileType" }));
                 }
             }
 

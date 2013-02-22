@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 {
                     Text = x
                 }).ToList();
-            allnames.Insert(0, new SelectListItem { Text = "-Choose-", Value = "" });
+            allnames.Insert(0, new SelectListItem { Text = Resources.ClientCertificatesForUserViewModel.ChooseItem, Value = "" });
             this.AllUserNames = allnames;
             
             this.UserName = username;

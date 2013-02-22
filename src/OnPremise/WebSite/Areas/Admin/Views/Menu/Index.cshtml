@@ -1,36 +1,37 @@
-﻿@model MenuViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Menu
+@model MenuViewModel
 
-<h1>Configuration</h1>
+<h1>@Index_cshtml.Configuration</h1>
 <ul>
-    <li>@Html.ActionLink("General Configuration", "Index", "General")</li>
-    <li>@Html.ActionLink("Key Configuration", "Index", "KeyConfiguration")</li>
+    <li>@Html.ActionLink(Index_cshtml.GeneralConfiguration, "Index", "General")</li>
+    <li>@Html.ActionLink(Index_cshtml.KeyConfiguration, "Index", "KeyConfiguration")</li>
     <li>
-        @Html.ActionLink("Protocols", "Index", "Protocol")
+        @Html.ActionLink(Index_cshtml.Protocols, "Index", "Protocol")
         @Html.Action("ChildMenu", "Menu", new{controllerName="Protocol"})
     </li>
-    <li>@Html.ActionLink("Diagnostics", "Index", "Diagnostics")</li>
-    <li>@Html.ActionLink("Application Recycle", "Recycle", "General")</li>
+    <li>@Html.ActionLink(Index_cshtml.Diagnostics, "Index", "Diagnostics")</li>
+    <li>@Html.ActionLink(Index_cshtml.ApplicationRecycle, "Recycle", "General")</li>
 </ul>
 <ul>
     <li>
-        @Html.ActionLink("Relying Parties & Resources", "Index", "RP")
+        @Html.ActionLink(Index_cshtml.RelyingPartiesResources, "Index", "RP")
         @Html.Action("ChildMenu", "Menu", new{controllerName="RP"})
     </li>
     <li>
-        @Html.ActionLink("Identity Providers", "Index", "IP")
+        @Html.ActionLink(Index_cshtml.IdentityProviders, "Index", "IP")
         @Html.Action("ChildMenu", "Menu", new{controllerName="IP"})
     </li>
     @if(Model.ShowOAuthClients)
     {
         <li>
-            @Html.ActionLink("OAuth Clients", "Index", "OAuthClient")
+            @Html.ActionLink(Index_cshtml.OAuthClients, "Index", "OAuthClient")
             @Html.Action("ChildMenu", "Menu", new{controllerName="OAuthClient"})
         </li>
     }
 </ul>
 <ul>
-    <li>@Html.ActionLink("Roles", "Index", "Role")</li>
-    <li>@Html.ActionLink("Users", "Index", "User")</li>
-    <li>@Html.ActionLink("Client Certificates", "Index", "ClientCertificate")</li>
-    <li>@Html.ActionLink("Identity Delegation", "Index", "Delegation")</li>
+    <li>@Html.ActionLink(Index_cshtml.Roles, "Index", "Role")</li>
+    <li>@Html.ActionLink(Index_cshtml.Users, "Index", "User")</li>
+    <li>@Html.ActionLink(Index_cshtml.ClientCertificates, "Index", "ClientCertificate")</li>
+    <li>@Html.ActionLink(Index_cshtml.IdentityDelegation, "Index", "Delegation")</li>
 </ul>

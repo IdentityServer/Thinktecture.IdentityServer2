@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     ConfigurationRepository.Global = model;
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.GeneralController.UpdateSuccessful;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -47,7 +47,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating configuration.");
+                    ModelState.AddModelError("", Resources.GeneralController.ErrorUpdatingConfiguration);
                 }
             }
 

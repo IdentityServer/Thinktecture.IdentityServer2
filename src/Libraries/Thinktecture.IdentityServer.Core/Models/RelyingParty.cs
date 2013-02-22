@@ -15,37 +15,39 @@ namespace Thinktecture.IdentityServer.Models
         [UIHint("HiddenInput")]
         public string Id { get; set; }
         
-        [Display(Name = "Enabled", Description = "Enabled or disable this RP.")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "Enabled", Description = "EnabledDescription")]
         public bool Enabled { get; set; }
         
         [Required]
-        [Display(Name = "Display Name", Description = "Descriptive name (shows up in trace logs).")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "Name", Description = "NameDescription")]
         public string Name { get; set; }
         
         [Required]
-        [Display(Name = "Realm/Scope Name", Description = "Realm/Scope identifier URI.")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "Realm", Description = "RealmDescription")]
         [AbsoluteUri]
         public Uri Realm { get; set; }
 
         [Required]
-        [Display(Name = "Token life time (in minutes)", Description = "Can be used to override the default token lifetime (a value of 0 uses the global default).")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "TokenLifeTime", Description = "TokenLifeTimeDescription")]
         public int TokenLifeTime { get; set; }
 
-        [Display(Name = "Redirect URL", Description = "URL to return to once a token is issued.")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "ReplyTo", Description = "ReplyToDescription")]
         [AbsoluteUri]
         public Uri ReplyTo { get; set; }
 
-        [Display(Order=10002, Name = "Encrypting Certificate", Description = "Optional X.509 certificate to encrypt outgoing tokens.")]
+        [Display(Order=10002, ResourceType = typeof (Resources.Models.RelyingParty), Name = "EncryptingCertificate", Description = "EncryptingCertificateDescription")]
         public X509Certificate2 EncryptingCertificate { get; set; }
 
-        [Display(Order = 10001, Name = "Symmetric Signing Key", Description = "Base64 encoded key used for symmetric signing of tokens.")]
+        [Display(Order = 10001, ResourceType = typeof (Resources.Models.RelyingParty), Name = "SymmetricSigningKey", Description = "SymmetricSigningKeyDescription")]
         public byte[] SymmetricSigningKey { get; set; }
 
-        [Display(Name = "Extra Data 1", Description = "Extra data you can associate with the RP. (1)")]
+        [Display(ResourceType = typeof (Resources.Models.RelyingParty), Name = "ExtraData1", Description = "ExtraData1Description")]
         public string ExtraData1 { get; set; }
-        [Display(Name = "Extra Data 2", Description = "Extra data you can associate with the RP. (2)")]
+
+        [Display(ResourceType = typeof(Resources.Models.RelyingParty), Name = "ExtraData2", Description = "ExtraData2Description")]
         public string ExtraData2 { get; set; }
-        [Display(Name = "Extra Data 3", Description = "Extra data you can associate with the RP. (3)")]
+
+        [Display(ResourceType = typeof(Resources.Models.RelyingParty), Name = "ExtraData3", Description = "ExtraData3Description")]
         public string ExtraData3 { get; set; }
     }
 }

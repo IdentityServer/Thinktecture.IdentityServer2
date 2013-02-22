@@ -18,7 +18,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             {
                 if (message.BaseUri.Scheme != Uri.UriSchemeHttps)
                 {
-                    throw new InvalidRequestException("Return URL must be SSL.");
+                    throw new InvalidRequestException(Resources.WSFederation.WSFederationResult.ReturnUrlMustBeSslException);
                 }
             }
 

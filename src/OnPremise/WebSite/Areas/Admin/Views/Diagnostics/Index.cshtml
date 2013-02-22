@@ -1,21 +1,22 @@
-﻿@model Thinktecture.IdentityServer.Models.Configuration.DiagnosticsConfiguration
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Diagnostics
+@model Thinktecture.IdentityServer.Models.Configuration.DiagnosticsConfiguration
 
 @{
-    ViewBag.Title = "Diagnostics";
+    ViewBag.Title = Index_cshtml.Diagnostics;
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating diagnostics")
+    @Html.ValidationSummary(Index_cshtml.ErrorUpdatingDiagnostics)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
         @Html.EditorForModel()
 
         <div class="buttons">
-            <button type="submit">Save Changes</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Index_cshtml.SaveChanges</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

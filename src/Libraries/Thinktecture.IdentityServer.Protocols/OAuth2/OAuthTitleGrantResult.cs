@@ -19,8 +19,9 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
             var response = context.RequestContext.HttpContext.Response;
 
             var html = String.Format(
-                "<html><head><title>{0}</title></head><body>Authorized</body></html>",
-                this.TokenString);
+                "<html><head><title>{0}</title></head><body>{1}</body></html>",
+                this.TokenString,
+                Resources.OAuth2.OAuthTitleGrantResult.Authorized);
 
             response.Clear();
             response.StatusCode = 302;

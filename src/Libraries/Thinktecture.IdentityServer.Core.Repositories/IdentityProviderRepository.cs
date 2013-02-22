@@ -46,7 +46,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 from e in entities.IdentityProviders
                 where e.Name == item.Name && e.ID != item.ID
                 select e;
-            if (othersWithSameName.Any()) throw new ValidationException(string.Format("The Name/Identifier '{0}' is already in use.", item.Name));
+            if (othersWithSameName.Any()) throw new ValidationException(string.Format(Core.Repositories.Resources.IdentityProviderRepository.NameAlreadyInUseError, item.Name));
         }
 
         public void Delete(int id)

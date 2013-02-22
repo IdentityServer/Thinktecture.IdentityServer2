@@ -1,11 +1,12 @@
-﻿@model Thinktecture.IdentityServer.Web.ViewModels.InitialConfigurationModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.InitialConfiguration
+@model Thinktecture.IdentityServer.Web.ViewModels.InitialConfigurationModel
 
 @{
-    ViewBag.Title = "Initial Configuration";
+    ViewBag.Title = Index_cshtml.InitialConfiguration;
 }
 
-<h2>Initial Configuration
-    <a href="@Url.Content("~/docs/initialConfiguration.html")" target="_blank">(help)</a>
+<h2>@ViewBag.Title
+    <a href="@Url.Content("~/docs/initialConfiguration.html")" target="_blank">@Index_cshtml.Help</a>
 </h2>
 
 
@@ -14,7 +15,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset class="editor">
-        <legend>Settings</legend>
+        <legend>@Index_cshtml.Settings</legend>
 
         <div>
             @Html.LabelFor(model => model.SiteName)
@@ -35,7 +36,7 @@
     </fieldset>
     
     <fieldset class="editor">
-        <legend>Default accounts</legend>
+        <legend>@Index_cshtml.DefaultAccounts</legend>
         <div>
             @Html.LabelFor(model => model.CreateDefaultAccounts)
             @Html.EditorFor(model => model.CreateDefaultAccounts)
@@ -53,6 +54,6 @@
     </fieldset>
     
     <div class="buttons"> 
-        <input type="submit" value="Save" />
+        <input type="submit" value="@Index_cshtml.Save" />
     </div>
 }

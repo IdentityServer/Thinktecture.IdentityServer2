@@ -1,6 +1,7 @@
-﻿@{
-    ViewBag.Title = "Error";
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.OAuth2Authorize
+@{
+    ViewBag.Title = Error_cshtml.Error;
 }
 
-<h2>Error Processing Request</h2>
+<h2>@Error_cshtml.ErrorProcessingRequest</h2>
 <h3>@ViewBag.Message</h3>

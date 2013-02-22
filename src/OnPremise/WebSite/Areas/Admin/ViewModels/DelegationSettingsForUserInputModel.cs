@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Repositories;
+using Thinktecture.IdentityServer.Web.Areas.Admin.Resources;
 
 namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
 {
@@ -36,7 +37,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 {
                     Text = x
                 }).ToList();
-            allnames.Insert(0, new SelectListItem { Text = "-Choose-", Value = "" });
+            allnames.Insert(0, new SelectListItem { Text = DelegationSettingsForUserInputModel.ChooseItem, Value = "" });
             this.AllUserNames = allnames;
             
             this.UserName = username;

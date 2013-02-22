@@ -107,7 +107,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
             }
             else
             {
-                throw new ValidationException("Invalid Protocol Identifier.");
+                throw new ValidationException(Resources.ProtocolsViewModel.InvalidProtocolIdentifier);
             }
         }
     }

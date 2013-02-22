@@ -1,15 +1,16 @@
-﻿@model UsersViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
+@model UsersViewModel
 
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = Index_cshtml.Users;
 }
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error deleting users")
+    @Html.ValidationSummary(Index_cshtml.ErrorDeletingUsers)
 
     <fieldset class="editor">
-        <legend>Users</legend>
+        <legend>@ViewBag.Title</legend>
         @{
             var list = Model.UsersDeleteList;
         }
@@ -19,17 +20,17 @@
                 @Html.HiddenFor(x => list[i].Username)
                 @Html.LabelFor(x => list[i].Delete, list[i].Username)
                 @Html.CheckBoxFor(x => list[i].Delete)
-                @Html.ActionLink("roles", "Roles", new{id=list[i].Username})
+                @Html.ActionLink(Index_cshtml.Roles, "Roles", new{id=list[i].Username})
                 @if (Model.IsProfileEnabled)
                 {
-                    @Html.ActionLink("profile", "Profile", new{id=list[i].Username})
+                    @Html.ActionLink(Index_cshtml.Profile, "Profile", new{id=list[i].Username})
                 }
             </div>
         }
         <div class="buttons">
-            <button type="submit" name="action" value="delete">Delete Selected</button>
-            <button type="submit" name="action" value="new">New</button>
-            <button type="reset">Cancel</button>
+            <button type="submit" name="action" value="delete">@Index_cshtml.DeleteSelected</button>
+            <button type="submit" name="action" value="new">@Index_cshtml.New</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

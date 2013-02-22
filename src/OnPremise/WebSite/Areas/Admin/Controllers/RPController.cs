@@ -42,7 +42,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     vm.Update(list);
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.RPController.UpdateSuccessful;
                     return RedirectToAction("Index");
                 }
 
@@ -54,7 +54,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 return RedirectToAction("RP");
             }
 
-            ModelState.AddModelError("", "Invalid action.");
+            ModelState.AddModelError("", Resources.RPController.InvalidAction);
             return View("Index", new RelyingPartiesViewModel(RelyingPartyRepository));
         }
 
@@ -113,7 +113,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             var origRP = this.RelyingPartyRepository.Get(id);
             rp.EncryptingCertificate = origRP.EncryptingCertificate;
 
-            ModelState.AddModelError("", "Invalid action.");
+            ModelState.AddModelError("", Resources.RPController.InvalidAction);
             return View("RP", rp);
         }
 
@@ -122,7 +122,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             try
             {
                 this.RelyingPartyRepository.Delete(id);
-                TempData["Message"] = "Delete Successful";
+                TempData["Message"] = Resources.RPController.DeleteSuccessful;
                 return RedirectToAction("Index");
             }
             catch (ValidationException ex)
@@ -131,7 +131,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             }
             catch
             {
-                ModelState.AddModelError("", "Error deleting relying party.");
+                ModelState.AddModelError("", Resources.RPController.ErrorDeletingRelyingParty);
 
             }
 
@@ -152,7 +152,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.RelyingPartyRepository.Add(rp);
-                    TempData["Message"] = "Create Successful";
+                    TempData["Message"] = Resources.RPController.CreateSuccessful;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -161,7 +161,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error creating relying party.");
+                    ModelState.AddModelError("", Resources.RPController.ErrorCreatingRelyingParty);
                 }
             }
 
@@ -189,7 +189,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.RelyingPartyRepository.Update(rp);
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.RPController.UpdateSuccessful;
                     return RedirectToAction("RP", new { id });
                 }
                 catch (ValidationException ex)
@@ -198,7 +198,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating relying party.");
+                    ModelState.AddModelError("", Resources.RPController.ErrorUpdatingRelyingParty);
                 }
             }
 

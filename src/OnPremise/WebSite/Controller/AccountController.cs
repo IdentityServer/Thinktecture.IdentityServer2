@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "Incorrect credentials or no authorization.");
+            ModelState.AddModelError("", Resources.AccountController.IncorrectCredentialsNoAuthorization);
 
             model.ShowClientCertificateLink = ConfigurationRepository.Global.EnableClientCertificateAuthentication;
             return View(model);

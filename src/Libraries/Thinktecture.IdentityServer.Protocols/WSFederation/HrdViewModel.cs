@@ -19,7 +19,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
 
         public IEnumerable<HRDIdentityProvider> Providers { get; set; }
         public string OriginalSigninUrl { get; set; }
-        [Display(Name="Remember Selection")]
+        [Display(ResourceType = typeof (Resources.WSFederation.HrdViewModel), Name = "RememberHRDSelection")]
         public bool RememberHRDSelection { get; set; }
     }
 

@@ -49,7 +49,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                     if (String.IsNullOrWhiteSpace(ProfileValues[i].Data.Value) && 
                         prop.PropertyType.IsValueType)
                     {
-                        errors.AddModelError("profileValues[" + i + "].value", prop.Name + " is required.");
+                        errors.AddModelError("profileValues[" + i + "].value", string.Format(Resources.UserProfileViewModel.RequiredProperty, prop.Name));
                     }
                     else
                     {
@@ -59,11 +59,11 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 }
                 catch (FormatException ex)
                 {
-                    errors.AddModelError("profileValues[" + i + "].value", "There was an error converting the value for " + prop.Name + ". " + ex.Message);
+                    errors.AddModelError("profileValues[" + i + "].value", string.Format(Resources.UserProfileViewModel.ErrorConvertingPropertyValueEx, prop.Name, ex.Message));
                 }
                 catch (Exception)
                 {
-                    errors.AddModelError("profileValues[" + i + "].value", "There was an error converting the value for " + prop.Name + ". It must be of type " + prop.PropertyType.Name + ".");
+                    errors.AddModelError("profileValues[" + i + "].value", string.Format(Resources.UserProfileViewModel.ErrorConvertingPropertyValueType, prop.Name, prop.PropertyType.Name));
                 }
             }
 
@@ -84,9 +84,11 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         public ProfilePropertyViewModel(SettingsProperty property, ProfilePropertyInputModel value)
         {
             Type = PropTypeFromPropertyType(property);
-            Description = property.Name + " must be of type " + property.PropertyType.Name;
-            if (property.PropertyType.IsValueType) Description += " and is required";
-            Description += ".";
+            Description = string.Format(property.PropertyType.IsValueType
+                                            ? Resources.ProfilePropertyViewModel.RequiredPropertyMustBeOfType
+                                            : Resources.ProfilePropertyViewModel.RequiredProperty,
+                                        property.Name, property.PropertyType.Name);
+
             Data = value;
         }
 

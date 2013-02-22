@@ -48,7 +48,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
             }
             catch
             {
-                errors.Add(new ValidationResult("Error processing certificate.", new string[]{"EncryptingCertificate"}));
+                errors.Add(new ValidationResult(Resources.CertificateInputModel.ErrorProcessingCertificate, new string[]{"EncryptingCertificate"}));
             }
             return errors;
         }

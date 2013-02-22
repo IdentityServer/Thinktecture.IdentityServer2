@@ -1,13 +1,14 @@
-﻿@model UserRolesViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
+@model UserRolesViewModel
 @{
-    ViewBag.Title = "Roles for " + Model.Username;
+    ViewBag.Title = string.Format(Roles_cshtml.RolesForUser, Model.Username);
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating role assignments");
-    
+    @Html.ValidationSummary(Roles_cshtml.ErrorUpdatingRoleAssignments)
+
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
         @for (int i = 0; i < Model.RoleAssignments.Length; i++)
@@ -19,8 +20,8 @@
             </div>
         }
         <div class="buttons">
-            <button type="submit">Update</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Roles_cshtml.Update</button>
+            <button type="reset">@Roles_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

@@ -152,10 +152,275 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_LocalResources\Account\SignIn.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignIn.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Account\SignIn.Mobile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignIn.Mobile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Home\AppIntegration.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppIntegration.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Home\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\HRD\HRD.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRD.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\HRD\HRD.Mobile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRD.Mobile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\InitialConfiguration\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\OAuth2Authorize\Error.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\OAuth2Authorize\Error.Mobile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.Mobile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\OAuth2Authorize\ShowConsent.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowConsent.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\OAuth2Authorize\ShowConsent.Mobile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowConsent.Mobile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\Confirm.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Confirm.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\Error.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\SignedOut.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignedOut.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\SignOut.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignOut.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\_Banner.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Banner.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\_Layout.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\_Layout.Mobile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.Mobile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Shared\_Menu.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Menu.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\_ViewStart.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\ProtocolConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\App_LocalResources\ClientCertificate\Configure.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configure.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\ClientCertificate\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Delegation\Configure.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configure.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Delegation\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Diagnostics\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\General\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\General\Recycle.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recycle.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\IP\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\IP\IP.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IP.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\KeyConfiguration\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Menu\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Menu\LoadChildMenu.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoadChildMenu.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OAuthClient\Edit.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OAuthClient\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Protocol\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Protocol\Protocol.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Protocol.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Role\Create.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Role\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\RP\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\RP\RP.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RP.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\ChildMenu.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildMenu.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Byte[].cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Byte[].cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Enum.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Enum.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Object.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Object.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\SymmetricKey.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SymmetricKey.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Thumbprint.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Thumbprint.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\X509Certificate2.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>X509Certificate2.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Shared\_Layout.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\Create.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\Profile.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profile.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\Roles.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Roles.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\_ViewStart.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Controllers\ClientCertificateController.cs" />
     <Compile Include="Areas\Admin\Controllers\OAuthClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\DelegationController.cs" />
@@ -170,6 +435,196 @@
     <Compile Include="Areas\Admin\Controllers\RPController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Resources\CertificateInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CertificateInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ChildMenuViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildMenuViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ClientCertificateController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientCertificateController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ClientCertificateInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientCertificateInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ClientCertificatesForUserViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientCertificatesForUserViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ClientCertificatesViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientCertificatesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ProfilePropertyViewModel.Designer.cs">
+      <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\DelegationController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelegationController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\DelegationSettingsForUserInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelegationSettingsForUserInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\DelegationViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelegationViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\DiagnosticsController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagnosticsController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\GeneralController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\HomeController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\IdentityProvidersViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IdentityProvidersViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\IPCertInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IPCertInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\IPController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IPController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\KeyConfigurationController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeyConfigurationController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\KeyConfigurationViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeyConfigurationViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\MenuController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\MenuViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OAuthClientController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuthClientController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OAuthClientViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuthClientViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ProtocolController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ProtocolsInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolsInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ProtocolsViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolsViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\ProtocolViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RelyingPartiesViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelyingPartiesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RelyingPartyViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelyingPartyViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RoleController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoleController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RoleInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoleInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RolesViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RolesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RPCertInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPCertInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\RPController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UserController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UserInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserInputModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UserProfileViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserProfileViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UserRolesViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRolesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UsersViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersViewModel.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\ViewModels\ChildMenuViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ClientCertificateInputModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ClientCertificatesForUserViewModel.cs" />
@@ -204,13 +659,367 @@
     <Compile Include="Areas\Admin\ViewModels\ProtocolViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RelyingPartiesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RPCertInputModel.cs" />
+    <Compile Include="Resources\AccountController.Designer.cs">
+      <DependentUpon>AccountController.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\InitialConfigurationModel.Designer.cs">
+      <DependentUpon>InitialConfigurationModel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\InitialConfigurationController.Designer.cs">
+      <DependentUpon>InitialConfigurationController.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\HomeController.Designer.cs">
+      <DependentUpon>HomeController.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\SignInModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignInModel.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utility\HtmlHelpers.cs" />
     <Compile Include="ViewModels\InitialConfigurationModel.cs" />
     <Compile Include="ViewModels\SignInModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\dummy.txt" />
+    <EmbeddedResource Include="Areas\Admin\Resources\CertificateInputModel.fr.resx">
+      <DependentUpon>CertificateInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\CertificateInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CertificateInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ChildMenuViewModel.fr.resx">
+      <DependentUpon>ChildMenuViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ChildMenuViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChildMenuViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificateController.fr.resx">
+      <DependentUpon>ClientCertificateController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificateController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClientCertificateController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificateInputModel.fr.resx">
+      <DependentUpon>ClientCertificateInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificateInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClientCertificateInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesForUserViewModel.fr.resx">
+      <DependentUpon>ClientCertificatesForUserViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesForUserViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClientCertificatesForUserViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesViewModel.fr.resx">
+      <DependentUpon>ClientCertificatesViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClientCertificatesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProfilePropertyViewModel.fr.resx">
+      <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProfilePropertyViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProfilePropertyViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationController.fr.resx">
+      <DependentUpon>DelegationController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DelegationController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationSettingsForUserInputModel.fr.resx">
+      <DependentUpon>DelegationSettingsForUserInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationSettingsForUserInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DelegationSettingsForUserInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationViewModel.fr.resx">
+      <DependentUpon>DelegationViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DelegationViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DelegationViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DiagnosticsController.fr.resx">
+      <DependentUpon>DiagnosticsController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\DiagnosticsController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DiagnosticsController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\GeneralController.fr.resx">
+      <DependentUpon>GeneralController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\GeneralController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\HomeController.fr.resx">
+      <DependentUpon>HomeController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\HomeController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IdentityProvidersViewModel.fr.resx">
+      <DependentUpon>IdentityProvidersViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IdentityProvidersViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IdentityProvidersViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IPCertInputModel.fr.resx">
+      <DependentUpon>IPCertInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IPCertInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IPCertInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IPController.fr.resx">
+      <DependentUpon>IPController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\IPController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IPController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\KeyConfigurationController.fr.resx">
+      <DependentUpon>KeyConfigurationController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\KeyConfigurationController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyConfigurationController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\KeyConfigurationViewModel.fr.resx">
+      <DependentUpon>KeyConfigurationViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\KeyConfigurationViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyConfigurationViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\MenuController.fr.resx">
+      <DependentUpon>MenuController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\MenuController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\MenuViewModel.fr.resx">
+      <DependentUpon>MenuViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\MenuViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthClientController.fr.resx">
+      <DependentUpon>OAuthClientController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthClientController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuthClientController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthClientViewModel.fr.resx">
+      <DependentUpon>OAuthClientViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthClientViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuthClientViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolController.fr.resx">
+      <DependentUpon>ProtocolController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProtocolController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolsInputModel.fr.resx">
+      <DependentUpon>ProtocolsInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolsInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProtocolsInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolsViewModel.fr.resx">
+      <DependentUpon>ProtocolsViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolsViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProtocolsViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolViewModel.fr.resx">
+      <DependentUpon>ProtocolViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\ProtocolViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProtocolViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RelyingPartiesViewModel.fr.resx">
+      <DependentUpon>RelyingPartiesViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RelyingPartiesViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RelyingPartiesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RelyingPartyViewModel.fr.resx">
+      <DependentUpon>RelyingPartyViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RelyingPartyViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RelyingPartyViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RoleController.fr.resx">
+      <DependentUpon>RoleController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RoleController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RoleController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RoleInputModel.fr.resx">
+      <DependentUpon>RoleInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RoleInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RoleInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RolesViewModel.fr.resx">
+      <DependentUpon>RolesViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RolesViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RolesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RPCertInputModel.fr.resx">
+      <DependentUpon>RPCertInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RPCertInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RPCertInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RPController.fr.resx">
+      <DependentUpon>RPController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\RPController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RPController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserController.fr.resx">
+      <DependentUpon>UserController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserInputModel.fr.resx">
+      <DependentUpon>UserInputModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserProfileViewModel.fr.resx">
+      <DependentUpon>UserProfileViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserProfileViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserProfileViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserRolesViewModel.fr.resx">
+      <DependentUpon>UserRolesViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserRolesViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserRolesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UsersViewModel.fr.resx">
+      <DependentUpon>UsersViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UsersViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UsersViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InitialConfigurationModel.fr.resx">
+      <DependentUpon>InitialConfigurationModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InitialConfigurationModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InitialConfigurationModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InitialConfigurationController.fr.resx">
+      <DependentUpon>InitialConfigurationController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\InitialConfigurationController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InitialConfigurationController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeController.fr.resx">
+      <DependentUpon>HomeController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AccountController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AccountController.fr.resx">
+      <DependentUpon>AccountController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SignInModel.fr.resx">
+      <DependentUpon>SignInModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SignInModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignInModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Areas\Admin\Content\Admin.less" />
+    <EmbeddedResource Include="App_LocalResources\Account\SignIn.cshtml.fr.resx">
+      <DependentUpon>SignIn.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Account\SignIn.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignIn.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Account\SignIn.Mobile.cshtml.fr.resx">
+      <DependentUpon>SignIn.Mobile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Account\SignIn.Mobile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignIn.Mobile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Home\AppIntegration.cshtml.fr.resx">
+      <DependentUpon>AppIntegration.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Home\AppIntegration.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppIntegration.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Home\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Home\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <Content Include="Areas\Admin\Content\Admin.css">
       <DependentUpon>Admin.less</DependentUpon>
     </Content>
@@ -437,7 +1246,359 @@
       <Name>Thinktecture.IdentityServer.Protocols</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_GlobalResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Configure.cshtml.fr.resx">
+      <DependentUpon>Configure.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Configure.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Configure.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Configure.cshtml.fr.resx">
+      <DependentUpon>Configure.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Configure.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Configure.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Diagnostics\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Diagnostics\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\General\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\General\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\General\Recycle.cshtml.fr.resx">
+      <DependentUpon>Recycle.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\General\Recycle.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Recycle.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\IP\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\IP\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\IP\IP.cshtml.fr.resx">
+      <DependentUpon>IP.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\IP\IP.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IP.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\KeyConfiguration\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\KeyConfiguration\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Menu\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Menu\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Menu\LoadChildMenu.cshtml.fr.resx">
+      <DependentUpon>LoadChildMenu.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Menu\LoadChildMenu.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoadChildMenu.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthClient\Edit.cshtml.fr.resx">
+      <DependentUpon>Edit.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthClient\Edit.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Edit.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthClient\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthClient\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\Protocol.cshtml.fr.resx">
+      <DependentUpon>Protocol.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\Protocol.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Protocol.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Create.cshtml.fr.resx">
+      <DependentUpon>Create.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Create.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Create.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\RP\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\RP\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\RP\RP.cshtml.fr.resx">
+      <DependentUpon>RP.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\RP\RP.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RP.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\ChildMenu.cshtml.fr.resx">
+      <DependentUpon>ChildMenu.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\ChildMenu.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChildMenu.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Byte[].cshtml.fr.resx">
+      <DependentUpon>Byte[].cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Byte[].cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Byte[].cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Enum.cshtml.fr.resx">
+      <DependentUpon>Enum.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Enum.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Enum.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Object.cshtml.fr.resx">
+      <DependentUpon>Object.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Object.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Object.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\SymmetricKey.cshtml.fr.resx">
+      <DependentUpon>SymmetricKey.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\SymmetricKey.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SymmetricKey.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Thumbprint.cshtml.fr.resx">
+      <DependentUpon>Thumbprint.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\Thumbprint.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Thumbprint.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\X509Certificate2.cshtml.fr.resx">
+      <DependentUpon>X509Certificate2.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\EditorTemplates\X509Certificate2.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>X509Certificate2.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\_Layout.cshtml.fr.resx">
+      <DependentUpon>_Layout.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Shared\_Layout.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Layout.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Create.cshtml.fr.resx">
+      <DependentUpon>Create.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Create.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Create.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Profile.cshtml.fr.resx">
+      <DependentUpon>Profile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Profile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Profile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Roles.cshtml.fr.resx">
+      <DependentUpon>Roles.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Roles.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Roles.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\_ViewStart.cshtml.fr.resx">
+      <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\_ViewStart.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_ViewStart.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_LocalResources\HRD\HRD.cshtml.fr.resx">
+      <DependentUpon>HRD.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\HRD\HRD.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HRD.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\HRD\HRD.Mobile.cshtml.fr.resx">
+      <DependentUpon>HRD.Mobile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\HRD\HRD.Mobile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HRD.Mobile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\InitialConfiguration\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\InitialConfiguration\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\Error.cshtml.fr.resx">
+      <DependentUpon>Error.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\Error.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Error.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\Error.Mobile.cshtml.fr.resx">
+      <DependentUpon>Error.Mobile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\Error.Mobile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Error.Mobile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\ShowConsent.cshtml.fr.resx">
+      <DependentUpon>ShowConsent.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\ShowConsent.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShowConsent.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\ShowConsent.Mobile.cshtml.fr.resx">
+      <DependentUpon>ShowConsent.Mobile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OAuth2Authorize\ShowConsent.Mobile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ShowConsent.Mobile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\Confirm.cshtml.fr.resx">
+      <DependentUpon>Confirm.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\Confirm.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Confirm.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\Error.cshtml.fr.resx">
+      <DependentUpon>Error.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\Error.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Error.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\SignedOut.cshtml.fr.resx">
+      <DependentUpon>SignedOut.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\SignedOut.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignedOut.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\SignOut.cshtml.fr.resx">
+      <DependentUpon>SignOut.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\SignOut.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignOut.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Banner.cshtml.fr.resx">
+      <DependentUpon>_Banner.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Banner.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Banner.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Layout.cshtml.fr.resx">
+      <DependentUpon>_Layout.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Layout.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Layout.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Layout.Mobile.cshtml.fr.resx">
+      <DependentUpon>_Layout.Mobile.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Layout.Mobile.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Layout.Mobile.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Menu.cshtml.fr.resx">
+      <DependentUpon>_Menu.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Shared\_Menu.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Menu.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\_ViewStart.cshtml.fr.resx">
+      <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\_ViewStart.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_ViewStart.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

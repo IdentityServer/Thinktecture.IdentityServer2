@@ -1,7 +1,8 @@
-﻿@model Thinktecture.IdentityServer.Web.ViewModels.SignInModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Account
+@model Thinktecture.IdentityServer.Web.ViewModels.SignInModel
 
 @{
-    ViewBag.Title = ViewBag.SiteName + " : Sign In";
+    ViewBag.Title = ViewBag.SiteName + " : " + SignIn_Mobile_cshtml.SignIn;
     if (Model.IsSigninRequest)
     {
         ViewBag.HideMenu = true;
@@ -16,7 +17,7 @@
         <h2>@ViewBag.Title</h2>
         @using (Html.BeginForm("Signin", "Account", FormMethod.Post, new { data_ajax="false" }))
         {
-            @Html.ValidationSummary(true, "Sign In was unsuccessful. Please correct the errors and try again.")
+            @Html.ValidationSummary(true, SignIn_Mobile_cshtml.SignInWasUnsuccessful)
             @Html.HiddenFor(x=>x.ReturnUrl)
             <fieldset>
                 <div data-role="fieldcontain">
@@ -32,7 +33,7 @@
                     @Html.LabelFor(m => m.EnableSSO)
                 </div>
                 <div>
-                    <button type="submit">Sign In</button>
+                    <button type="submit">@SignIn_Mobile_cshtml.SignIn</button>
                 </div>
             </fieldset>
         }

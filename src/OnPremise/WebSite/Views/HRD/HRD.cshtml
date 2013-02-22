@@ -1,11 +1,12 @@
-﻿@model Thinktecture.IdentityServer.Protocols.WSFederation.HrdViewModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.HRD
+@model Thinktecture.IdentityServer.Protocols.WSFederation.HrdViewModel
 
 @{
-    ViewBag.Title = "HRD";
+    ViewBag.Title = HRD_cshtml.HRD;
     ViewBag.HideMenu = true;
 }
 
-<h2>Choose an Identity Provider to Login</h2>
+<h2>@HRD_cshtml.ChooseIdentityProvider</h2>
 @if(Model.Providers.Any())
 {
     using(Html.BeginForm("Select", "HRD"))
@@ -30,5 +31,5 @@
 }
 else
 {
-    <p>No Identity Providers configured. Contact your administrator.</p>
+    <p>@HRD_cshtml.NoIdentityProviders</p>
 }

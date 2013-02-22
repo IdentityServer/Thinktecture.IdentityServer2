@@ -24,6 +24,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TargetFrameworkProfile />
+    <UICulture>en-US</UICulture>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -144,6 +145,116 @@
     <Compile Include="Models\Configuration\WSTrustConfiguration.cs" />
     <Compile Include="Models\Configuration\WSFederationConfiguration.cs" />
     <Compile Include="Repositories\IUserManagementRepository.cs" />
+    <Compile Include="Resources\AbsoluteUriAttribute.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AbsoluteUriAttribute.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Helper\X509Certificates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>X509Certificates.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Client.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Client.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\ClientCertificate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientCertificate.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\CodeToken.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeToken.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\CodeTokenType.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeTokenType.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\DiagnosticsConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiagnosticsConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\FederationMetadataConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FederationMetadataConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\GlobalConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\KeyMaterialConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeyMaterialConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\OAuth2Configuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuth2Configuration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\ProtocolConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\SimpleHttpConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimpleHttpConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\WSFederationConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WSFederationConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\WSTrustConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WSTrustConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\DelegationSetting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DelegationSetting.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\IdentityProvider.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IdentityProvider.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\IdentityProviderTypes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IdentityProviderTypes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\OAuth2ProviderTypes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuth2ProviderTypes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\RelyingParty.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelyingParty.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepositoryX509SecurityTokenHandler.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\TokenService\Request.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Request.resx</DependentUpon>
+    </Compile>
     <Compile Include="TokenService\IdentityProviderIssuerNameRegistry.cs" />
     <Compile Include="TokenService\ClientCertificateIssuerNameRegistry.cs" />
     <Compile Include="TokenService\RepositoryX509SecurityTokenHandler.cs" />
@@ -166,6 +277,165 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AbsoluteUriAttribute.fr.resx">
+      <DependentUpon>AbsoluteUriAttribute.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AbsoluteUriAttribute.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AbsoluteUriAttribute.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Helper\X509Certificates.fr.resx">
+      <DependentUpon>X509Certificates.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Helper\X509Certificates.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>X509Certificates.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Client.fr.resx">
+      <DependentUpon>Client.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Client.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Client.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ClientCertificate.fr.resx">
+      <DependentUpon>ClientCertificate.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ClientCertificate.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ClientCertificate.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\CodeToken.fr.resx">
+      <DependentUpon>CodeToken.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\CodeToken.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CodeToken.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\CodeTokenType.fr.resx">
+      <DependentUpon>CodeTokenType.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\CodeTokenType.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CodeTokenType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\DiagnosticsConfiguration.fr.resx">
+      <DependentUpon>DiagnosticsConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\DiagnosticsConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DiagnosticsConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\FederationMetadataConfiguration.fr.resx">
+      <DependentUpon>FederationMetadataConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\FederationMetadataConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FederationMetadataConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\GlobalConfiguration.fr.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GlobalConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\GlobalConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\KeyMaterialConfiguration.fr.resx">
+      <DependentUpon>KeyMaterialConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\KeyMaterialConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyMaterialConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\OAuth2Configuration.fr.resx">
+      <DependentUpon>OAuth2Configuration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\OAuth2Configuration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuth2Configuration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\ProtocolConfiguration.fr.resx">
+      <DependentUpon>ProtocolConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\ProtocolConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProtocolConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\SimpleHttpConfiguration.fr.resx">
+      <DependentUpon>SimpleHttpConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\SimpleHttpConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SimpleHttpConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\WSFederationConfiguration.fr.resx">
+      <DependentUpon>WSFederationConfiguration.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\WSFederationConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WSFederationConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\WSTrustConfiguration.fr.resx">
+      <DependentUpon>WSTrustConfiguration.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\WSTrustConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WSTrustConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\DelegationSetting.fr.resx">
+      <DependentUpon>DelegationSetting.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\DelegationSetting.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DelegationSetting.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\IdentityProvider.fr.resx">
+      <DependentUpon>IdentityProvider.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\IdentityProvider.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IdentityProvider.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\IdentityProviderTypes.fr.resx">
+      <DependentUpon>IdentityProviderTypes.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\IdentityProviderTypes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IdentityProviderTypes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\OAuth2ProviderTypes.fr.resx">
+      <DependentUpon>OAuth2ProviderTypes.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\OAuth2ProviderTypes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuth2ProviderTypes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\RelyingParty.fr.resx">
+      <DependentUpon>RelyingParty.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\RelyingParty.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RelyingParty.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.fr.resx">
+      <DependentUpon>RepositoryX509SecurityTokenHandler.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RepositoryX509SecurityTokenHandler.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TokenService\Request.fr.resx">
+      <DependentUpon>Request.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TokenService\Request.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Request.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

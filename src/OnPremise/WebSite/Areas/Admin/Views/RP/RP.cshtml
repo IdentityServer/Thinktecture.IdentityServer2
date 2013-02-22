@@ -1,19 +1,20 @@
-﻿@model Thinktecture.IdentityServer.Models.RelyingParty
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.RP
+@model Thinktecture.IdentityServer.Models.RelyingParty
 
 @{
     if (Model.Id == null)
     {
-        ViewBag.Title = "New Relying Party";
+        ViewBag.Title = RP_cshtml.NewRelyingParty;
     }
     else
     {
-        ViewBag.Title = "Relying Party : " + Model.Name;
+        ViewBag.Title = string.Format(RP_cshtml.RelyingParty, Model.Name);
     }
 }
 @using (Html.BeginForm("RP", "RP", new { id = Model.Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating relying party")
+    @Html.ValidationSummary(RP_cshtml.ErrorUpdatingRelyingParty)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
@@ -22,14 +23,14 @@
         <div class="buttons">
             @if (Model.Id != null)
             {
-                <button type="submit" name="action" value="save">Save Changes</button>
-                <button type="submit" name="action" value="delete">Delete</button>
+                <button type="submit" name="action" value="save">@RP_cshtml.SaveChanges</button>
+                <button type="submit" name="action" value="delete">@RP_cshtml.Delete</button>
             }
             else
             {
-                <button type="submit" name="action" value="create">Create</button>
+                <button type="submit" name="action" value="create">@RP_cshtml.Create</button>
             }
-            <button type="reset">Cancel</button>
+            <button type="reset">@RP_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

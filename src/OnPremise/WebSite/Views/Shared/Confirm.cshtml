@@ -1,16 +1,17 @@
-﻿@{
-    ViewBag.Title = "Confirm";
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Shared
+@{
+    ViewBag.Title = Confirm_cshtml.Confirm;
 }
 
-<h2>Confirm</h2>
+<h2>@Confirm_cshtml.Confirm</h2>
 
 @using (Html.BeginForm())
 { 
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
     
-    <label>Are you sure?</label>
+    <label>@Confirm_cshtml.AreYouSure</label>
     <br />
     <br />
-    <input type="submit" value="Yes!" />
+    <input type="submit" value="@Confirm_cshtml.Yes" />
 }

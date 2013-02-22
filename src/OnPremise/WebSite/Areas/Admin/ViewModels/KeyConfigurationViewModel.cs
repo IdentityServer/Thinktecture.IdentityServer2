@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Web.Mvc;
 using Thinktecture.IdentityModel;
 using Thinktecture.IdentityServer.Models.Configuration;
+using Thinktecture.IdentityServer.Web.Areas.Admin.Resources;
 
 namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
 {
@@ -50,7 +51,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
             }
             catch (CryptographicException)
             {
-                throw new ValidationException(WindowsIdentity.GetCurrent().Name + " does not have read access to the private key of the signing certificate you selected (see http://technet.microsoft.com/en-us/library/ee662329.aspx).");
+                throw new ValidationException(string.Format(Resources.KeyConfigurationViewModel.NoReadAccessToPrivateKey, WindowsIdentity.GetCurrent().Name));
             }
 
             if (DecryptionCertificate == null)
@@ -70,7 +71,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 }
                 catch (CryptographicException)
                 {
-                    throw new ValidationException(WindowsIdentity.GetCurrent().Name + " does not have read access to the private key of the signing certificate you selected (see http://technet.microsoft.com/en-us/library/ee662329.aspx).");
+                    throw new ValidationException(string.Format(Resources.KeyConfigurationViewModel.NoReadAccessToPrivateKey, WindowsIdentity.GetCurrent().Name));
                 }
             }
 
@@ -88,7 +89,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 var bytes = Convert.FromBase64String(this.SymmetricSigningKey);
                 if (bytes.Length != 32)
                 {
-                    errors.Add(new ValidationResult("Invalid length (32 bytes expected).", new string[] { "SymmetricSigningKey" }));
+                    errors.Add(new ValidationResult(Resources.KeyConfigurationViewModel.InvalidSymmetricKeyLength, new string[] { "SymmetricSigningKey" }));
                 }
             }
             catch(FormatException ex)
@@ -114,13 +115,13 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
             get
             {
                 var allCerts = GetAvailableCertificatesFromStore().Select(x => new SelectListItem { Text = x }).ToList();
-                allCerts.Insert(0, new SelectListItem { Text = "-None Selected-", Value = "" });
+                allCerts.Insert(0, new SelectListItem { Text = Resources.KeyConfigurationViewModel.NoItemSelected, Value = "" });
                 return allCerts;
             }
         }
 
         public KeyConfigurationInputModel Keys { get; set; }
-        [Display(Name="Signing Thumbprint")]
+        [Display(ResourceType = typeof (Resources.KeyConfigurationViewModel), Name = "SigningThumbprint")]
         public string SigningCertificateThumbprint { get; set; }
 
         public KeyConfigurationViewModel(Models.Configuration.KeyMaterialConfiguration config)

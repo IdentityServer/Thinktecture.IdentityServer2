@@ -1,21 +1,22 @@
-﻿@model Thinktecture.IdentityServer.Models.Configuration.GlobalConfiguration
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.General
+@model Thinktecture.IdentityServer.Models.Configuration.GlobalConfiguration
 
 @{
-    ViewBag.Title = "General Configuration";
+    ViewBag.Title = Index_cshtml.GeneralConfiguration;
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating configuration")
+    @Html.ValidationSummary(Index_cshtml.ErrorUpdatingConfiguration)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
         @Html.EditorForModel()
 
         <div class="buttons">
-            <button type="submit">Save Changes</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Index_cshtml.SaveChanges</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     ConfigurationRepository.Diagnostics = model;
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.DiagnosticsController.UpdateSuccessful;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -47,7 +47,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating diagnostics.");
+                    ModelState.AddModelError("", Resources.DiagnosticsController.ErrorUpdatingDiagnostics);
                 }
             }
 

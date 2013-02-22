@@ -11,15 +11,15 @@ namespace Thinktecture.IdentityServer.Models
     public class DelegationSetting
     {
         [Required]
-        [Display(Name = "Description", Description = "Name of the user to map the certificate to.")]
+        [Display(ResourceType = typeof (Resources.Models.DelegationSetting), Name = "Description", Description = "DescriptionDescription")]
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "User Name", Description = "Name of the user where this mapping applies to.")]
+        [Display(ResourceType = typeof (Resources.Models.DelegationSetting), Name = "UserName", Description = "UserNameDescription")]
         public string UserName { get; set; }
 
         [Required]
-        [Display(Name = "Realm", Description = "Realm identifier where the identity can be delegated to.")]
+        [Display(ResourceType = typeof (Resources.Models.DelegationSetting), Name = "Realm", Description = "RealmDescription")]
         [AbsoluteUri]
         public Uri Realm { get; set; }
     }

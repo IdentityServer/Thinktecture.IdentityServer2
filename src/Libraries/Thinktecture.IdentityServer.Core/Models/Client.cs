@@ -14,39 +14,39 @@ namespace Thinktecture.IdentityServer.Models
         [UIHint("HiddenInput")]
         public int ID { get; set; }
 
-        [Display(Name = "Name", Description = "Display name.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "Name", Description = "NameDescription")]
         public string Name { get; set; }
 
-        [Display(Name = "Description", Description = "Description.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "Description", Description = "DescriptionDescription")]
         public string Description { get; set; }
         
-        [Display(Name = "Client ID", Description = "Client ID.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "ClientId", Description = "ClientIdDescription")]
         [Required]
         public string ClientId { get; set; }
 
-        [Display(Name = "Client Secret", Description = "Client secret.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "ClientSecret", Description = "ClientSecretDescription")]
         [UIHint("SymmetricKey")]
         [Required]
         public string ClientSecret { get; set; }
 
         [AbsoluteUri]
-        [Display(Name = "Redirect URI", Description = "Redirect URI.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "RedirectUri", Description = "RedirectUriDescription")]
         public Uri RedirectUri { get; set; }
 
         //[Display(Name = "Native Client", Description = "Native Client.")]
         //[UIHint("HiddenInput")]
         //public bool NativeClient { get; set; }
 
-        [Display(Name = "Allow Implicit Flow", Description = "Allow implicit flow.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "AllowImplicitFlow", Description = "AllowImplicitFlowDescription")]
         public bool AllowImplicitFlow { get; set; }
 
-        [Display(Name = "Allow Resource Owner Flow", Description = "Allow Resource Owner Flow.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "AllowResourceOwnerFlow", Description = "AllowResourceOwnerFlowDescription")]
         public bool AllowResourceOwnerFlow { get; set; }
 
-        [Display(Name = "Allow Code Flow", Description = "Allow code flow.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "AllowCodeFlow", Description = "AllowCodeFlowDescription")]
         public bool AllowCodeFlow { get; set; }
 
-        [Display(Name = "Allow Refresh Tokens", Description = "Allow Refresh Tokens. This enabled offline access for the client to the resource.")]
+        [Display(ResourceType = typeof (Resources.Models.Client), Name = "AllowRefreshToken", Description = "AllowRefreshTokenDescription")]
         public bool AllowRefreshToken { get; set; }
 
         public System.Collections.Generic.IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -56,13 +56,13 @@ namespace Thinktecture.IdentityServer.Models
             if (String.IsNullOrWhiteSpace(this.ClientSecret) &&
                 (this.AllowCodeFlow || this.AllowResourceOwnerFlow))
             {
-                errors.Add(new ValidationResult("Client Secret is required for Code and Resource Owner Flows.", new string[] { "ClientSecret" }));
+                errors.Add(new ValidationResult(Resources.Models.Client.ClientSecretRequiredError, new string[] { "ClientSecret" }));
             }
 
             if (this.RedirectUri == null &&
                 (this.AllowCodeFlow || this.AllowImplicitFlow))
             {
-                errors.Add(new ValidationResult("Redirect URI is required for Code and Implicit Flows.", new string[] { "RedirectUri" }));
+                errors.Add(new ValidationResult(Resources.Models.Client.RedirectUriRequiredError, new string[] { "RedirectUri" }));
             }
 
             return errors;

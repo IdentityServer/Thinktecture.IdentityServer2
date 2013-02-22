@@ -1,17 +1,18 @@
-﻿@model RoleInputModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Role
+@model RoleInputModel
 @using (Html.BeginForm("Create", "Role"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error creating role")
-    
-        <fieldset class="editor small">
-        <legend>Create Role</legend>
+    @Html.ValidationSummary(Create_cshtml.ErrorCreatingRole)
+
+    <fieldset class="editor small">
+        <legend>@Create_cshtml.CreateRole</legend>
 
         @Html.EditorForModel()
 
         <div class="buttons">
-            <button type="submit">Create</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Create_cshtml.Create</button>
+            <button type="reset">@Create_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

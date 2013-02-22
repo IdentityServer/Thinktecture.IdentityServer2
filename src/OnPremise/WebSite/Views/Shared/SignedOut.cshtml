@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Shared
+@{
     Layout = null;
 }
 
@@ -6,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Error</title>
+    <title>@SignedOut_cshtml.SignedOutTitle</title>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="~/Content/Site.css" rel="stylesheet" />
@@ -14,9 +15,7 @@
 
 <body>
     <section id="main-section">
-        <h2>
-            You have been signed out of Identity Server. It might be possible that you still have active sessions with other applications.
-        </h2>
+        <h2>@SignedOut_cshtml.SignedOutMessage</h2>
     </section>
 </body>
 </html>

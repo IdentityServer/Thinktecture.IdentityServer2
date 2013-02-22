@@ -1,13 +1,14 @@
-﻿@model Thinktecture.IdentityServer.Models.Client
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.OAuthClient
+@model Thinktecture.IdentityServer.Models.Client
 
 @{
     if (Model.ID == 0)
     {
-        ViewBag.Title = "New OAuth Client";
+        ViewBag.Title = Edit_cshtml.NewOAuthClient;
     }
     else
     {
-        ViewBag.Title = "OAuth Client : " + Model.Name;
+        ViewBag.Title = string.Format(Edit_cshtml.OAuthClient, Model.Name);
     }
 }
 @{
@@ -16,7 +17,7 @@
 @using (Html.BeginForm(action, "OAuthClient"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating client")
+    @Html.ValidationSummary(Edit_cshtml.ErrorUpdatingClient)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
@@ -25,14 +26,14 @@
         <div class="buttons">
             @if (Model.ID != 0)
             {
-                <button type="submit" name="action" value="save">Save Changes</button>
-                <button type="submit" name="action" value="delete">Delete</button>
+                <button type="submit" name="action" value="save">@Edit_cshtml.SaveChanges</button>
+                <button type="submit" name="action" value="delete">@Edit_cshtml.Delete</button>
             }
             else
             {
-                <button type="submit" name="action" value="create">Create</button>
+                <button type="submit" name="action" value="create">@Edit_cshtml.Create</button>
             }
-            <button type="reset">Cancel</button>
+            <button type="reset">@Edit_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

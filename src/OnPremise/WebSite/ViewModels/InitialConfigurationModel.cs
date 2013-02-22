@@ -13,27 +13,27 @@ namespace Thinktecture.IdentityServer.Web.ViewModels
 {
     public class InitialConfigurationModel
     {
-        [DisplayName("Site name")]
+        [Display(Name = "SiteName", ResourceType = typeof(Resources.InitialConfigurationModel))]
         [Required]
         public string SiteName { get; set; }
 
-        [DisplayName("Issuer URI")]
+        [Display(Name = "IssuerUri", ResourceType = typeof(Resources.InitialConfigurationModel))]
         [Required]
         public string IssuerUri { get; set; }
 
-        [DisplayName("Signing Certificate")]
+        [Display(Name = "SigningCertificate", ResourceType = typeof(Resources.InitialConfigurationModel))]
         [Required]
         public string SigningCertificate { get; set; }
 
         public List<string> AvailableCertificates { get; set; }
 
-        [DisplayName("Create default roles and admin account?")]
+        [Display(Name = "CreateDefaultAccounts", ResourceType = typeof(Resources.InitialConfigurationModel))]
         public bool CreateDefaultAccounts { get; set; }
 
-        [DisplayName("User name")]
+        [Display(Name = "UserName", ResourceType = typeof(Resources.InitialConfigurationModel))]
         public string UserName { get; set; }
 
-        [DisplayName("Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.InitialConfigurationModel))]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

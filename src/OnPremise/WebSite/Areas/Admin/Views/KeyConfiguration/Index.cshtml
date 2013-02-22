@@ -1,14 +1,15 @@
 ﻿@model KeyConfigurationViewModel
+@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.KeyConfiguration
 @using Thinktecture.IdentityServer.Web.Utility
 
 @{
-    ViewBag.Title = "Key Configuration";
+    ViewBag.Title = Index_cshtml.KeyConfiguration;
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken();
-    @Html.ValidationSummary("Error updating keys")
+    @Html.ValidationSummary(Index_cshtml.ErrorUpdatingKeys)
 
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
@@ -34,8 +35,8 @@
         </div>
 
         <div class="buttons">
-            <button type="submit">Update</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Index_cshtml.Update</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

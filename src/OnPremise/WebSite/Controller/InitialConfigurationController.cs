@@ -95,7 +95,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 }
                 catch (CryptographicException)
                 {
-                    ModelState.AddModelError("", WindowsIdentity.GetCurrent().Name + " does not have read access to the private key of the signing certificate you selected (see http://technet.microsoft.com/en-us/library/ee662329.aspx).");
+                    ModelState.AddModelError("", string.Format(Resources.InitialConfigurationController.NoReadAccessPrivateKey, WindowsIdentity.GetCurrent().Name));
                     model.AvailableCertificates = GetAvailableCertificatesFromStore();
                     return View(model);
                 }
@@ -113,7 +113,7 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 return RedirectToAction("index", "home");
             }
 
-            ModelState.AddModelError("", "Errors ocurred...");
+            ModelState.AddModelError("", Resources.InitialConfigurationController.ErrorsOcurred);
             model.AvailableCertificates = GetAvailableCertificatesFromStore();
             return View(model);
         }

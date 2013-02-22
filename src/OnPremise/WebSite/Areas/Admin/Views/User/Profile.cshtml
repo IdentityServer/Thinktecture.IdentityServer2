@@ -1,20 +1,21 @@
 ﻿@model UserProfileViewModel
+@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
 @using Thinktecture.IdentityServer.Web.Utility
 
 @{
-    ViewBag.Title = "Profile : " + Model.Username;
+    ViewBag.Title = string.Format(Profile_cshtml.Profile, Model.Username);
 }
 
 <h1>@ViewBag.Title</h1>
 @if (Model.ProfileValues == null || Model.ProfileValues.Length == 0)
 {
-    <p>No Profile Properties Available</p>
+    <p>@Profile_cshtml.NoProfilePropertiesAvailable</p>
 }
 else
 {
     using(Html.BeginForm())
     {
-        @Html.ValidationSummary("Errors updating profile:")
+        @Html.ValidationSummary(Profile_cshtml.ErrorsUpdatingProfile)
         @Html.AntiForgeryToken()
 
         <fieldset class="editor small">
@@ -38,7 +39,7 @@ else
                 </div>
             }
             <div class="buttons">
-                <button>Save</button>
+                <button>@Profile_cshtml.Save</button>
             </div>
         </fieldset>
     }

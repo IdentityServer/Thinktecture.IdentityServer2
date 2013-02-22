@@ -1,14 +1,15 @@
 ﻿@model Thinktecture.IdentityServer.Models.IdentityProvider
+@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.IP
 @using Thinktecture.IdentityServer.Web.Utility
 
 @{
     if (Model.ID == 0)
     {
-        ViewBag.Title = "New Identity Provider";
+        ViewBag.Title = IP_cshtml.NewIdentityProvider;
     }
     else
     {
-        ViewBag.Title = "Identity Provider : " + Model.Name;
+        ViewBag.Title = string.Format(IP_cshtml.IdentityProvider, Model.Name);
     }
 }
 @{
@@ -17,7 +18,7 @@
 @using (Html.BeginForm(action, "IP", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating identity provider")
+    @Html.ValidationSummary(IP_cshtml.ErrorUpdatingIdentityProvider)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
@@ -26,14 +27,14 @@
         <div class="buttons">
             @if (Model.ID > 0)
             {
-                <button type="submit" name="action" value="save">Save Changes</button>
-                <button type="submit" name="action" value="delete">Delete</button>
+                <button type="submit" name="action" value="save">@IP_cshtml.SaveChanges</button>
+                <button type="submit" name="action" value="delete">@IP_cshtml.Delete</button>
             }
             else
             {
-                <button type="submit" name="action" value="create">Create</button>
+                <button type="submit" name="action" value="create">@IP_cshtml.Create</button>
             }
-            <button type="reset">Cancel</button>
+            <button type="reset">@IP_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

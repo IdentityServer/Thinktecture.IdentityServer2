@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UICulture>en-US</UICulture>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +76,31 @@
     <Compile Include="OAuth2\OAuth2AuthorizeController.cs" />
     <Compile Include="OAuth2\OAuth2ConsentViewModel.cs" />
     <Compile Include="OAuth2\OAuthTitleGrantResult.cs" />
+    <Compile Include="Resources\OAuth2\OAuth2AuthorizeController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\OAuth2\OAuthTitleGrantResult.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SimpleHTTP\SimpleHttpController.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SimpleHttpController.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WSFederation\HrdViewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HrdViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\WSFederation\WSFederationResult.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WSFederationResult.resx</DependentUpon>
+    </Compile>
     <Compile Include="Shared\AccountControllerBase.cs" />
     <Compile Include="Shared\AuthenticationHelper.cs" />
     <Compile Include="FederationMetadata\FederationMetadataController.cs" />
@@ -101,6 +127,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.fr.resx">
+      <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuth2AuthorizeController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.fr.resx">
+      <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuthTitleGrantResult.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.fr.resx">
+      <DependentUpon>SimpleHttpController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SimpleHttpController.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.fr.resx">
+      <DependentUpon>HrdViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HrdViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.fr.resx">
+      <DependentUpon>WSFederationResult.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WSFederationResult.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

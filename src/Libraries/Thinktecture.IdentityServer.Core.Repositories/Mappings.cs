@@ -104,7 +104,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
 
                 if (cert == null)
                 {
-                    throw new InvalidOperationException("Signing certificate not found: " + entity.SigningCertificateName);
+                    throw new InvalidOperationException(string.Format(Core.Repositories.Resources.Mappings.SigningCertificateNotFoundException, entity.SigningCertificateName));
                 }
 
                 model.SigningCertificate = cert;
@@ -116,7 +116,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
 
                 if (cert == null)
                 {
-                    throw new InvalidOperationException("Decryption certificate not found: " + entity.DecryptionCertificateName);
+                    throw new InvalidOperationException(string.Format(Core.Repositories.Resources.Mappings.DecryptionCertificateNotFoundException, entity.DecryptionCertificateName));
                 }
 
                 model.DecryptionCertificate = cert;

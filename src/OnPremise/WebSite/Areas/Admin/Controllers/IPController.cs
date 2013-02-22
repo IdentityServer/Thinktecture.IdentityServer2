@@ -36,7 +36,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
         {
             if (action == "delete") return Delete(list);
             if (action == "new") return Create();
-            ModelState.AddModelError("", "Invalid action.");
+            ModelState.AddModelError("", Resources.IPController.InvalidAction);
             var vm = new IdentityProvidersViewModel(this.identityProviderRepository);
             return View("Index", vm);
         }
@@ -75,7 +75,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                         {
                             this.identityProviderRepository.Delete(item.ID);
                         }
-                        TempData["Message"] = "Identity Providers Deleted.";
+                        TempData["Message"] = Resources.IPController.IdentityProvidersDeleted;
                     }
                     return RedirectToAction("Index");
                 }
@@ -85,7 +85,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating identity providers.");
+                    ModelState.AddModelError("", Resources.IPController.ErrorDeletingIdentityProviders);
                 }
             }
             var vm = new IdentityProvidersViewModel(this.identityProviderRepository);
@@ -123,7 +123,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.identityProviderRepository.Add(model);
-                    TempData["Message"] = "Identity Provider Created";
+                    TempData["Message"] = Resources.IPController.IdentityProviderCreated;
                     return RedirectToAction("IP", new { id=model.ID });
                 }
                 catch (ValidationException ex)
@@ -132,7 +132,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating identity provider.");
+                    ModelState.AddModelError("", Resources.IPController.ErrorCreatingIdentityProvider);
                 }
             }
             
@@ -156,7 +156,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.identityProviderRepository.Update(model);
-                    TempData["Message"] = "Identity Provider Updated"; ;
+                    TempData["Message"] = Resources.IPController.IdentityProviderUpdated; ;
                     return RedirectToAction("IP", new { id = model.ID });
                 }
                 catch (ValidationException ex)
@@ -165,7 +165,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating identity provider.");
+                    ModelState.AddModelError("", Resources.IPController.ErrorUpdatingIdentityProvider);
                 }
             }
             

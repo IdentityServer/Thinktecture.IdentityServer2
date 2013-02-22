@@ -58,7 +58,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                             this.delegationRepository.Delete(setting);
                         }
                     }
-                    TempData["Message"] = "Delegation Users Deleted";
+                    TempData["Message"] = Resources.DelegationController.DelegationUsersDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -67,7 +67,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch (Exception)
                 {
-                    ModelState.AddModelError("", "Error deleting delegation users.");
+                    ModelState.AddModelError("", Resources.DelegationController.ErrorDeletingDelegationUsers);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     this.delegationRepository.Add(model);
-                    TempData["Message"] = "Realm Added";
+                    TempData["Message"] = Resources.DelegationController.RealmAdded;
                     return RedirectToAction("Configure", new { id = model.UserName });
                 }
                 catch (ValidationException ex)
@@ -98,7 +98,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error adding delegation setting.");
+                    ModelState.AddModelError("", Resources.DelegationController.ErrorAddingDelegationSetting);
                 }
             }
 
@@ -113,7 +113,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             try
             {
                 this.delegationRepository.Delete(model);
-                TempData["Message"] = "Realm Deleted";
+                TempData["Message"] = Resources.DelegationController.RealmDeleted;
                 return RedirectToAction("Configure", new { id = model.UserName });
             }
             catch (ValidationException ex)
@@ -122,7 +122,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             }
             catch
             {
-                ModelState.AddModelError("", "Error deleting delegation setting.");
+                ModelState.AddModelError("", Resources.DelegationController.ErrorDeletingDelegationSetting);
             }
 
             var vm = new DelegationSettingsForUserViewModel(this.delegationRepository, this.userManagementRepository, model.UserName);

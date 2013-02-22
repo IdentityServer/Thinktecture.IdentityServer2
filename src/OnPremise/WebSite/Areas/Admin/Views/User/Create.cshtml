@@ -1,21 +1,22 @@
-﻿@model UserInputModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
+@model UserInputModel
 
 @{
-    ViewBag.Title = "Create User";
+    ViewBag.Title = Create_cshtml.CreateUser;
 }
 
 @using (Html.BeginForm("Create", "User"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error creating user")
-    
+    @Html.ValidationSummary(Create_cshtml.ErrorCreatingUser)
+
     <fieldset class="editor small">
-        <legend>Create User</legend>
+        <legend>@ViewBag.Title</legend>
 
         @Html.EditorForModel()
 
         <div>
-            <label>Roles</label>
+            <label>@Create_cshtml.Roles</label>
             <div class="inline-editor create-user-roles">
                 @for (int i = 0; i < Model.Roles.Length; i++)
                 {
@@ -29,8 +30,8 @@
         </div>
 
         <div class="buttons">
-            <button type="submit">Create</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@Create_cshtml.Create</button>
+            <button type="reset">@Create_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

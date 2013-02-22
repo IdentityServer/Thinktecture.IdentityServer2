@@ -10,19 +10,19 @@ namespace Thinktecture.IdentityServer.Models.Configuration
 {
     public class WSTrustConfiguration : ProtocolConfiguration
     {
-        [Display(Name = "Enable Message Security Endpoints", Description = "Enables the message security endpoints.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.WSTrustConfiguration), Name = "EnableMessageSecurity", Description = "EnableMessageSecurityDescription")]
         public bool EnableMessageSecurity { get; set; }
 
-        [Display(Name = "Enable Mixed Mode Security Endpoints", Description = "Enables the mixed mode security endpoints.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.WSTrustConfiguration), Name = "EnableMixedModeSecurity", Description = "EnableMixedModeSecurityDescription")]
         public bool EnableMixedModeSecurity { get; set; }
-        
-        [Display(Name = "Enable Client Certificates Authentication", Description = "Enables client certificate based authentication.")]
+
+        [Display(ResourceType = typeof(Resources.Models.Configuration.WSTrustConfiguration), Name = "EnableClientCertificateAuthentication", Description = "EnableClientCertificateAuthenticationDescription")]
         public bool EnableClientCertificateAuthentication { get; set; }
-        
-        [Display(Name = "Enable Federated Authentication", Description = "Enables federated authentication using a token from a trusted identity provider.")]
+
+        [Display(ResourceType = typeof(Resources.Models.Configuration.WSTrustConfiguration), Name = "EnableFederatedAuthentication", Description = "EnableFederatedAuthenticationDescription")]
         public bool EnableFederatedAuthentication { get; set; }
-        
-        [Display(Name = "Enable Identity Delegation", Description = "Enables identity delegation.")]
+
+        [Display(ResourceType = typeof(Resources.Models.Configuration.WSTrustConfiguration), Name = "EnableDelegation", Description = "EnableDelegationDescription")]
         public Boolean EnableDelegation { get; set; }
     }
 }

@@ -1,27 +1,28 @@
-﻿@model Thinktecture.IdentityServer.Protocols.OAuth2.OAuth2ConsentViewModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.OAuth2Authorize
+@model Thinktecture.IdentityServer.Protocols.OAuth2.OAuth2ConsentViewModel
 
 @{
-    ViewBag.Title = "Resource Consent";
+    ViewBag.Title = ShowConsent_cshtml.ResourceConsent;
     ViewBag.HideMenu = true;
 }
 
-<h2>Resource Consent</h2>
+<h2>@ShowConsent_cshtml.ResourceConsent</h2>
 
 <dl>
     <dt><b>@Model.ClientName</b>
-    is requesting permission to access a resource on your behalf:</dt>
-    <dd><b>Resource Name:</b> @Model.ResourceName</dd>
-    <dd><b>Resource ID:</b> @Model.ResourceUri</dd>
+    @ShowConsent_cshtml.RequestingAccessOnBehalf</dt>
+    <dd><b>@ShowConsent_cshtml.ResourceName</b> @Model.ResourceName</dd>
+    <dd><b>@ShowConsent_cshtml.ResourceId</b> @Model.ResourceUri</dd>
 </dl>
 
 @if (Model.RefreshTokenEnabled)
 {
-    <p><b>The client will be able to access the resource, even when you are offline.</b></p> 
+    <p><b>@ShowConsent_cshtml.RefreshTokenEnabledWarning</b></p> 
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <button name="button" value="yes">Allow Access</button>
-    <button name="button" value="no">No Thanks</button>
+    <button name="button" value="yes">@ShowConsent_cshtml.AllowAccess</button>
+    <button name="button" value="no">@ShowConsent_cshtml.DenyAccess</button>
 }

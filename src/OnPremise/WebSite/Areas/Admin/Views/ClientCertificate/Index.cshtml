@@ -1,13 +1,14 @@
-﻿@model ClientCertificatesViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.ClientCertificate
+@model ClientCertificatesViewModel
 
 @{
-    ViewBag.Title = "Client Certificates";
+    ViewBag.Title = Index_cshtml.ClientCertificates;
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error deleting client certificates")
+    @Html.ValidationSummary(Index_cshtml.ErrorDeletingClientCertificates)
 
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
@@ -23,9 +24,9 @@
         }
 
         <div class="buttons">
-            <button type="submit" name="action" value="delete">Delete Selected</button>
-            <button type="submit" name="action" value="new">New</button>
-            <button type="reset">Cancel</button>
+            <button type="submit" name="action" value="delete">@Index_cshtml.DeleteSelected</button>
+            <button type="submit" name="action" value="new">@Index_cshtml.New</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

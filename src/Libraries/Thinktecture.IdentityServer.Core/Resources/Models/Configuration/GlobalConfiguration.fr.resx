@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="DefaultHttpTokenType" xml:space="preserve">
+    <value>Jeton HTTP par défaut</value>
+  </data>
+	<data name="DefaultTokenLifetime" xml:space="preserve">
+    <value>Durée de vie par défaut d’un jeton</value>
+  </data>
+	<data name="DefaultWSTokenType" xml:space="preserve">
+    <value>Jeton WS* par défaut</value>
+  </data>
+	<data name="EnableClientCertificateAuthentication" xml:space="preserve">
+    <value>Activer les certificats client</value>
+  </data>
+	<data name="EnableClientCertificateAuthenticationDescription" xml:space="preserve">
+    <value>Permet aux utilisateurs de s’authentifier dans le portail avec un certificat client.</value>
+  </data>
+	<data name="EnforceUsersGroupMembership" xml:space="preserve">
+    <value>Requiert le rôle ‘IdentityServerUsers’ pour l’obtention de jetons</value>
+  </data>
+	<data name="EnforceUsersGroupMembershipDescription" xml:space="preserve">
+    <value>Lorsque cette option est activée, le SJS émettra des jetons seulement aux utilisateurs qui sont dans le rôle ‘IdentityServerUsers’.</value>
+  </data>
+	<data name="HttpPort" xml:space="preserve">
+    <value>Port HTTP</value>
+  </data>
+	<data name="HttpsPort" xml:space="preserve">
+    <value>Port HTTPS</value>
+  </data>
+	<data name="IssuerContactEmail" xml:space="preserve">
+    <value>Courriel de contact</value>
+  </data>
+	<data name="IssuerUri" xml:space="preserve">
+    <value>Identifiant du site</value>
+  </data>
+	<data name="IssuerUriDescription" xml:space="preserve">
+    <value>Identifiant unique pour votre SJS. Doit être un URI et sera l’identifiant émis dans les jetons. Les parties utilisatrices l’utiliseront pour identifier votre fournisseur d’identité (ce SJS.)</value>
+  </data>
+	<data name="MaximumTokenLifetime" xml:space="preserve">
+    <value>Durée de vie maximale d’un jeton</value>
+  </data>
+	<data name="SiteName" xml:space="preserve">
+    <value>Identifiant du site</value>
+  </data>
+	<data name="SiteNameDescription" xml:space="preserve">
+    <value>Nom descriptif de votre SJS.</value>
+  </data>
+	<data name="DefaultWSTokenTypeDescription" xml:space="preserve">
+		<value>Type de jeton par défaut émis pour les requêtes de jeton fédéré et confiance WS.</value>
+	</data>
+	<data name="DefaultHttpTokenTypeDescription" xml:space="preserve">
+		<value>Type de jeton par défaut émis pour les requêtes de jeton HTTP (non WS-*.) </value>
+	</data>
+	<data name="DefaultTokenLifetimeDescription" xml:space="preserve">
+		<value>Durée de vie par défaut d’un jeton (en heures) émis par ce SJS.</value>
+	</data>
+	<data name="IssuerContactEmailDescription" xml:space="preserve">
+		<value>Courriel de la personne contact qui administre ce SJS.</value>
+	</data>
+	<data name="MaximumTokenLifetimeDescription" xml:space="preserve">
+		<value>La durée de vie maximale (en heures) des jetons émis par ce SJS lorsqu’une partie utilisatrice demande un jeton ayant une durée de vie plus longue que le défaut.</value>
+	</data>
+	<data name="RequireEncryption" xml:space="preserve">
+		<value>Requiert le chiffrement des jetons</value>
+	</data>
+	<data name="RequireEncryptionDescription" xml:space="preserve">
+		<value>Lorsque cette option est activée, tous les jetons sortant doivent être chiffrés.</value>
+	</data>
+	<data name="RequireRelyingPartyRegistration" xml:space="preserve">
+		<value>Requiert l’enregistrement de parties utilisatrices</value>
+	</data>
+	<data name="RequireRelyingPartyRegistrationDescription" xml:space="preserve">
+		<value>Lorsque cette option est activée, le SJS émettra des jetons seulement aux parties utilisatrices qui sont enregistrées.</value>
+	</data>
+	<data name="HttpPortDescription" xml:space="preserve">
+		<value>Numéro de port HTTP utilisé par le SJS.</value>
+	</data>
+	<data name="HttpsPortDescription" xml:space="preserve">
+		<value>Numéro de port HTTPS utilisé par le SJS.</value>
+	</data>
+	<data name="SsoCookieLifetime" xml:space="preserve">
+		<value>Durée de vie des signatures uniques</value>
+	</data>
+	<data name="SsoCookieLifetimeDescription" xml:space="preserve">
+		<value>La durée (en heures) des fichiers témoins utilisés par ce site pour la signature unique.</value>
+	</data>
+</root>

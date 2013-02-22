@@ -13,3 +13,4 @@ _ReSharper.*
 *.resharper
 PublishProfiles
 *.DS_Store
+*.DotSettings.user

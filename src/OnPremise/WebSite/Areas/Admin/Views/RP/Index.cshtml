@@ -1,13 +1,14 @@
-﻿@model RelyingPartiesViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.RP
+@model RelyingPartiesViewModel
 
 @{
-    ViewBag.Title = "Enabled Relying Parties";
+    ViewBag.Title = Index_cshtml.EnabledRelyingParties;
 }
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating relying parties")
+    @Html.ValidationSummary(Index_cshtml.ErrorUpdatingRelyingParties)
 
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
@@ -24,9 +25,9 @@
         }
 
         <div class="buttons">
-            <button type="submit" name="action" value="save">Save Changes</button>
-            <button type="submit" name="action" value="new">New</button>
-            <button type="reset">Cancel</button>
+            <button type="submit" name="action" value="save">@Index_cshtml.SaveChanges</button>
+            <button type="submit" name="action" value="new">@Index_cshtml.New</button>
+            <button type="reset">@Index_cshtml.Cancel</button>
         </div>
 
     </fieldset>

@@ -10,22 +10,22 @@ namespace Thinktecture.IdentityServer.Models.Configuration
 {
     public class WSFederationConfiguration : ProtocolConfiguration
     {
-        [Display(Name = "Enable Sign-in", Description = "Enable sign-in via WS-Federation.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "EnableAuthentication", Description = "EnableAuthenticationDescription")]
         public bool EnableAuthentication { get; set; }
         
-        [Display(Name = "Enable Federation", Description = "Enable federated sign-in via WS-Federation (see Identity Providers).")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "EnableFederation", Description = "EnableFederationDescription")]
         public bool EnableFederation { get; set; }
         
-        [Display(Name = "Enable Home Realm Discovery", Description = "Enables the identity provider selection screen for federated sign-in.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "EnableHrd", Description = "EnableHrdDescription")]
         public bool EnableHrd { get; set; }
 
-        [Display(Name = "Allow ReplyTo parameter", Description = "Allows specifying a WS-Federation replyto parameter. Otherwise this parameter is always ignored.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "AllowReplyTo", Description = "AllowReplyToDescription")]
         public bool AllowReplyTo { get; set; }
         
-        [Display(Name = "Require ReplyTo within Realm", Description = "Makes sure that the replyto parameter is a sub-URL of the realm.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "RequireReplyToWithinRealm", Description = "RequireReplyToWithinRealmDescription")]
         public Boolean RequireReplyToWithinRealm { get; set; }
         
-        [Display(Name = "Require SSL", Description = "Enforces SSL for the replyto address. Should always be enabled.")]
+        [Display(ResourceType = typeof (Resources.Models.Configuration.WSFederationConfiguration), Name = "RequireSslForReplyTo", Description = "RequireSslForReplyToDescription")]
         public Boolean RequireSslForReplyTo { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             if (action == "new") return Create();
             if (action == "delete") return Delete(list);
 
-            ModelState.AddModelError("", "Invalid action.");
+            ModelState.AddModelError("", Resources.RoleController.InvalidAction);
             var vm = new RolesViewModel(UserManagementRepository);
             return View("Index", vm);
         }
@@ -56,7 +56,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     UserManagementRepository.CreateRole(model.Name);
-                    TempData["Message"] = "Role Created";
+                    TempData["Message"] = Resources.RoleController.RoleCreated;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -65,7 +65,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error creating role.");
+                    ModelState.AddModelError("", Resources.RoleController.ErrorCreatingRole);
                 }
             }
 
@@ -79,7 +79,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                         select item.Name;
             foreach(var name in query)
             {
-                ModelState.AddModelError("", "Can't delete role " + name + ".");
+                ModelState.AddModelError("", string.Format(Resources.RoleController.CannotDeleteRole, name));
             }
             
             if (ModelState.IsValid)
@@ -90,7 +90,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                     {
                         UserManagementRepository.DeleteRole(item);
                     }
-                    TempData["Message"] = "Roles Deleted";
+                    TempData["Message"] = Resources.RoleController.RolesDeleted;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -99,7 +99,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error deleting role.");
+                    ModelState.AddModelError("", Resources.RoleController.ErrorDeletingRole);
                 }
             }
             

@@ -10,16 +10,16 @@ namespace Thinktecture.IdentityServer.Models
     public class ClientCertificate
     {
         [Required]
-        [Display(Name = "Description", Description = "Name of the user to map the certificate to.")]
+        [Display(ResourceType = typeof (Resources.Models.ClientCertificate), Name = "Description", Description = "DescriptionDescription")]
         public string Description { get; set; }
 
         [Required]
-        [Display(Name = "User Name", Description = "Name of the user to map the certificate to.")]
+        [Display(ResourceType = typeof (Resources.Models.ClientCertificate), Name = "UserName", Description = "UserNameDescription")]
         public string UserName { get; set; }
 
         [UIHint("Thumbprint")]
         [Required]
-        [Display(Name = "Client Certificate Thumbprint", Description = "Thumbprint of the client certificate.")]
+        [Display(ResourceType = typeof (Resources.Models.ClientCertificate), Name = "Thumbprint", Description = "ThumbprintDescription")]
         public string Thumbprint { get; set; }
     }
 }

@@ -1,7 +1,8 @@
-﻿@model Thinktecture.IdentityServer.Web.ViewModels.SignInModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.Account
+@model Thinktecture.IdentityServer.Web.ViewModels.SignInModel
 
 @{
-    ViewBag.Title = "Username / Password Sign In";
+    ViewBag.Title = SignIn_cshtml.UsernamePasswordSignIn;
     if (Model.IsSigninRequest)
     {
         ViewBag.HideMenu = true;
@@ -10,18 +11,14 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>
-        You are currenty logged in as @User.Identity.Name, but you requested a resource
-        that you were not authorized for. Either provide credentials that do have access
-        or contact your administrator to grant you access.
-    </h2>
+    <h2>@string.Format(SignIn_cshtml.UnauthorizedAuthenticatedUser, User.Identity.Name)</h2>
 }
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true, "Sign In was unsuccessful. Please correct the errors and try again.")
+    @Html.ValidationSummary(true, SignIn_cshtml.SignInWasUnsuccessful)
     <fieldset class="editor small signin">
-        <legend>Login</legend>
+        <legend>@SignIn_cshtml.Login</legend>
         <div>
             @Html.LabelFor(m => m.UserName)
             @Html.TextBoxFor(m => m.UserName)
@@ -40,14 +37,14 @@
         </div>
                 
         <div class="buttons">
-            <input type="submit" value="Sign In" />
+            <input type="submit" value="@SignIn_cshtml.SignIn" />
         </div>
     </fieldset>
 }
 
 @if (Model.ShowClientCertificateLink)
 { 
-    @Html.ActionLink("Use client certificate", "CertificateSignIn", new { returnUrl = Model.ReturnUrl }) 
+    @Html.ActionLink(SignIn_cshtml.UseClientCertificate, "CertificateSignIn", new { returnUrl = Model.ReturnUrl }) 
 }
 
 @section scripts

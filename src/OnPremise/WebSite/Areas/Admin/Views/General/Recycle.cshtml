@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Application Recycle";
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.General
+@{
+    ViewBag.Title = Recycle_cshtml.ApplicationRecycle;
 }
 
 @using (Html.BeginForm())
@@ -10,15 +11,15 @@
         <legend>@ViewBag.Title</legend>
 
         <div>
-            <label>Current AppDomain ID</label>
+            <label>@Recycle_cshtml.CurrentAppDomainId</label>
             @AppDomain.CurrentDomain.FriendlyName
         </div>
 
         <div class="buttons">
             <p>
-                This will recycle the Application's AppDomain. 
+                @Recycle_cshtml.RecycleMessage 
             </p>
-            <button type="submit">Recycle Application</button>
+            <button type="submit">@Recycle_cshtml.RecycleButton</button>
         </div>
     </fieldset>
 }

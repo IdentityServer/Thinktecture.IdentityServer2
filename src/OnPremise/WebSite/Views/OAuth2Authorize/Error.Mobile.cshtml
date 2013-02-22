@@ -1,7 +1,8 @@
-﻿@model Thinktecture.IdentityServer.Protocols.WSFederation.HrdViewModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.OAuth2Authorize
+@model Thinktecture.IdentityServer.Protocols.WSFederation.HrdViewModel
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = Error_Mobile_cshtml.Error;
     ViewBag.HideMenu = true;
 }
 
@@ -10,7 +11,7 @@
         <h1>@ViewBag.SiteName</h1>
     </div>
     <div data-role="content">
-        <h2>Error Processing Request</h2>
+        <h2>@Error_Mobile_cshtml.ErrorProcessingRequest</h2>
         <h3>@ViewBag.Message</h3>
     </div>
 </div>

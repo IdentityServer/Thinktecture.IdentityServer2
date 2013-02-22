@@ -40,7 +40,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     model.Update(this.ConfigurationRepository);
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.ProtocolController.UpdateSuccessful;
                     return RedirectToAction("Index");
                 }
                 catch (ValidationException ex)
@@ -49,7 +49,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating protocols.");
+                    ModelState.AddModelError("", Resources.ProtocolController.ErrorUpdatingProtocols);
                 }
             }
 
@@ -97,7 +97,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 try
                 {
                     vm.UpdateProtocol(protocol);
-                    TempData["Message"] = "Update Successful";
+                    TempData["Message"] = Resources.ProtocolController.UpdateSuccessful;
                     return RedirectToAction("Protocol", new { id });
                 }
                 catch (ValidationException ex)
@@ -106,7 +106,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating protocol.");
+                    ModelState.AddModelError("", Resources.ProtocolController.ErrorUpdatingProtocol);
                 }
             }
             return View("Protocol", protocol);

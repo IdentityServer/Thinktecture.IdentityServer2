@@ -9,7 +9,7 @@ namespace Thinktecture.IdentityServer.Models.Configuration
 {
     public class ProtocolConfiguration
     {
-        [Display(Order=1, Name = "Enabled", Description = "Enables this protocol.")]
+        [Display(Order=1, ResourceType = typeof (Resources.Models.Configuration.ProtocolConfiguration), Name = "Enabled", Description = "EnabledDescription")]
         public bool Enabled { get; set; }
     }
 }
