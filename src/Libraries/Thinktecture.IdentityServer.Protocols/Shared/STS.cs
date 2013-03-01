@@ -21,7 +21,8 @@ namespace Thinktecture.IdentityServer.Protocols
     {
         SecurityTokenService _sts;
 
-        public STS() : this(TokenServiceConfiguration.Current.CreateSecurityTokenService())
+        public STS()
+            : this(TokenServiceConfiguration.Current.CreateSecurityTokenService())
         { }
 
         public STS(SecurityTokenService sts)
@@ -52,8 +53,9 @@ namespace Thinktecture.IdentityServer.Protocols
                 token = rstr.RequestedSecurityToken.SecurityToken;
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Tracing.Error("Failed to issue token. An exception occurred. " + e);
                 return false;
             }
         }
