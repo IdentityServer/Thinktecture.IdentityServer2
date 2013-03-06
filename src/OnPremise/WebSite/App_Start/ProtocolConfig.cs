@@ -32,6 +32,16 @@ namespace Thinktecture.IdentityServer.Web
                 );
             }
 
+            //saml2 metadata
+            if(configuration.Saml2Metadata.Enabled)
+            {
+                routes.MapRoute(
+                "Saml2Metadata",
+                Thinktecture.IdentityServer.Endpoints.Paths.Saml2Metadata,
+                new { controller = "Saml2Metadata", action = "Generate" }
+            );
+            }
+
             // ws-federation
             if (configuration.WSFederation.Enabled && configuration.WSFederation.EnableAuthentication)
             {
@@ -39,6 +49,16 @@ namespace Thinktecture.IdentityServer.Web
                     "wsfederation",
                     Thinktecture.IdentityServer.Endpoints.Paths.WSFedIssuePage,
                     new { controller = "WSFederation", action = "issue" }
+                );
+            }
+
+            // saml2
+            if (configuration.Saml2.Enabled && configuration.Saml2.EnableAuthentication)
+            {
+                routes.MapRoute(
+                    "saml2",
+                    Thinktecture.IdentityServer.Endpoints.Paths.WSSaml2Page,
+                    new { controller = "Saml2", action = "issue" }
                 );
             }
 
@@ -57,6 +77,8 @@ namespace Thinktecture.IdentityServer.Web
                     new { method = new HttpMethodConstraint("POST") }
                 );
             }
+
+
 
             // oauth2 endpoint
             if (configuration.OAuth2.Enabled)

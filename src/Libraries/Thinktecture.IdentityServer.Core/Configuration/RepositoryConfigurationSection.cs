@@ -206,31 +206,6 @@ namespace Thinktecture.IdentityServer.Configuration
 
         #endregion
 
-        #region CodeTokenRepository Property
-
-        /// <summary>
-        /// The XML name of the <see cref="ConfigurationProvider"/> property.
-        /// </summary>
-        internal const global::System.String CodeTokenRepositoryPropertyName = "codeTokenRepository";
-
-        /// <summary>
-        /// Gets or sets type of the class that provides encryption certificates
-        /// </summary>
-        [global::System.Configuration.ConfigurationProperty(CodeTokenRepositoryPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false, DefaultValue = "Thinktecture.IdentityServer.Repositories.Sql.RefreshTokenRepository, Thinktecture.IdentityServer.Core.Repositories")]
-        public global::System.String CodeTokenRepository
-        {
-            get
-            {
-                return (global::System.String)base[CodeTokenRepositoryPropertyName];
-            }
-            set
-            {
-                base[CodeTokenRepositoryPropertyName] = value;
-            }
-        }
-
-        #endregion
-
         #region IdentityProvider Property
 
         /// <summary>

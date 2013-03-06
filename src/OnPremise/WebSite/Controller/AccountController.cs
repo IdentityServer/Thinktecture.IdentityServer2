@@ -1,13 +1,13 @@
 ﻿/*
- * Copyright (c) Dominick Baier, Brock Allen.  All rights reserved.
+ * Copyright (c) Dominick Baier.  All rights reserved.
  * see license.txt
  */
 
+using System.ComponentModel.Composition;
 using System.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
-using Thinktecture.IdentityServer.Protocols;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.Web.ViewModels;
 
@@ -15,6 +15,12 @@ namespace Thinktecture.IdentityServer.Web.Controllers
 {
     public class AccountController : AccountControllerBase
     {
+        [Import]
+        public IUserRepository UserRepository { get; set; }
+
+        [Import]
+        public IConfigurationRepository ConfigurationRepository { get; set; }
+
         public AccountController() : base()
         { }
 
@@ -31,7 +37,6 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 ReturnUrl = returnUrl,
                 ShowClientCertificateLink = ConfigurationRepository.Global.EnableClientCertificateAuthentication
             };
-
             if (mobile) vm.IsSigninRequest = true;
             return View(vm);
         }

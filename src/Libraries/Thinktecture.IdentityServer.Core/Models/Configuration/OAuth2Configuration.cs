@@ -15,9 +15,6 @@ namespace Thinktecture.IdentityServer.Models.Configuration
         [Display(Name = "Enable Resource Owner Flow", Description = "This flow is for trusted applications only. Users enter their credentials directly into the client.")]
         public bool EnableResourceOwnerFlow { get; set; }
 
-        [Display(Name = "Enable Code Flow", Description = "This flow is for web applications.")]
-        public bool EnableCodeFlow { get; set; }
-
         [Display(Name = "Enable Consent Page", Description = "Specifies whether a consent page is shown before a token/code is returned.")]
         public bool EnableConsent { get; set; }
     }

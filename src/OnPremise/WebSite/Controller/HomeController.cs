@@ -52,6 +52,12 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 list.Add("WS-Federation metadata", endpoints.WSFederationMetadata.AbsoluteUri);
             }
 
+            // saml2 metadata
+            if (Configuration.Saml2Metadata.Enabled)
+            {
+                list.Add("SAML2 Protocol metadata", endpoints.Saml2Metadata.AbsoluteUri);
+            }
+
             // ws-federation
             if (Configuration.WSFederation.Enabled)
             {
@@ -62,6 +68,15 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 if (Configuration.WSFederation.EnableFederation)
                 {
                     list.Add("WS-Federation HRD", endpoints.WSFederationHRD.AbsoluteUri);
+                }
+            }
+
+            // saml2
+            if(Configuration.Saml2.Enabled)
+            {
+                if(Configuration.Saml2.EnableAuthentication)
+                {
+                    list.Add("Saml2", endpoints.WSSAML2.AbsoluteUri);
                 }
             }
 

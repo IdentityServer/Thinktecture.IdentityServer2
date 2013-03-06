@@ -6,18 +6,12 @@
 }
 
 <h2>Resource Consent</h2>
-
 <dl>
     <dt><b>@Model.ClientName</b>
     is requesting permission to access a resource on your behalf:</dt>
     <dd><b>Resource Name:</b> @Model.ResourceName</dd>
     <dd><b>Resource ID:</b> @Model.ResourceUri</dd>
 </dl>
-
-@if (Model.RefreshTokenEnabled)
-{
-    <p><b>The client will be able to access the resource, even when you are offline.</b></p> 
-}
 
 @using (Html.BeginForm())
 {

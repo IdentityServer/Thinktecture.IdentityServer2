@@ -13,8 +13,20 @@ namespace Thinktecture.IdentityServer
     public class Endpoints
     {
         public Uri WSFederation { get; set; }
+        public Uri WSSAML2 { get; set; }
         public Uri WSFederationHRD { get; set; }
         public Uri WSFederationMetadata { get; set; }
+        public Uri Saml2Metadata { get; set; }
+
+        public Uri Saml2SLORedirect { get; set; }
+        public Uri Saml2SLOPOST { get; set; }
+        public Uri Saml2SLORedirectResponse { get; set; }
+        public Uri Saml2SLOPostResponse { get; set; }
+
+        public Uri Saml2ASTRedirect { get; set; }
+        public Uri Saml2ASTPost { get; set; }
+        public Uri Saml2ASTArtifact { get; set; }
+
         public Uri WSTrustMex { get; set; }
         public Uri PrivacyNotice { get; set; }
 
@@ -33,9 +45,24 @@ namespace Thinktecture.IdentityServer
         public static class Paths
         {
             public const string WSFedIssuePage = "issue/wsfed";
+            public const string WSSaml2Page = "issue/saml2";
             public const string WSFedHRD = "issue/hrd";
             public const string WSFedHRDSelect = "issue/hrd/select";
             public const string WSFedMetadata = "FederationMetadata/2007-06/FederationMetadata.xml";
+            public const string Saml2Metadata = "Saml2Metadata/2007-06/Saml2Metadata.xml";
+
+            public const string Saml2SLORedirect = "saml/redirect/slo";
+            public const string Saml2SLOPOST = "saml/post/slo";
+            public const string Saml2SLORedirectResponse = "saml/redirect/sloresponse";
+            public const string Saml2SLOPostResponse = "saml/post/sloresponse";
+
+
+            public const string Saml2ASTRedirect = "saml/redirect/ac";
+            public const string Saml2ASTPost = "saml/post/ac";
+            public const string Saml2ASTArtifact = "saml/artifact/ac";
+            
+
+
             public const string PrivacyNotice = "privacyNotice.txt";
             public const string WSTrustBase = "issue/wstrust";
             public const string SimpleHttp = "issue/simple";
@@ -79,6 +106,12 @@ namespace Thinktecture.IdentityServer
             builder.Scheme = Uri.UriSchemeHttps;
             builder.Port = httpsPort;
             ep.WSFederation = builder.Uri;
+
+            var saml = new Uri(baseUriString + Paths.WSSaml2Page);
+            builder = new UriBuilder(saml);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.WSSAML2 = builder.Uri;
 
             var hrd = new Uri(baseUriString + Paths.WSFedHRD);
             builder = new UriBuilder(hrd);
@@ -135,6 +168,56 @@ namespace Thinktecture.IdentityServer
             builder.Port = httpsPort;
             ep.WSFederationMetadata = builder.Uri;
 
+            var saml2pmd = new Uri(baseUriString + Paths.Saml2Metadata);
+            builder = new UriBuilder(saml2pmd);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2Metadata = builder.Uri;
+
+            //
+            var saml2psloredirect= new Uri(baseUriString + Paths.Saml2SLORedirect);
+            builder = new UriBuilder(saml2psloredirect);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2SLORedirect = builder.Uri;
+
+            var saml2psloredirectresponse = new Uri(baseUriString + Paths.Saml2SLORedirectResponse);
+            builder = new UriBuilder(saml2psloredirectresponse);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2SLORedirectResponse = builder.Uri;
+
+            var saml2pslopostresponse = new Uri(baseUriString + Paths.Saml2SLOPostResponse);
+            builder = new UriBuilder(saml2pslopostresponse);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2SLOPostResponse = builder.Uri;
+
+            var saml2pslopost = new Uri(baseUriString + Paths.Saml2SLOPOST);
+            builder = new UriBuilder(saml2pslopost);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2SLOPOST = builder.Uri;
+
+            var saml2pastredirect  = new Uri(baseUriString + Paths.Saml2ASTRedirect);
+            builder = new UriBuilder(saml2pastredirect);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2ASTRedirect = builder.Uri;
+
+            var saml2pastpost  = new Uri(baseUriString + Paths.Saml2ASTPost);
+            builder = new UriBuilder(saml2pastpost);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2ASTPost = builder.Uri;
+
+            var saml2partifact  = new Uri(baseUriString + Paths.Saml2ASTArtifact);
+            builder = new UriBuilder(saml2partifact);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.Saml2ASTArtifact = builder.Uri;
+            //
+
             var activeClear = new Uri(baseUriString + Paths.WSTrustBase);
             builder = new UriBuilder(activeClear);
             builder.Scheme = Uri.UriSchemeHttp;
@@ -146,13 +229,13 @@ namespace Thinktecture.IdentityServer
             builder.Port = httpsPort;
             var activeSsl = builder.Uri;
 
-            ep.WSTrustMessageUserName = new Uri(activeClear + "/" + Paths.WSTrustMessageUserName);
-            ep.WSTrustMixedUserName = new Uri(activeSsl + "/" + Paths.WSTrustMixedUserName);
+            ep.WSTrustMessageUserName = new Uri(activeClear, Paths.WSTrustMessageUserName);
+            ep.WSTrustMixedUserName = new Uri(activeSsl, Paths.WSTrustMixedUserName);
 
-            ep.WSTrustMessageCertificate = new Uri(activeClear + "/" + Paths.WSTrustMessageCertificate);
-            ep.WSTrustMixedCertificate = new Uri(activeSsl + "/" + Paths.WSTrustMixedCertificate);
+            ep.WSTrustMessageCertificate = new Uri(activeClear, Paths.WSTrustMessageCertificate);
+            ep.WSTrustMixedCertificate = new Uri(activeSsl, Paths.WSTrustMixedCertificate);
 
-            ep.WSTrustMex = new Uri(activeSsl + "/" + Paths.Mex);
+            ep.WSTrustMex = new Uri(activeSsl, Paths.Mex);
 
             return ep;
         }

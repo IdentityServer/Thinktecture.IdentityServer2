@@ -6,7 +6,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Thinktecture.IdentityModel;
 
 namespace Thinktecture.IdentityServer.Repositories.Sql
 {
@@ -20,14 +19,13 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             using (var entities = IdentityServerConfigurationContext.Get())
             {
                 var client = (from c in entities.Clients
-                              where c.ClientId.Equals(clientId, StringComparison.Ordinal)
+                              where c.ClientId.Equals(clientId, StringComparison.Ordinal) &&
+                                    c.ClientSecret.Equals(clientSecret, StringComparison.Ordinal)
                               select c).SingleOrDefault();
-                if (client != null)
-                {
-                    return ObfuscatingComparer.IsEqual(client.ClientSecret, clientSecret);
-                }
-                return false;
+
+                return (client != null);
             }
+            
         }
 
         public bool TryGetClient(string clientId, out Models.Client client)
@@ -53,7 +51,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         {
             if (TryGetClient(clientId, out client))
             {
-                if (Thinktecture.IdentityModel.ObfuscatingComparer.IsEqual(client.ClientSecret, clientSecret))
+                if (client.ClientSecret.Equals(clientSecret, StringComparison.Ordinal))
                 {
                     return true;
                 }

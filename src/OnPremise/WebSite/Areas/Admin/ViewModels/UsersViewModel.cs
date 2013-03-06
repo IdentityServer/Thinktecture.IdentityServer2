@@ -33,14 +33,6 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         public string Filter { get; set; }
         public int Total { get; set; }
         public int Showing { get; set; }
-
-        public bool IsProfileEnabled
-        {
-            get
-            {
-                return System.Web.Profile.ProfileManager.Enabled;
-            }
-        }
     }
 
     public class UserDeleteModel

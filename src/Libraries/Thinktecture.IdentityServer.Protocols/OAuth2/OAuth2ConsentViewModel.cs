@@ -10,6 +10,5 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
         public string ResourceName { get; set; }
         public string ResourceUri { get; set; }
         public string ClientName { get; set; }
-        public bool RefreshTokenEnabled { get; set; }
     }
 }

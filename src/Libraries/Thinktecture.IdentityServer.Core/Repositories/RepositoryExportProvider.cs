@@ -32,8 +32,7 @@ namespace Thinktecture.IdentityServer.Repositories
                 { typeof(ICacheRepository).FullName, section.Caching },
                 { typeof(IIdentityProviderRepository).FullName, section.IdentityProvider },
                 { typeof(IClaimsTransformationRulesRepository).FullName, section.ClaimsTransformationRules },
-                { typeof(IClientsRepository).FullName, section.ClientsRepository },
-                { typeof(ICodeTokenRepository).FullName, section.CodeTokenRepository }
+                { typeof(IClientsRepository).FullName, section.ClientsRepository }
             };
         }
 

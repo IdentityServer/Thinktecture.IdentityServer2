@@ -106,6 +106,30 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             }
         }
 
+        public virtual Models.Configuration.Saml2Configuration Saml2
+        {
+            get
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.Saml2.First<Entities.Configuration.Saml2Configuration>();
+                    return entity.ToDomainModel();
+                }
+            }
+            set
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.Saml2.First<Entities.Configuration.Saml2Configuration>();
+                    entities.Saml2.Remove(entity);
+
+                    entities.Saml2.Add(value.ToEntity());
+                    entities.SaveChanges();
+                }
+            }
+        }
+
+
         public virtual Models.Configuration.FederationMetadataConfiguration FederationMetadata
         {
             get
@@ -124,6 +148,29 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                     entities.FederationMetadata.Remove(entity);
 
                     entities.FederationMetadata.Add(value.ToEntity());
+                    entities.SaveChanges();
+                }
+            }
+        }
+
+        public virtual Models.Configuration.Saml2MetadataConfiguration Saml2Metadata
+        {
+            get
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.Saml2Metadata.First<Entities.Configuration.Saml2MetadataConfiguration>();
+                    return entity.ToDomainModel();
+                }
+            }
+            set
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.Saml2Metadata.First<Entities.Configuration.Saml2MetadataConfiguration>();
+                    entities.Saml2Metadata.Remove(entity);
+
+                    entities.Saml2Metadata.Add(value.ToEntity());
                     entities.SaveChanges();
                 }
             }

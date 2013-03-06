@@ -20,10 +20,6 @@
                 @Html.LabelFor(x => list[i].Delete, list[i].Username)
                 @Html.CheckBoxFor(x => list[i].Delete)
                 @Html.ActionLink("roles", "Roles", new{id=list[i].Username})
-                @if (Model.IsProfileEnabled)
-                {
-                    @Html.ActionLink("profile", "Profile", new{id=list[i].Username})
-                }
             </div>
         }
         <div class="buttons">

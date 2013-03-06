@@ -33,9 +33,9 @@ namespace Thinktecture.IdentityServer.Models
         [Display(Name = "Redirect URI", Description = "Redirect URI.")]
         public Uri RedirectUri { get; set; }
 
-        //[Display(Name = "Native Client", Description = "Native Client.")]
-        //[UIHint("HiddenInput")]
-        //public bool NativeClient { get; set; }
+        [Display(Name = "Native Client", Description = "Native Client.")]
+        [UIHint("HiddenInput")]
+        public bool NativeClient { get; set; }
 
         [Display(Name = "Allow Implicit Flow", Description = "Allow implicit flow.")]
         public bool AllowImplicitFlow { get; set; }
@@ -44,20 +44,18 @@ namespace Thinktecture.IdentityServer.Models
         public bool AllowResourceOwnerFlow { get; set; }
 
         [Display(Name = "Allow Code Flow", Description = "Allow code flow.")]
+        [UIHint("HiddenInput")]
         public bool AllowCodeFlow { get; set; }
-
-        [Display(Name = "Allow Refresh Tokens", Description = "Allow Refresh Tokens. This enabled offline access for the client to the resource.")]
-        public bool AllowRefreshToken { get; set; }
 
         public System.Collections.Generic.IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var errors = new List<ValidationResult>();
 
-            if (String.IsNullOrWhiteSpace(this.ClientSecret) &&
-                (this.AllowCodeFlow || this.AllowResourceOwnerFlow))
-            {
-                errors.Add(new ValidationResult("Client Secret is required for Code and Resource Owner Flows.", new string[] { "ClientSecret" }));
-            }
+            //if (String.IsNullOrWhiteSpace(this.ClientSecret) && 
+            //    (this.AllowCodeFlow || this.AllowResourceOwnerFlow))
+            //{
+            //    errors.Add(new ValidationResult("Client Secret is required for Code and Resource Owner Flows.", new string[] { "ClientSecret" }));
+            //}
 
             if (this.RedirectUri == null &&
                 (this.AllowCodeFlow || this.AllowImplicitFlow))

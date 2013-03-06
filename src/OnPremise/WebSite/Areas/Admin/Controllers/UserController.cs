@@ -137,32 +137,11 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error deleting roles.");
+                    ModelState.AddModelError("", "Error deleting user.");
                 }
             }
 
             return View("Roles", vm);
-        }
-
-        public new ActionResult Profile(string id)
-        {
-            var vm = new UserProfileViewModel(id);
-            return View(vm);
-        }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public new ActionResult Profile(string id, ProfilePropertyInputModel[] profileValues)
-        {
-            var vm = new UserProfileViewModel(id, profileValues);
-
-            if (vm.UpdateProfileFromValues(ModelState))
-            {
-                TempData["Message"] = "Profile Updated";
-                return RedirectToAction("Profile", new { id });
-            }
-
-            return View(vm);
         }
     }
 }

@@ -11,30 +11,25 @@ namespace Thinktecture.IdentityServer.Web.Utility
         {
             var prop = ModelMetadata.FromLambdaExpression<TModel, TValue>(expression, html.ViewData);
             var name = ExpressionHelper.GetExpressionText(expression);
-            return ValidatorInternal(html, name, prop.Description);
+            return ValidatorInternal(html, prop, name);
         }
 
         public static MvcHtmlString Validator(this HtmlHelper html, ModelMetadata prop)
         {
             var name = html.ViewData.TemplateInfo.GetFullHtmlFieldName(prop.PropertyName);
-            return ValidatorInternal(html, name, prop.Description);
+            return ValidatorInternal(html, prop, name);
         }
         
-        public static MvcHtmlString Validator(this HtmlHelper html, string name, string description = null)
-        {
-            return ValidatorInternal(html, name, description);
-        }
-
-        static MvcHtmlString ValidatorInternal(this HtmlHelper html, string name, string description)
-        {
+       static MvcHtmlString ValidatorInternal(this HtmlHelper html, ModelMetadata prop, string name)
+       {
             if (html.ViewData.ModelState.IsValidField(name))
             {
-                if (!String.IsNullOrWhiteSpace(description))
+                if (!String.IsNullOrWhiteSpace(prop.Description))
                 {
                     var help = UrlHelper.GenerateContentUrl("~/Content/Images/help.png", html.ViewContext.HttpContext);
                     TagBuilder img = new TagBuilder("img");
                     img.Attributes.Add("src", help);
-                    img.Attributes.Add("title", description);
+                    img.Attributes.Add("title", prop.Description);
                     return MvcHtmlString.Create(img.ToString());
                 }
             }
@@ -44,8 +39,7 @@ namespace Thinktecture.IdentityServer.Web.Utility
                 TagBuilder img = new TagBuilder("img");
                 img.AddCssClass("error");
                 img.Attributes.Add("src", error);
-                var title = html.ViewData.ModelState[name].Errors.First().ErrorMessage;
-                if (!String.IsNullOrWhiteSpace(description)) title += "\n\n" + description;
+                var title = html.ViewData.ModelState[name].Errors.First().ErrorMessage + "\n\n" + prop.Description;
                 img.Attributes.Add("title", title);
                 return MvcHtmlString.Create(img.ToString());
             }

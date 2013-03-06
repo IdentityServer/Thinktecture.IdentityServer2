@@ -3,14 +3,12 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
-using Thinktecture.IdentityModel.Authorization.Mvc;
 using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels;
 
 namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
 {
-    [ClaimsAuthorize(Constants.Actions.Administration, Constants.Resources.Configuration)]
     public class OAuthClientController : Controller
     {
         [Import]

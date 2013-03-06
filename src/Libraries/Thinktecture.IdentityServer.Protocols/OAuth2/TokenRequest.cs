@@ -4,12 +4,13 @@
  */
 
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace Thinktecture.IdentityServer.Protocols.OAuth2
 {
-    [JsonObject]
     public class TokenRequest
     {
+        [Required]
         [JsonProperty(PropertyName = "grant_type")]
         public string Grant_Type { get; set; }
 
@@ -21,11 +22,5 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
 
         [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }
-
-        [JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
-
-        [JsonProperty(PropertyName = "refresh_token")]
-        public string Refresh_Token { get; set; }
     }
 }

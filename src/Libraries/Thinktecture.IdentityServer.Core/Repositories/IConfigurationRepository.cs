@@ -11,7 +11,9 @@ namespace Thinktecture.IdentityServer.Repositories
         KeyMaterialConfiguration Keys { get; set; }
 
         WSFederationConfiguration WSFederation { get; set; }
+        Saml2Configuration Saml2 { get; set; }
         FederationMetadataConfiguration FederationMetadata { get; set; }
+        Saml2MetadataConfiguration Saml2Metadata { get; set; }
         WSTrustConfiguration WSTrust { get; set; }
         OAuth2Configuration OAuth2 { get; set; }
         SimpleHttpConfiguration SimpleHttp { get; set; }

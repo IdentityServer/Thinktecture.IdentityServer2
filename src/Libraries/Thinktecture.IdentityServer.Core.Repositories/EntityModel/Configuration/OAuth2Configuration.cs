@@ -12,7 +12,6 @@ namespace Thinktecture.IdentityServer.Repositories.Sql.Configuration
 
         public bool EnableConsent { get; set; }
         public bool EnableResourceOwnerFlow { get; set; }
-        public bool EnableImplicitFlow { get; set; }
-        public bool EnableCodeFlow { get; set; }
+        public bool EnableImplicitFlow { get; set; }        
     }
 }

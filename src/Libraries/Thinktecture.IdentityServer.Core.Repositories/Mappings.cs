@@ -89,6 +89,36 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         }
         #endregion
 
+        #region Saml2Configuration
+        public static Models.Configuration.Saml2Configuration ToDomainModel(this Entities.Configuration.Saml2Configuration entity)
+        {
+            return new Models.Configuration.Saml2Configuration()
+            {
+                AllowReplyTo = entity.AllowReplyTo,
+                EnableAuthentication = entity.EnableAuthentication,
+                Enabled = entity.Enabled,
+                EnableFederation = entity.EnableFederation,
+                EnableHrd = entity.EnableHrd,
+                RequireReplyToWithinRealm = entity.RequireReplyToWithinRealm,
+                RequireSslForReplyTo = entity.RequireSslForReplyTo
+            };
+        }
+
+        public static Entities.Configuration.Saml2Configuration ToEntity(this Models.Configuration.Saml2Configuration model)
+        {
+            return new Entities.Configuration.Saml2Configuration()
+            {
+                AllowReplyTo = model.AllowReplyTo,
+                EnableAuthentication = model.EnableAuthentication,
+                Enabled = model.Enabled,
+                EnableFederation = model.EnableFederation,
+                EnableHrd = model.EnableHrd,
+                RequireReplyToWithinRealm = model.RequireReplyToWithinRealm,
+                RequireSslForReplyTo = model.RequireSslForReplyTo
+            };
+        }
+        #endregion
+
         #region KeyMaterialConfiguration
         public static Models.Configuration.KeyMaterialConfiguration ToDomainModel(this Entities.Configuration.KeyMaterialConfiguration entity)
         {
@@ -201,6 +231,24 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         }
         #endregion
 
+        #region Saml2MetadataConfiguration
+        public static Models.Configuration.Saml2MetadataConfiguration ToDomainModel(this Entities.Configuration.Saml2MetadataConfiguration entity)
+        {
+            return new Models.Configuration.Saml2MetadataConfiguration()
+            {
+                Enabled = entity.Enabled
+            };
+        }
+
+        public static Entities.Configuration.Saml2MetadataConfiguration ToEntity(this Models.Configuration.Saml2MetadataConfiguration model)
+        {
+            return new Entities.Configuration.Saml2MetadataConfiguration()
+            {
+                Enabled = model.Enabled
+            };
+        }
+        #endregion
+
         #region OAuth2Configuration
         public static Models.Configuration.OAuth2Configuration ToDomainModel(this Entities.Configuration.OAuth2Configuration entity)
         {
@@ -209,8 +257,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 Enabled = entity.Enabled,
                 EnableImplicitFlow = entity.EnableImplicitFlow,
                 EnableResourceOwnerFlow = entity.EnableResourceOwnerFlow,
-                EnableConsent = entity.EnableConsent,
-                EnableCodeFlow = entity.EnableCodeFlow
+                EnableConsent = entity.EnableConsent
             };
         }
 
@@ -221,8 +268,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 Enabled = model.Enabled,
                 EnableImplicitFlow = model.EnableImplicitFlow,
                 EnableResourceOwnerFlow = model.EnableResourceOwnerFlow,
-                EnableConsent = model.EnableConsent,
-                EnableCodeFlow = model.EnableCodeFlow
+                EnableConsent = model.EnableConsent
             };
         }
         #endregion
@@ -372,7 +418,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 Description = client.Description,
                 Name = client.Name,
                 RedirectUri = client.RedirectUri != null ? new Uri(client.RedirectUri) : null,
-                AllowRefreshToken = client.AllowRefreshToken,
+                NativeClient = client.NativeClient,
                 AllowCodeFlow = client.AllowCodeFlow,
                 AllowImplicitFlow = client.AllowImplicitFlow,
                 AllowResourceOwnerFlow = client.AllowResourceOwnerFlow
@@ -386,7 +432,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             target.Description = client.Description;
             target.Name = client.Name;
             target.RedirectUri = client.RedirectUri != null ? client.RedirectUri.AbsoluteUri : null;
-            target.AllowRefreshToken = client.AllowRefreshToken;
+            target.NativeClient = client.NativeClient;
             target.AllowResourceOwnerFlow = client.AllowResourceOwnerFlow;
             target.AllowImplicitFlow = client.AllowImplicitFlow;
             target.AllowCodeFlow = client.AllowCodeFlow;
@@ -484,21 +530,6 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             entity.OAuth2ProviderType = (int?)idp.ProviderType;
         }
 
-        #endregion
-
-        #region CodeToken
-        public static Models.CodeToken ToDomainModel(this Entities.CodeToken token)
-        {
-            return new Models.CodeToken
-            {
-                ClientId = token.ClientId,
-                Scope = token.Scope,
-                UserName = token.UserName,
-                Code = token.Code,
-                Type = (CodeTokenType)token.Type,
-                TimeStamp = token.TimeStamp
-            };
-        }
         #endregion
     }
 }

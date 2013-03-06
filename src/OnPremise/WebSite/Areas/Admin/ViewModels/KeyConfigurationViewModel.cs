@@ -120,16 +120,10 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         }
 
         public KeyConfigurationInputModel Keys { get; set; }
-        [Display(Name="Signing Thumbprint")]
-        public string SigningCertificateThumbprint { get; set; }
 
         public KeyConfigurationViewModel(Models.Configuration.KeyMaterialConfiguration config)
         {
             this.Keys = new KeyConfigurationInputModel(config);
-            if (config.SigningCertificate != null)
-            {
-                SigningCertificateThumbprint = config.SigningCertificate.Thumbprint;
-            }
         }
 
         private List<string> GetAvailableCertificatesFromStore()

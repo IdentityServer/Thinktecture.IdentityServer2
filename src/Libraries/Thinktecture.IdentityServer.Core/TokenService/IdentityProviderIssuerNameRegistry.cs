@@ -15,6 +15,7 @@ namespace Thinktecture.IdentityServer.TokenService
             _idps = identityProviders;
         }
 
+
         public override string GetIssuerName(SecurityToken securityToken)
         {
             var x509token = securityToken as X509SecurityToken;
@@ -33,5 +34,7 @@ namespace Thinktecture.IdentityServer.TokenService
 
             return null;
         }
+
+      
     }
 }

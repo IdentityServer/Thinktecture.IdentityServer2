@@ -13,7 +13,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
 {
     public class ConfigurationDatabaseInitializer : CreateDatabaseIfNotExists<IdentityServerConfigurationContext>
     {
-        public static void SeedContext(IdentityServerConfigurationContext context)
+        protected override void Seed(IdentityServerConfigurationContext context)
         {
             // test data
             var entry = ConfigurationManager.AppSettings["idsrv:CreateTestDataOnInitialization"];
@@ -28,9 +28,11 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                         // test configuration
                         context.GlobalConfiguration.Add(CreateTestGlobalConfiguration());
                         context.WSFederation.Add(CreateTestWSFederationConfiguration());
+                        context.Saml2.Add(CreateTestSaml2Configuration());
                         context.WSTrust.Add(CreateTestWSTrustConfiguration());
                         context.FederationMetadata.Add(CreateTestFederationMetadataConfiguration());
-                        context.OAuth2.Add(CreateTestOAuth2Configuration());
+                        context.Saml2Metadata.Add(CreateTestSaml2MetadataConfiguration());
+                        
                         context.SimpleHttp.Add(CreateTestSimpleHttpConfiguration());
                         context.Diagnostics.Add(CreateTestDiagnosticsConfiguration());
 
@@ -49,18 +51,19 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             // default configuration
             context.GlobalConfiguration.Add(CreateDefaultGlobalConfiguration());
             context.WSFederation.Add(CreateDefaultWSFederationConfiguration());
+            context.Saml2.Add(CreateDefaultSaml2Configuration());
             context.WSTrust.Add(CreateDefaultWSTrustConfiguration());
             context.FederationMetadata.Add(CreateDefaultFederationMetadataConfiguration());
+            context.Saml2Metadata.Add(CreateDefaultSaml2MetadataConfiguration());
             context.OAuth2.Add(CreateDefaultOAuth2Configuration());
             context.SimpleHttp.Add(CreateDefaultSimpleHttpConfiguration());
             context.Diagnostics.Add(CreateDefaultDiagnosticsConfiguration());
-        }
 
-        protected override void Seed(IdentityServerConfigurationContext context)
-        {
-            SeedContext(context);
+
             base.Seed(context);
         }
+
+       
 
         #region Default Configuration
         private static GlobalConfiguration CreateDefaultGlobalConfiguration()
@@ -98,7 +101,19 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static WSTrustConfiguration CreateDefaultWSTrustConfiguration()
+        private Saml2Configuration CreateDefaultSaml2Configuration()
+        {
+            return new Saml2Configuration
+            {
+                EnableAuthentication = true,
+                Enabled = true,
+                EnableFederation = true,
+                EnableHrd = true,
+                RequireReplyToWithinRealm = true
+            };
+        }
+
+        private WSTrustConfiguration CreateDefaultWSTrustConfiguration()
         {
             return new WSTrustConfiguration
             {
@@ -112,7 +127,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static OAuth2Configuration CreateDefaultOAuth2Configuration()
+        private OAuth2Configuration CreateDefaultOAuth2Configuration()
         {
             return new OAuth2Configuration
             {
@@ -123,7 +138,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static SimpleHttpConfiguration CreateDefaultSimpleHttpConfiguration()
+        private SimpleHttpConfiguration CreateDefaultSimpleHttpConfiguration()
         {
             return new SimpleHttpConfiguration
             {
@@ -131,7 +146,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static FederationMetadataConfiguration CreateDefaultFederationMetadataConfiguration()
+        private FederationMetadataConfiguration CreateDefaultFederationMetadataConfiguration()
         {
             return new FederationMetadataConfiguration
             {
@@ -139,7 +154,15 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static DiagnosticsConfiguration CreateDefaultDiagnosticsConfiguration()
+        private Saml2MetadataConfiguration CreateDefaultSaml2MetadataConfiguration()
+        {
+            return new Saml2MetadataConfiguration()
+            {
+                Enabled = true
+            };
+        }
+
+        private DiagnosticsConfiguration CreateDefaultDiagnosticsConfiguration()
         {
             return new DiagnosticsConfiguration
             {
@@ -184,7 +207,19 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static WSTrustConfiguration CreateTestWSTrustConfiguration()
+        private Saml2Configuration CreateTestSaml2Configuration()
+        {
+            return new Saml2Configuration
+            {
+                EnableAuthentication = true,
+                Enabled = true,
+                EnableFederation = true,
+                EnableHrd = true,
+                RequireReplyToWithinRealm = true
+            };
+        }
+
+        private WSTrustConfiguration CreateTestWSTrustConfiguration()
         {
             return new WSTrustConfiguration
             {
@@ -198,19 +233,18 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static OAuth2Configuration CreateTestOAuth2Configuration()
+        private OAuth2Configuration CreateTestOAuth2Configuration()
         {
             return new OAuth2Configuration
             {
                 Enabled = true,
                 EnableImplicitFlow = true,
                 EnableResourceOwnerFlow = true,
-                EnableCodeFlow = true,
                 EnableConsent = true
             };
         }
 
-        private static SimpleHttpConfiguration CreateTestSimpleHttpConfiguration()
+        private SimpleHttpConfiguration CreateTestSimpleHttpConfiguration()
         {
             return new SimpleHttpConfiguration
             {
@@ -218,7 +252,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static FederationMetadataConfiguration CreateTestFederationMetadataConfiguration()
+        private FederationMetadataConfiguration CreateTestFederationMetadataConfiguration()
         {
             return new FederationMetadataConfiguration
             {
@@ -226,7 +260,15 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static DiagnosticsConfiguration CreateTestDiagnosticsConfiguration()
+        private Saml2MetadataConfiguration CreateTestSaml2MetadataConfiguration()
+        {
+            return new Saml2MetadataConfiguration()
+            {
+                Enabled = true
+            };
+        }
+
+        private DiagnosticsConfiguration CreateTestDiagnosticsConfiguration()
         {
             return new DiagnosticsConfiguration
             {
@@ -236,7 +278,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         #endregion
 
         #region Test Data
-        private static List<RelyingParties> CreateTestRelyingParties()
+        private List<RelyingParties> CreateTestRelyingParties()
         {
             return new List<RelyingParties>
             {
@@ -250,10 +292,12 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 },
                 new RelyingParties
                 {
-                    Name = "Web API Security Sample",
-                    Enabled = true,
-                    Realm = "urn:webapisecurity",
-                    SymmetricSigningKey = "fWUU28oBOIcaQuwUKiL01KztD/CsZX83C3I0M1MOYN4=",    
+                    Name = "Test (URN)",
+                    Enabled = false,
+                    Realm = "urn:test:rp",
+                    SymmetricSigningKey = "3ihK5qGVhp8ptIk9+TDucXQW4Aaengg3d5m6gU8nzc8=",
+                    EncryptingCertificate = "MIIFvTCCA6WgAwIBAgIKYQdskgAAAAAAFzANBgkqhkiG9w0BAQUFADAbMRkwFwYDVQQDExBMZWFzdFByaXZpbGVnZUNBMB4XDTA5MDUzMTEzNDcwM1oXDTE4MDIxNjIwMjYxNVowbzELMAkGA1UEBhMCREUxDjAMBgNVBAgTBUJhV3VlMRMwEQYDVQQHEwpIZWlkZWxiZXJnMRcwFQYDVQQKEw5MZWFzdFByaXZpbGVnZTERMA8GA1UECxMIUmVzZWFyY2gxDzANBgNVBAMTBnJvYWRpZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJT+YJNRbxKrnwluTK0cRN4Fv+W3ESJcqtp3n11aeyB3Oc6E/vWAKLKZjXH/myDtRsfGk2HL4vYovLk0OJWvemmcoardVIZ+IE3/nnzYmxHm4gSCgsRWB20++nQavIG4eEwywhI4OoiN79r1dDzhC/y7g3dOkyW5tYmSHsZpR6BIBX8uj03LkLvUhZ3gEXGSUiQ6lS8qnrbvfWU6tjhNRuTSFSLZBYIVYHy5E2zvT138mDJGAW20M+kAPBhGDid1qON7UygZoi948PM8skRtH6Z6KKLHaHx21z304AR3EnbMsaHFHbiQKjVK0aZtUZz5BHLYmVD89YzCkAZxbdWTMSECAwEAAaOCAa0wggGpMA4GA1UdDwEB/wQEAwIE8DATBgNVHSUEDDAKBggrBgEFBQcDATB4BgkqhkiG9w0BCQ8EazBpMA4GCCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAIAwCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBLTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAcGBSsOAwIHMAoGCCqGSIb3DQMHMB0GA1UdDgQWBBT7hVq1UfcVMOdZoR8ZH99pXDuEhzAfBgNVHSMEGDAWgBRwhdXfpAIQzYTg8BcvTZqgsycdTTBDBgNVHR8EPDA6MDigNqA0hjJodHRwOi8vd3d3LmxlYXN0cHJpdmlsZWdlLmNvbS9MZWFzdFByaXZpbGVnZUNBLmNybDCBggYIKwYBBQUHAQEEdjB0MDgGCCsGAQUFBzAChixodHRwOi8vY2EvQ2VydEVucm9sbC9DQV9MZWFzdFByaXZpbGVnZUNBLmNydDA4BggrBgEFBQcwAoYsZmlsZTovL0NBL0NlcnRFbnJvbGwvQ0FfTGVhc3RQcml2aWxlZ2VDQS5jcnQwDQYJKoZIhvcNAQEFBQADggIBAHxY8mSBylSvf8z2ul1qzi453jK/LS5D7V1W1Zrd7VnN2zUpjQQuZbGmgCIjmU5O0qmr3dNppE9wmdLmXtgSw4hHjewiHCEyS+mx8YAXCfcCvFSIl0msnCWSlm+fMtnmeJGK8dpbhcokNaOukB2mOC6SX4lGMXTNxVzVzbpyAvteGMxd5WTkrBML75m/wSRq+V+Bo6qXFXbWfB4nFUh/NtAz/oupBKgf8EspsLSxYh5cKE7WJ4v9G+/7XT5bQ33XKc8MPkKZ0LWRvcFzaEBnl9Y8fWCvl5xgLgSPh9BQw18hf+abAAZX3mCZHgvchO8UwYATBgTKl/8Bzo5B21cPome5vneBcJNZhls8u+RKIB3Zf2aS/EniXXY/kZBdGdVVZ1/BHzBcN/E5tvKwZ/W0dhgE13NF9yjYSV3lIhwrqHoLlnnY38S+tIMgDistmI2EOgYiUEh7ZPDrgPFFX8iZJreDLXOLPrJ+SkFyFM2AvQKhAGvtX979pow3bt3ScxU25iLwZvIMTELi45T4NiiWN80YLlccsqIf2J+6w1q3tBLzDtPxWO510BWbffJvtwfO6+Z6EJ1Bt5CgbrPlcFBuXjOkY5kXShGbGqmqa77y+d4ZlIGO+MVUlunyxw4/8k3i26cPtyMz/GJUl3GlWWa+ThyJUUe4VhDa2hFOvrIj41cz"
+
                 },
                 new RelyingParties
                 {
@@ -265,7 +309,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static List<Delegation> CreateTestDelegationSettings()
+        private List<Delegation> CreateTestDelegationSettings()
         {
             return new List<Delegation>
             {
@@ -278,7 +322,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static List<ClientCertificates> CreateTestClientCertificateSettings()
+        private List<ClientCertificates> CreateTestClientCertificateSettings()
         {
             return new List<ClientCertificates>
             {
@@ -291,7 +335,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static List<IdentityProvider> CreateTestIdentityProviders()
+        private List<IdentityProvider> CreateTestIdentityProviders()
         {
             return new List<IdentityProvider>
             {
@@ -340,7 +384,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
 
-        private static List<Client> CreateTestClients()
+        private List<Client> CreateTestClients()
         {
             return new List<Client>
             {
@@ -352,20 +396,8 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                     ClientId = "test",
                     ClientSecret = "secret",
                     AllowImplicitFlow = true,
-                    AllowResourceOwnerFlow = false,
-                    AllowCodeFlow = false
-                },
-                new Client
-                {
-                    Name = "Code Flow Sample Client",
-                    Description = "Code Flow Sample Client",
-                    RedirectUri = "http://localhost:12345/callback",
-                    ClientId = "codeflowclient",
-                    ClientSecret = "secret",
-                    AllowImplicitFlow = false,
-                    AllowResourceOwnerFlow = false,
-                    AllowCodeFlow = true,
-                    AllowRefreshToken = true
+                    AllowResourceOwnerFlow = true,
+                    AllowCodeFlow = true
                 }
             };
         }

@@ -17,12 +17,6 @@
             <dd><b>Resource Name:</b> @Model.ResourceName</dd>
             <dd><b>Resource ID:</b> @Model.ResourceUri</dd>
         </dl>
-
-        @if (Model.RefreshTokenEnabled)
-        {
-            <p><b>The client will be able to access the resource, even when you are offline.</b></p> 
-        }   
-
         @{
             RouteValueDictionary qsParams = new RouteValueDictionary();
             foreach(var key in Request.QueryString.AllKeys)

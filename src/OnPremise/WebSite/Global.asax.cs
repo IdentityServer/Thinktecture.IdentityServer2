@@ -23,6 +23,7 @@ namespace Thinktecture.IdentityServer.Web
         [Import]
         public IRelyingPartyRepository RelyingPartyRepository { get; set; }
 
+       
 
         protected void Application_Start()
         {
@@ -38,7 +39,7 @@ namespace Thinktecture.IdentityServer.Web
 
             AreaRegistration.RegisterAllAreas();
 
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters, ConfigurationRepository);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes, ConfigurationRepository, UserRepository);
             ProtocolConfig.RegisterProtocols(GlobalConfiguration.Configuration, RouteTable.Routes, ConfigurationRepository, UserRepository, RelyingPartyRepository);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

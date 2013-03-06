@@ -17,10 +17,19 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 "WS-Federation",
                 x => x.WSFederation,
                 (c, v) => { c.WSFederation = (WSFederationConfiguration)v; }));
+
+            protocolMap.Add(new Tuple<string, Func<IConfigurationRepository, ProtocolConfiguration>, Action<IConfigurationRepository, ProtocolConfiguration>>(
+               "Saml2",
+               x => x.Saml2,
+               (c, v) => { c.Saml2 = (Saml2Configuration)v; }));
             protocolMap.Add(new Tuple<string, Func<IConfigurationRepository, ProtocolConfiguration>, Action<IConfigurationRepository, ProtocolConfiguration>>(
                 "Federation Metadata",
                 x => x.FederationMetadata,
                 (c, v) => { c.FederationMetadata = (FederationMetadataConfiguration)v; }));
+            protocolMap.Add(new Tuple<string, Func<IConfigurationRepository, ProtocolConfiguration>, Action<IConfigurationRepository, ProtocolConfiguration>>(
+              "Saml2 Metadata",
+              x => x.Saml2Metadata,
+              (c, v) => { c.Saml2Metadata = (Saml2MetadataConfiguration)v; }));
             protocolMap.Add(new Tuple<string, Func<IConfigurationRepository, ProtocolConfiguration>, Action<IConfigurationRepository, ProtocolConfiguration>>(
                 "WS-Trust",
                 x => x.WSTrust,
@@ -40,7 +49,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         public ProtocolsViewModel(Repositories.IConfigurationRepository ConfigurationRepository)
         {
             this.ConfigurationRepository = ConfigurationRepository;
-            
+
             for (int i = 0; i < protocolMap.Count; i++)
             {
                 var item = protocolMap[i];

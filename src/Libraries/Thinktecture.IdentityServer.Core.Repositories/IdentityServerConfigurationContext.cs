@@ -16,9 +16,11 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
     {
         public DbSet<GlobalConfiguration> GlobalConfiguration { get; set; }
         public DbSet<WSFederationConfiguration> WSFederation { get; set; }
+        public DbSet<Saml2Configuration> Saml2 { get; set; }
         public DbSet<KeyMaterialConfiguration> Keys { get; set; }
         public DbSet<WSTrustConfiguration> WSTrust { get; set; }
         public DbSet<FederationMetadataConfiguration> FederationMetadata { get; set; }
+        public DbSet<Saml2MetadataConfiguration> Saml2Metadata { get; set; }
         public DbSet<OAuth2Configuration> OAuth2 { get; set; }
         public DbSet<SimpleHttpConfiguration> SimpleHttp { get; set; }
         public DbSet<DiagnosticsConfiguration> Diagnostics { get; set; }
@@ -28,7 +30,6 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         public DbSet<RelyingParties> RelyingParties { get; set; }
         public DbSet<IdentityProvider> IdentityProviders { get; set; }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<CodeToken> CodeTokens { get; set; }
 
         public static Func<IdentityServerConfigurationContext> FactoryMethod { get; set; }
 
@@ -49,7 +50,9 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         {
             if (FactoryMethod != null) return FactoryMethod();
 
-            return new IdentityServerConfigurationContext();
+            var cs = ConfigurationManager.ConnectionStrings["IdentityServerConfiguration"].ConnectionString;
+            var conn = Database.DefaultConnectionFactory.CreateConnection(cs);
+            return new IdentityServerConfigurationContext(conn);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

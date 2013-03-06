@@ -53,19 +53,5 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
 
             return View("Index", model);
         }
-
-        public ActionResult Recycle()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [ActionName("Recycle")]
-        public ActionResult RecyclePost()
-        {
-            System.Web.Hosting.HostingEnvironment.InitiateShutdown();
-            return RedirectToAction("Recycle");
-        }
     }
 }
