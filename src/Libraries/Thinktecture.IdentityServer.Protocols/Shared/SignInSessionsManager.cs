@@ -29,9 +29,9 @@ namespace Thinktecture.IdentityServer.Protocols
         public void AddEndpoint(string address)
         {
             var endpoints = ReadCookie();
-            if (!endpoints.Contains(address.ToLowerInvariant()))
+            if (!endpoints.Contains(address))
             {
-                endpoints.Add(address.ToLowerInvariant());
+                endpoints.Add(address);
                 WriteCookie(endpoints);
             }
         }
@@ -79,7 +79,7 @@ namespace Thinktecture.IdentityServer.Protocols
                 return;
             }
 
-            var realmString = string.Join("|", realms).ToLowerInvariant();
+            var realmString = string.Join("|", realms);
 
             var cookie = new HttpCookie(_cookieName, realmString)
             {
