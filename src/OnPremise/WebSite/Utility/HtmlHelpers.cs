@@ -35,7 +35,7 @@ namespace Thinktecture.IdentityServer.Web.Utility
                     TagBuilder img = new TagBuilder("img");
                     img.Attributes.Add("src", help);
                     img.Attributes.Add("title", description);
-                    return MvcHtmlString.Create(img.ToString());
+                    return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
                 }
             }
             else
@@ -47,7 +47,7 @@ namespace Thinktecture.IdentityServer.Web.Utility
                 var title = html.ViewData.ModelState[name].Errors.First().ErrorMessage;
                 if (!String.IsNullOrWhiteSpace(description)) title += "\n\n" + description;
                 img.Attributes.Add("title", title);
-                return MvcHtmlString.Create(img.ToString());
+                return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
             }
 
             return MvcHtmlString.Empty;
