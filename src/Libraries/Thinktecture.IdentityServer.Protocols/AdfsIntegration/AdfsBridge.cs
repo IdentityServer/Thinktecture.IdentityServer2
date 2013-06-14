@@ -1,5 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens.JWT;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IdentityModel.Policy;
@@ -171,7 +170,7 @@ namespace Thinktecture.IdentityServer.Protocols.AdfsIntegration
                 Lifetime = new Lifetime(DateTime.UtcNow, DateTime.UtcNow.AddMinutes(_configuration.AdfsIntegration.AuthenticationTokenLifetime))
             };
 
-            var jwtHandler = new JWTSecurityTokenHandler();
+            var jwtHandler = new JwtSecurityTokenHandler();
             var jwt = jwtHandler.CreateToken(descriptor);
 
             return new TokenResponse
@@ -200,14 +199,13 @@ namespace Thinktecture.IdentityServer.Protocols.AdfsIntegration
 
         public ClaimsIdentity ValidateJwtToken(string jwt)
         {
-            var handler = new JWTSecurityTokenHandler();
+            var handler = new JwtSecurityTokenHandler();
 
             var validationParameters = new TokenValidationParameters()
             {
                 AudienceUriMode = AudienceUriMode.Never,
                 SigningToken = new X509SecurityToken(_configuration.Keys.SigningCertificate),
                 ValidIssuer = _configuration.Global.IssuerUri,
-                ValidateExpiration = true
             };
 
             var principal = handler.ValidateToken(jwt, validationParameters);
