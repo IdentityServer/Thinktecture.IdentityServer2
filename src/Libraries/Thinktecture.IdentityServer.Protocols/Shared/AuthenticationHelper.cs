@@ -278,11 +278,20 @@ namespace Thinktecture.IdentityServer.Protocols
             }
 
             var url = HttpUtility.UrlDecode(returnUrl);
-            var message = WSFederationMessage.CreateFromUri(new Uri("http://foo.com" + url, UriKind.Absolute)) as SignInRequestMessage;
+            Uri uri;
 
-            if (message != null)
+            if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out uri))
             {
-                return GetRelyingPartyDetails(message.Realm);
+                WSFederationMessage message;
+
+                if (WSFederationMessage.TryCreateFromUri(uri, out message))
+                {
+                    var signin = message as SignInRequestMessage;
+                    if (signin != null)
+                    {
+                        return GetRelyingPartyDetails(signin.Realm);
+                    }
+                }
             }
 
             return null;
