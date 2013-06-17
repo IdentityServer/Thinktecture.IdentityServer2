@@ -280,7 +280,7 @@ namespace Thinktecture.IdentityServer.Protocols
             var url = HttpUtility.UrlDecode(returnUrl);
             Uri uri;
 
-            if (Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out uri))
+            if (Uri.TryCreate("http://foo.com" + url, UriKind.Absolute, out uri))
             {
                 WSFederationMessage message;
 
