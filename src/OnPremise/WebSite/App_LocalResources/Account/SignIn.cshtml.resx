@@ -127,7 +127,7 @@
     <value>Sign In</value>
   </data>
 	<data name="UnauthorizedAuthenticatedUser" xml:space="preserve">
-    <value>You are currenty logged in as {0}, but you requested a resource that you were not authorized for. Either provide credentials that do have access or contact your administrator to grant you access.</value>
+    <value>You are currently logged in as {0}, but you requested a resource that you were not authorized for. Either provide credentials that do have access or contact your administrator to grant you access.</value>
   </data>
 	<data name="UseClientCertificate" xml:space="preserve">
     <value>Use client certificate</value>
