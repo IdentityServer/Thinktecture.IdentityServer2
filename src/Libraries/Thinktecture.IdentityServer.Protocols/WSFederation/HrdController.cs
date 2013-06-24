@@ -7,7 +7,9 @@ using BrockAllen.OAuth2;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
+using System.IdentityModel.Configuration;
 using System.IdentityModel.Selectors;
 using System.IdentityModel.Services;
 using System.IdentityModel.Services.Configuration;
@@ -89,6 +91,15 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             var fam = new WSFederationAuthenticationModule();
             fam.FederationConfiguration = new FederationConfiguration();
 
+            if (ConfigurationRepository.Keys.DecryptionCertificate != null)
+            {
+                var idConfig = new IdentityConfiguration();
+            
+                idConfig.ServiceTokenResolver = SecurityTokenResolver.CreateDefaultSecurityTokenResolver(
+                     new ReadOnlyCollection<SecurityToken>(new SecurityToken[] { new X509SecurityToken(ConfigurationRepository.Keys.DecryptionCertificate) }), false);
+                fam.FederationConfiguration.IdentityConfiguration = idConfig;
+            }
+
             if (fam.CanReadSignInResponse(Request))
             {
                 var responseMessage = fam.GetSignInResponseMessage(Request);
@@ -153,7 +164,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             claims.Add(new Claim(Constants.Claims.IdentityProvider, ip.Name, ClaimValueTypes.String, Constants.InternalIssuer));
             var id = new ClaimsIdentity(claims, "OAuth");
             var cp = new ClaimsPrincipal(id);
-            
+
             return ProcessOAuthResponse(cp, ctx);
         }
         #endregion
@@ -365,7 +376,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             var config = new SecurityTokenHandlerConfiguration();
             config.AudienceRestriction.AudienceMode = AudienceUriMode.Always;
             config.AudienceRestriction.AllowedAudienceUris.Add(new Uri(ConfigurationRepository.Global.IssuerUri));
-
+            
             var registry = new IdentityProviderIssuerNameRegistry(GetEnabledWSIdentityProviders());
             config.IssuerNameRegistry = registry;
             config.CertificateValidationMode = System.ServiceModel.Security.X509CertificateValidationMode.None;
@@ -406,9 +417,6 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             }
         }
         #endregion
-
-       
-
         #endregion
 
         #region Cookies
