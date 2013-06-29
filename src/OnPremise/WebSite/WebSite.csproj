@@ -220,11 +220,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Error.cshtml.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_LocalResources\Shared\SignedOut.cshtml.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SignedOut.cshtml.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_LocalResources\Shared\SignOut.cshtml.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1118,7 +1113,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Configuration\connectionStrings.config" />
+    <Content Include="Configuration\connectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Configuration\identity.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1231,7 +1228,6 @@
     <Content Include="Views\InitialConfiguration\Index.cshtml" />
     <Content Include="Views\Shared\Confirm.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\SignedOut.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\SignOut.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -1255,9 +1251,7 @@
       <Name>Thinktecture.IdentityServer.Protocols</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_GlobalResources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Configure.cshtml.fr.resx">
       <DependentUpon>Configure.cshtml.resx</DependentUpon>
@@ -1557,13 +1551,6 @@
     <EmbeddedResource Include="App_LocalResources\Shared\Error.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.cshtml.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Shared\SignedOut.cshtml.fr.resx">
-      <DependentUpon>SignedOut.cshtml.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Shared\SignedOut.cshtml.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SignedOut.cshtml.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Shared\SignOut.cshtml.fr.resx">
       <DependentUpon>SignOut.cshtml.resx</DependentUpon>
