@@ -94,7 +94,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             if (ConfigurationRepository.Keys.DecryptionCertificate != null)
             {
                 var idConfig = new IdentityConfiguration();
-            
+                
                 idConfig.ServiceTokenResolver = SecurityTokenResolver.CreateDefaultSecurityTokenResolver(
                      new ReadOnlyCollection<SecurityToken>(new SecurityToken[] { new X509SecurityToken(ConfigurationRepository.Keys.DecryptionCertificate) }), false);
                 fam.FederationConfiguration.IdentityConfiguration = idConfig;
@@ -102,8 +102,8 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
 
             if (fam.CanReadSignInResponse(Request))
             {
-                var responseMessage = fam.GetSignInResponseMessage(Request);
-                return ProcessWSFedSignInResponse(responseMessage, fam.GetSecurityToken(Request));
+                var token = fam.GetSecurityToken(Request);
+                return ProcessWSFedSignInResponse(fam.GetSignInResponseMessage(Request), token);
             }
 
             return View("Error");
