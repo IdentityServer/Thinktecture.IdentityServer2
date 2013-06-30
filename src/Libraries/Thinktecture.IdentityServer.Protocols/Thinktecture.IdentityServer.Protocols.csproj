@@ -81,6 +81,7 @@
     <Compile Include="OAuth2\OAuth2AuthorizeController.cs" />
     <Compile Include="OAuth2\OAuth2ConsentViewModel.cs" />
     <Compile Include="OAuth2\OAuthTitleGrantResult.cs" />
+    <Compile Include="OpenIdConnect\OidcConstants.cs" />
     <Compile Include="Resources\OAuth2\OAuth2AuthorizeController.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
