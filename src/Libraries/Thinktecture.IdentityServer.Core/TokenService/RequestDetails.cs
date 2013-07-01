@@ -17,6 +17,7 @@ namespace Thinktecture.IdentityServer.TokenService
         public ClaimsIdentity ClientIdentity { get; set; }
         public string TokenType { get; set; }
         public bool IsActive { get; set; }
+        public bool IsOpenIdRequest { get; set; }
         public bool IsKnownRealm { get; set; }
         public EndpointAddress Realm { get; set; }
         public bool UsesSsl { get; set; }
