@@ -7,12 +7,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IdentityModel.Tokens;
 using System.Net;
 using System.Net.Http;
 using Thinktecture.IdentityModel.Clients;
 using Thinktecture.IdentityModel.Constants;
-using Thinktecture.IdentityModel.Tokens;
 using Thinktecture.IdentityModel.Tokens.Http;
 
 namespace Thinktecture.IdentityServer.Tests

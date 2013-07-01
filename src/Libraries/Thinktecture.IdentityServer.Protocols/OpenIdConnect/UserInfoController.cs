@@ -4,9 +4,7 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Protocols.WSTrust;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
@@ -40,6 +38,8 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
             // populate RequestDetails
             // call ClaimsRepository
+
+            // return response;
 
             throw new NotImplementedException();
         }
