@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization;
+using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Repositories;
 

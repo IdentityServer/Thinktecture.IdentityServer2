@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityModel.Extensions;
 using Thinktecture.IdentityServer.Protocols.OAuth2;
 using Thinktecture.IdentityServer.Repositories;
@@ -55,7 +56,7 @@ namespace Thinktecture.IdentityServer.Protocols.AdfsIntegration
             }
 
             // federation via JWT
-            if (request.Grant_Type.Equals(OAuth2Constants.GrantTypes.JwtBearer) &&
+            if (request.Grant_Type.Equals(OAuth2Constants.GrantTypes.JWT) &&
                 ConfigurationRepository.AdfsIntegration.JwtAuthenticationEnabled)
             {
                 return ProcessJwtRequest(request);

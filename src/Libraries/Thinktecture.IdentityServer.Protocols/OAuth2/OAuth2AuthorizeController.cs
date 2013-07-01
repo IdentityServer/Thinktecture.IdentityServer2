@@ -9,6 +9,7 @@ using System.IdentityModel.Protocols.WSTrust;
 using System.Security.Claims;
 using System.Web.Mvc;
 using Thinktecture.IdentityModel.Authorization.Mvc;
+using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Repositories;
 
@@ -82,7 +83,7 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
 
             // we don't know exactly why, so use ServerError
             Tracing.Error("Authorization Endpoint failed");
-            return ClientError(client.RedirectUri, OAuth2Constants.Errors.ServerError, request.response_type, request.state);
+            return ClientError(client.RedirectUri, OAuth2Constants.Errors.InvalidRequest, request.response_type, request.state);
         }
 
         [ActionName("Index")]

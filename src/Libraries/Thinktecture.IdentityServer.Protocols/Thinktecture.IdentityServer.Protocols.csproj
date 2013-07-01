@@ -115,7 +115,6 @@
     <Compile Include="OAuth2\OAuth2TokenController.cs" />
     <Compile Include="OAuth2\TokenRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shared\OAuth2Constants.cs" />
     <Compile Include="Shared\SignInSessionsManager.cs" />
     <Compile Include="Shared\TokenResponse.cs" />
     <Compile Include="Shared\STS.cs" />
