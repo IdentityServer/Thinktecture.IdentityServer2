@@ -1,0 +1,65 @@
+﻿@using Web.Wcf
+@using System.Security.Claims
+
+@{
+    ViewBag.Title = "Delegation.";
+}
+
+@section featured {
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+            <h2>@ViewBag.Message</h2>
+        </hgroup>
+    </div>
+</section>
+}
+
+@using (Html.BeginForm())
+{ 
+    <input type="submit" value="call service" name="CallService" />
+}
+
+@{
+    var claims = ViewBag.Claims as Tuple<List<ClaimDto>, List<ClaimDto>>;
+    
+    if (claims != null)
+    {
+        <ol class="round">
+
+            <li class="one">
+                <h5>Original Caller</h5>
+
+                @foreach (var claim in claims.Item1)
+                { 
+                    <b>@claim.Type</b>
+                    <br />
+                    @claim.Value
+                    <br />
+                    @claim.Issuer
+                    <br />
+                    <br />
+                    <br />
+                } 
+            </li>
+
+            <li class="two">
+                <h5>Direct caller</h5>
+
+               @foreach (var claim in claims.Item2)
+               { 
+                    <b>@claim.Type</b>
+                    <br />
+                    @claim.Value
+                    <br />
+                    @claim.Issuer
+                    <br />
+                    <br />
+                    <br />
+                }
+            </li>
+        </ol>
+    }
+}
+

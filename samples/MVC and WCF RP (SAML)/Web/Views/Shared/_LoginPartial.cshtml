@@ -1,0 +1,10 @@
+﻿@if (Request.IsAuthenticated) {
+    <p>
+        Hello, @User.Identity.Name!
+        @Html.ActionLink("Sign out", "SignOut", "User")
+    </p>
+} else {
+    <ul>
+        <li>anonymous</li>
+    </ul>
+}
