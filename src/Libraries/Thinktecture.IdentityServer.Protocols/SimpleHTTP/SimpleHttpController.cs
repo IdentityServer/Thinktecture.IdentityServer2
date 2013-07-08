@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Authorization.WebApi;
+using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Protocols.SimpleHTTP
@@ -61,6 +62,25 @@ namespace Thinktecture.IdentityServer.Protocols.SimpleHTTP
             if (string.IsNullOrWhiteSpace(tokenType))
             {
                 tokenType = ConfigurationRepository.Global.DefaultHttpTokenType;
+            }
+            else
+            {
+                if (tokenType.Equals("jwt"))
+                {
+                    tokenType = TokenTypes.JsonWebToken;
+                }
+                else if (tokenType.Equals("swt"))
+                {
+                    tokenType = TokenTypes.SimpleWebToken;
+                }
+                else if (tokenType.Equals("saml11"))
+                {
+                    tokenType = TokenTypes.Saml11TokenProfile11;
+                }
+                else if (tokenType.Equals("saml2"))
+                {
+                    tokenType = TokenTypes.Saml2TokenProfile11;
+                }
             }
 
             Tracing.Verbose("Token type: " + tokenType);
