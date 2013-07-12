@@ -92,17 +92,17 @@ namespace Thinktecture.IdentityServer.Repositories
         {
             if (String.IsNullOrEmpty(userName))
             {
-                throw new ValidationException("Username is required");
+                throw new ValidationException(Core.Repositories.Resources.ProviderUserManagementRepository.UsernameRequired);
             }
             if (String.IsNullOrEmpty(password))
             {
-                throw new ValidationException("Password is required");
+                throw new ValidationException(Core.Repositories.Resources.ProviderUserManagementRepository.PasswordRequired);
             }
 
             var provider = Membership.Provider;
             if (password.Length < provider.MinRequiredPasswordLength)
             {
-                throw new ValidationException(String.Format("{0} is the minimum password length", provider.MinRequiredPasswordLength));
+                throw new ValidationException(String.Format(Core.Repositories.Resources.ProviderUserManagementRepository.PasswordMinLengthError, provider.MinRequiredPasswordLength));
             }
             if (provider.MinRequiredNonAlphanumericCharacters > 0)
             {
@@ -116,13 +116,13 @@ namespace Thinktecture.IdentityServer.Repositories
                 }
                 if (num2 < provider.MinRequiredNonAlphanumericCharacters)
                 {
-                    throw new ValidationException(String.Format("{0} is the minimum number of non-alphanumeric characters", provider.MinRequiredNonAlphanumericCharacters));
+                    throw new ValidationException(String.Format(Core.Repositories.Resources.ProviderUserManagementRepository.PasswordMinNonAlphaError, provider.MinRequiredNonAlphanumericCharacters));
                 }
             }
             if (!String.IsNullOrWhiteSpace(provider.PasswordStrengthRegularExpression) && 
                 !System.Text.RegularExpressions.Regex.IsMatch(provider.PasswordStrengthRegularExpression, password))
             {
-                throw new ValidationException(String.Format("Password does not match the regular expression {0}", provider.PasswordStrengthRegularExpression));
+                throw new ValidationException(String.Format(Core.Repositories.Resources.ProviderUserManagementRepository.PasswordRegExMatchError, provider.PasswordStrengthRegularExpression));
             }
 
             try

@@ -101,10 +101,10 @@
 		<value>Description</value>
 	</data>
 	<data name="DescriptionDescription" xml:space="preserve">
-		<value>Nom de l'utilisateur à associer au certificat.</value>
+		<value>Nom de l’utilisateur à associer au certificat.</value>
 	</data>
 	<data name="UserName" xml:space="preserve">
-		<value>Nom de l'utilisateur</value>
+		<value>Nom de l’utilisateur</value>
 	</data>
 	<data name="UserNameDescription" xml:space="preserve">
 		<value>Nom de l’utilisateur où l’association s’applique.</value>

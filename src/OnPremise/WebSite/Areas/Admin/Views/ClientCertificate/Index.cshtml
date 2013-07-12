@@ -19,7 +19,7 @@
                 @Html.HiddenFor(x => Model.Users[i].Username)
                 @Html.LabelFor(x => Model.Users[i].Delete, Model.Users[i].Username)
                 @Html.CheckBoxFor(x => Model.Users[i].Delete)
-                @Html.ActionLink("configure", "Configure", new { id = Model.Users[i].Username })
+                @Html.ActionLink(Index_cshtml.Configure, "Configure", new { id = Model.Users[i].Username })
             </div>
         }
 

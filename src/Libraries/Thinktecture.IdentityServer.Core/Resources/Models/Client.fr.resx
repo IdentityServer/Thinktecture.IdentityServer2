@@ -180,4 +180,7 @@
   <data name="RedirectUriMustBeHTTPS" xml:space="preserve">
     <value>HTTPS est requis pour le URI de redirection.</value>
   </data>
+  <data name="RefreshTokensNotAllowedError" xml:space="preserve">
+    <value>Les jetons de rafraîchissement ne sont permis qu’avec le flux de code ou de ressource.</value>
+  </data>
 </root>

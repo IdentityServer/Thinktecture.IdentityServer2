@@ -77,7 +77,7 @@ namespace Thinktecture.IdentityServer.Models
 
             if (!this.AllowCodeFlow && !this.AllowResourceOwnerFlow && this.AllowRefreshToken)
             {
-                errors.Add(new ValidationResult("Refresh tokens only allowed with Code or Resource Owner flows.", new string[] { "AllowRefreshToken" }));
+                errors.Add(new ValidationResult(Resources.Models.Client.RefreshTokensNotAllowedError, new string[] { "AllowRefreshToken" }));
             }
 
             return errors;

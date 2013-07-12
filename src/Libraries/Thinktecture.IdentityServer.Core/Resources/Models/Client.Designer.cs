@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Resources.Models
-{
-
-
+namespace Thinktecture.IdentityServer.Resources.Models {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -246,6 +246,15 @@ namespace Thinktecture.IdentityServer.Resources.Models
         public static string RedirectUriRequiredError {
             get {
                 return ResourceManager.GetString("RedirectUriRequiredError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh tokens only allowed with Code or Resource Owner flows..
+        /// </summary>
+        public static string RefreshTokensNotAllowedError {
+            get {
+                return ResourceManager.GetString("RefreshTokensNotAllowedError", resourceCulture);
             }
         }
     }

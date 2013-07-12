@@ -138,6 +138,11 @@
     <Compile Include="ProviderUserRepository.cs" />
     <Compile Include="EntityModel\RelyingParties.cs" />
     <Compile Include="RelyingPartyRepository.cs" />
+    <Compile Include="Resources\ProviderUserManagementRepository.Designer.cs">
+      <DependentUpon>ProviderUserManagementRepository.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\IdentityProviderRepository.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,6 +189,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations.SqlCe\201303212122270_AdfsIntegration.resx">
       <DependentUpon>201303212122270_AdfsIntegration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ProviderUserManagementRepository.fr.resx">
+      <DependentUpon>ProviderUserManagementRepository.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ProviderUserManagementRepository.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProviderUserManagementRepository.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\IdentityProviderRepository.fr.resx">
       <DependentUpon>IdentityProviderRepository.resx</DependentUpon>

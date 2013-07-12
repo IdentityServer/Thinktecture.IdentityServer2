@@ -17,7 +17,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
     [ClaimsAuthorize(Constants.Actions.Issue, Constants.Resources.WSFederation)]
     public class WSFederationController : Controller
     {
-        const string _cookieName = "wsfedsignout";
+
 
         [Import]
         public IConfigurationRepository ConfigurationRepository { get; set; }
@@ -58,6 +58,11 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             }
 
             return View("Error");
+        }
+
+        protected virtual string _cookieName 
+        {
+            get { return @"wsfedsignout"; }
         }
 
         #region Helper

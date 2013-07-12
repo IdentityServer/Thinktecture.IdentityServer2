@@ -81,7 +81,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    errors.AddModelError("", "Error updating profile.");
+                    errors.AddModelError("", Resources.UserProfileViewModel.ErrorUpdatingProfile);
                     Tracing.Error(ex.Message);
                 }
             }

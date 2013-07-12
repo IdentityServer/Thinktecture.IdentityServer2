@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -97,6 +97,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to profile.
         /// </summary>
         public static string Profile {
@@ -111,6 +120,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.User
         public static string Roles {
             get {
                 return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tokens.
+        /// </summary>
+        public static string Tokens {
+            get {
+                return ResourceManager.GetString("Tokens", resourceCulture);
             }
         }
         

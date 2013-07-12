@@ -180,4 +180,7 @@
   <data name="RedirectUriMustBeHTTPS" xml:space="preserve">
     <value>Redirect URI must be HTTPS.</value>
   </data>
+  <data name="RefreshTokensNotAllowedError" xml:space="preserve">
+    <value>Refresh tokens only allowed with Code or Resource Owner flows.</value>
+  </data>
 </root>

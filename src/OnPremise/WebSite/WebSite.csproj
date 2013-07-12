@@ -324,6 +324,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml.resx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ADFSIntegration.cshtml.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\App_LocalResources\Protocol\Index.cshtml.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -394,6 +404,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Layout.cshtml.resx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.cshtml.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\App_LocalResources\User\Create.cshtml.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -463,6 +478,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientCertificatesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\TokenSearchCriteria.Designer.cs">
+      <DependentUpon>TokenSearchCriteria.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.Designer.cs">
+      <DependentUpon>OAuthRefreshTokenIndexViewModel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Areas\Admin\Resources\ProfilePropertyViewModel.Designer.cs">
       <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
@@ -692,6 +717,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\dummy.txt" />
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ADFSIntegration.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.fr.resx">
+      <DependentUpon>ADFSIntegration.cshtml.resx</DependentUpon>
+    </Content>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePassword.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.fr.resx">
+      <DependentUpon>ChangePassword.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\CertificateInputModel.fr.resx">
       <DependentUpon>CertificateInputModel.resx</DependentUpon>
     </EmbeddedResource>
@@ -733,6 +780,20 @@
     <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesViewModel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ClientCertificatesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\TokenSearchCriteria.fr.resx">
+      <DependentUpon>TokenSearchCriteria.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\TokenSearchCriteria.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TokenSearchCriteria.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.fr.resx">
+      <DependentUpon>OAuthRefreshTokenIndexViewModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuthRefreshTokenIndexViewModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\ProfilePropertyViewModel.fr.resx">
       <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
@@ -852,6 +913,7 @@
     <EmbeddedResource Include="Areas\Admin\Resources\ProtocolController.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ProtocolController.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\ProtocolsInputModel.fr.resx">
       <DependentUpon>ProtocolsInputModel.resx</DependentUpon>
@@ -1266,6 +1328,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Index.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -1282,6 +1345,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Index.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Diagnostics\Index.cshtml.fr.resx">
       <DependentUpon>Index.cshtml.resx</DependentUpon>

@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Delegation
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Delegation {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -67,6 +67,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Delegat
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to configure.
+        /// </summary>
+        public static string Configure {
+            get {
+                return ResourceManager.GetString("Configure", resourceCulture);
             }
         }
         

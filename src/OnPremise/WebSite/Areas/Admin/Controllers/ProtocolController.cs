@@ -120,11 +120,11 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
             {
                 if (protocol.SamlAuthenticationEnabled && protocol.EncryptionCertificate == null)
                 {
-                    ModelState.AddModelError("protocol.EncryptionCertificate", "EncryptionCertificate required when SamlAuthenticationEnabled is enabled.");
+                    ModelState.AddModelError("protocol.EncryptionCertificate", Resources.ProtocolController.EncryptionCertificateRequiredWhenSamlAuthenticationEnabled);
                 }
                 if (protocol.JwtAuthenticationEnabled && protocol.EncryptionCertificate == null)
                 {
-                    ModelState.AddModelError("protocol.EncryptionCertificate", "EncryptionCertificate required when JwtAuthenticationEnabled is enabled.");
+                    ModelState.AddModelError("protocol.EncryptionCertificate", Resources.ProtocolController.EncryptionCertificateRequiredWhenJwtAuthenticationEnabled);
                 }
             } 
             
@@ -142,7 +142,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating protocol.");
+                    ModelState.AddModelError("", Resources.ProtocolController.ErrorUpdatingProtocol);
                 }
             }
 

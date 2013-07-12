@@ -180,6 +180,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CodeTokenType.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.Designer.cs">
+      <DependentUpon>AdfsIntegrationConfiguration.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Models\Configuration\DiagnosticsConfiguration.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -304,6 +309,7 @@
     <EmbeddedResource Include="Resources\Models\Client.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Client.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\ClientCertificate.fr.resx">
       <DependentUpon>ClientCertificate.resx</DependentUpon>
@@ -314,6 +320,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\CodeToken.fr.resx">
       <DependentUpon>CodeToken.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\CodeToken.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -325,6 +332,13 @@
     <EmbeddedResource Include="Resources\Models\CodeTokenType.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CodeTokenType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdfsIntegrationConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.fr.resx">
+      <DependentUpon>AdfsIntegrationConfiguration.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\DiagnosticsConfiguration.fr.resx">
       <DependentUpon>DiagnosticsConfiguration.resx</DependentUpon>
@@ -347,6 +361,7 @@
     <EmbeddedResource Include="Resources\Models\Configuration\GlobalConfiguration.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GlobalConfiguration.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\KeyMaterialConfiguration.fr.resx">
       <DependentUpon>KeyMaterialConfiguration.resx</DependentUpon>

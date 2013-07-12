@@ -98,19 +98,19 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="AllowAccess" xml:space="preserve">
-		<value>Autoriser l'accès</value>
+		<value>Autoriser l’accès</value>
 	</data>
 	<data name="DenyAccess" xml:space="preserve">
-		<value>Refuser l'accès</value>
+		<value>Refuser l’accès</value>
 	</data>
 	<data name="RefreshTokenEnabledWarning" xml:space="preserve">
 		<value>Le client pourra accéder aux ressources, même quand vous êtes hors ligne.</value>
 	</data>
 	<data name="RequestingAccessOnBehalf" xml:space="preserve">
-		<value>demande la permission d'accéder à une ressource en votre nom :</value>
+		<value>demande la permission d’accéder à une ressource en votre nom :</value>
 	</data>
 	<data name="ResourceConsent" xml:space="preserve">
-		<value>Consentement d'accès</value>
+		<value>Consentement d’accès</value>
 	</data>
 	<data name="ResourceId" xml:space="preserve">
 		<value>ID de la ressource :</value>

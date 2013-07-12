@@ -98,10 +98,10 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="AllowReplyTo" xml:space="preserve">
-		<value>Permettre le paramètre «&#xA0;replyto&#xA0;»</value>
+		<value>Permettre le paramètre « replyto »</value>
 	</data>
 	<data name="AllowReplyToDescription" xml:space="preserve">
-		<value>Permet la spécification du paramètre fédéré WS «&#xA0;replyto&#xA0;», autrement ce paramètre sera toujours ignoré.</value>
+		<value>Permet la spécification du paramètre fédéré WS « replyto », autrement ce paramètre sera toujours ignoré.</value>
 	</data>
 	<data name="EnableAuthentication" xml:space="preserve">
 		<value>Activer l’ouverture de session</value>
@@ -125,7 +125,7 @@
 		<value>URL de redirection doit être à l’intérieur du domaine</value>
 	</data>
 	<data name="RequireReplyToWithinRealmDescription" xml:space="preserve">
-		<value>S’assure que le URL de redirection (paramètre «&#xA0;replyto&#xA0;») soit un sous URL du domaine.</value>
+		<value>S’assure que le URL de redirection (paramètre « replyto ») soit un sous URL du domaine.</value>
 	</data>
 	<data name="RequireSslForReplyTo" xml:space="preserve">
 		<value>Requiert le protocole SSL</value>
