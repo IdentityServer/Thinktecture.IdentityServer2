@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Menu
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Menu {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -138,6 +138,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Menu
         public static string OAuthClients {
             get {
                 return ResourceManager.GetString("OAuthClients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OAuth Tokens.
+        /// </summary>
+        public static string OAuthTokens {
+            get {
+                return ResourceManager.GetString("OAuthTokens", resourceCulture);
             }
         }
         

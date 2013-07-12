@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -57,6 +57,24 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EncryptionCertificate required when JwtAuthenticationEnabled is enabled..
+        /// </summary>
+        public static string EncryptionCertificateRequiredWhenJwtAuthenticationEnabled {
+            get {
+                return ResourceManager.GetString("EncryptionCertificateRequiredWhenJwtAuthenticationEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EncryptionCertificate required when SamlAuthenticationEnabled is enabled..
+        /// </summary>
+        public static string EncryptionCertificateRequiredWhenSamlAuthenticationEnabled {
+            get {
+                return ResourceManager.GetString("EncryptionCertificateRequiredWhenSamlAuthenticationEnabled", resourceCulture);
             }
         }
         

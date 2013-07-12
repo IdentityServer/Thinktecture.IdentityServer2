@@ -123,6 +123,9 @@
 	<data name="ClientCertificates" xml:space="preserve">
     <value>Client Certificates</value>
   </data>
+	<data name="Configure" xml:space="preserve">
+    <value>configure</value>
+  </data>
 	<data name="DeleteSelected" xml:space="preserve">
     <value>Delete Selected</value>
   </data>

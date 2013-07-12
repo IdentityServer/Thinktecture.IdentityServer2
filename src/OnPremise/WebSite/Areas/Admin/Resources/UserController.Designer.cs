@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -84,6 +84,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Resources
         public static string ErrorDeletingUser {
             get {
                 return ResourceManager.GetString("ErrorDeletingUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error updating password.
+        /// </summary>
+        public static string ErrorUpdatingPassword {
+            get {
+                return ResourceManager.GetString("ErrorUpdatingPassword", resourceCulture);
             }
         }
         

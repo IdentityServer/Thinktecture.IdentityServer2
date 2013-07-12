@@ -190,7 +190,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
                 }
                 catch
                 {
-                    ModelState.AddModelError("", "Error updating password");
+                    ModelState.AddModelError("", Resources.UserController.ErrorUpdatingPassword);
                 }
             }
             

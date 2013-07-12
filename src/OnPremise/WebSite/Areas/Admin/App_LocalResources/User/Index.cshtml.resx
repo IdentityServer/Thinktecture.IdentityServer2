@@ -138,4 +138,10 @@
 	<data name="ErrorDeletingUsers" xml:space="preserve">
     <value>Error deleting users</value>
   </data>
+	<data name="Password" xml:space="preserve">
+    <value>password</value>
+  </data>
+	<data name="Tokens" xml:space="preserve">
+    <value>tokens</value>
+  </data>
 </root>

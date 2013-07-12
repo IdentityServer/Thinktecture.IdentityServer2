@@ -107,7 +107,7 @@
 		<value>Nom de l’utilisateur</value>
 	</data>
 	<data name="UserNameDescription" xml:space="preserve">
-		<value>Nom de l'utilisateur à associer au certificat.</value>
+		<value>Nom de l’utilisateur à associer au certificat.</value>
 	</data>
 	<data name="Thumbprint" xml:space="preserve">
 		<value>Empreinte du certificat client</value>

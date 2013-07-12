@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.ClientCertificate
-{
-
-
+namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.ClientCertificate {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -80,6 +80,15 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.ClientC
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to configure.
+        /// </summary>
+        public static string Configure {
+            get {
+                return ResourceManager.GetString("Configure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Selected.
         /// </summary>
         public static string DeleteSelected {
@@ -89,7 +98,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.ClientC
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error deleting client certificates.
+        ///   Looks up a localized string similar to Error deleting client certificates..
         /// </summary>
         public static string ErrorDeletingClientCertificates {
             get {

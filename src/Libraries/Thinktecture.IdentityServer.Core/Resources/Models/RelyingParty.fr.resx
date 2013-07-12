@@ -107,7 +107,7 @@
 		<value>Activer ou désactiver cette partie utilisatrice.</value>
 	</data>
 	<data name="Name" xml:space="preserve">
-		<value>Nom d'affichage</value>
+		<value>Nom d’affichage</value>
 	</data>
 	<data name="ReplyTo" xml:space="preserve">
 		<value>URL de redirection</value>
@@ -131,7 +131,7 @@
 		<value>URI de l’identifiant de domaine/portée.</value>
 	</data>
 	<data name="ReplyToDescription" xml:space="preserve">
-		<value>URL de réacheminement (paramètre «&#xA0;replyto&#xA0;») après qu’un jeton soit émis.</value>
+		<value>URL de réacheminement (paramètre « replyto ») après qu’un jeton soit émis.</value>
 	</data>
 	<data name="ExtraData1" xml:space="preserve">
 		<value>Donnée supplémentaire #1</value>
@@ -156,5 +156,11 @@
 	</data>
 	<data name="TokenLifeTimeDescription" xml:space="preserve">
 		<value>Peut être utilisé pour surpasser la durée de vie par défaut des jetons. La valeur globale par défaut sera utilisée lorsque cette valeur est ‘0’.</value>
+	</data>
+	<data name="EncryptingCertificateThumbprint" xml:space="preserve">
+		<value>Empreinte du certificat de chiffrement</value>
+	</data>
+	<data name="EncryptingCertificateThumbprintDescription" xml:space="preserve">
+		<value>Empreinte du certificat utilisée pour le chiffrement.</value>
 	</data>
 </root>

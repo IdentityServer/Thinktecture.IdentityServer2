@@ -120,6 +120,9 @@
 	<data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+	<data name="Configure" xml:space="preserve">
+    <value>configure</value>
+  </data>
 	<data name="DelegationAccounts" xml:space="preserve">
     <value>Delegation Accounts</value>
   </data>

@@ -126,4 +126,7 @@
 	<data name="ErrorConvertingPropertyValueType" xml:space="preserve">
     <value>There was an error converting the value for {0}. It must be of type {1}.</value>
   </data>
+	<data name="ErrorUpdatingProfile" xml:space="preserve">
+    <value>Error updating profile.</value>
+  </data>
 </root>

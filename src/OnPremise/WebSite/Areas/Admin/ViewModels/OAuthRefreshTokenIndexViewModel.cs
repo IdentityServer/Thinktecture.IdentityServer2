@@ -29,7 +29,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                 {
                     Text = item.Name, Value=item.ID.ToString()
                 }).ToList();
-            list.Insert(0, new SelectListItem { Text = "-none selected-", Value="" });
+            list.Insert(0, new SelectListItem { Text = Resources.OAuthRefreshTokenIndexViewModel.NoItemSelected, Value = "" });
             this.Clients = list;
 
             if (searchCriteria.HasValues || doSearch)
@@ -51,8 +51,11 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
 
     public class TokenSearchCriteria
     {
+        [Display(ResourceType = typeof(Resources.TokenSearchCriteria), Name = "Username")]
         public string Username { get; set; }
+        [Display(ResourceType = typeof(Resources.TokenSearchCriteria), Name = "Scope")]
         public string Scope { get; set; }
+        [Display(ResourceType = typeof(Resources.TokenSearchCriteria), Name = "ClientID")]
         [ScaffoldColumn(false)]
         public int? ClientID { get; set; }
         [ScaffoldColumn(false)]

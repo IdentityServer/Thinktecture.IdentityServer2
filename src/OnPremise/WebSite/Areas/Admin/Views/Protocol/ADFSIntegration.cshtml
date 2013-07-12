@@ -1,22 +1,23 @@
-﻿@model ProtocolViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Protocol
+@model ProtocolViewModel
 
 @{
-    ViewBag.Title = "Protocol Configuration : " + Model.DisplayName;
+    ViewBag.Title = string.Format(ADFSIntegration_cshtml.ProtocolConfiguration, Model.DisplayName);
 }
 
 @using (Html.BeginForm("UpdateADFSIntegration", "Protocol", new { id = Model.ID },
         FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating protocol")
+    @Html.ValidationSummary(ADFSIntegration_cshtml.ErrorUpdatingProtocol)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
         @Html.EditorFor(x => x.Protocol)
 
         <div class="buttons">
-            <button type="submit">Save Changes</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@ADFSIntegration_cshtml.SaveChanges</button>
+            <button type="reset">@ADFSIntegration_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

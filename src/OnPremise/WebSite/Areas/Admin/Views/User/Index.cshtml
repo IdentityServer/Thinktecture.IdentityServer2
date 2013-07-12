@@ -21,14 +21,14 @@
                 @Html.LabelFor(x => list[i].Delete, list[i].Username)
                 @Html.CheckBoxFor(x => list[i].Delete)
                 @Html.ActionLink(Index_cshtml.Roles, "Roles", new{username=list[i].Username})
-                @Html.ActionLink("password", "ChangePassword", new { username = list[i].Username })
+                @Html.ActionLink(Index_cshtml.Password, "ChangePassword", new { username = list[i].Username })
                 @if (Model.IsProfileEnabled)
                 {
                     @Html.ActionLink(Index_cshtml.Profile, "Profile", new{username=list[i].Username})
                 }
                 @if (Model.IsOAuthRefreshTokenEnabled)
                 {
-                    @Html.ActionLink("tokens", "Index", "OAuthRefreshToken", new{username=list[i].Username}, null)
+                    @Html.ActionLink(Index_cshtml.Tokens, "Index", "OAuthRefreshToken", new{username=list[i].Username}, null)
                 }
             </div>
         }

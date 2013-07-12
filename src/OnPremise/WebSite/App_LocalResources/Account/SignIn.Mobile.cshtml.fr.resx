@@ -101,6 +101,6 @@
 		<value>Ouvrir une session</value>
 	</data>
 	<data name="SignInWasUnsuccessful" xml:space="preserve">
-		<value>L'ouverture de session a échoué. Corrigez les erreurs et réessayez.</value>
+		<value>L’ouverture de session a échoué. Corrigez les erreurs et réessayez.</value>
 	</data>
 </root>
