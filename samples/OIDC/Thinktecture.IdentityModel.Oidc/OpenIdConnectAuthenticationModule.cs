@@ -23,19 +23,21 @@ namespace Thinktecture.IdentityModel.Oidc
         void OnEndRequest(object sender, EventArgs e)
         {
             var context = HttpContext.Current;
-
+            
             if (context.Response.StatusCode == 401 &&
                 !context.User.Identity.IsAuthenticated &&
                 !context.Response.SuppressFormsAuthenticationRedirect)
             {
-                var authorizeUrl = WebConfigurationManager.AppSettings["oidc:authorizeUrl"];
-                var clientId = WebConfigurationManager.AppSettings["oidc:clientId"];
-                var scopes = "openid " + WebConfigurationManager.AppSettings["oidc:scopes"];
+                var config = OidcClientConfigurationSection.Instance;
+
+                var authorizeUrl = config.Endpoints.Authorize;
+                var clientId = config.ClientId;
+                var scopes = "openid " + config.Scope;
                 var state = Guid.NewGuid().ToString("N");
                 var returnUrl = context.Request.RawUrl;
                 var redirectUri = context.Request.GetApplicationUrl() + "oidccallback";
 
-                var authorizeUri = OidcClient.GetRedirectToProviderUrl(
+                var authorizeUri = OidcClient.GetAuthorizeUrl(
                     new Uri(authorizeUrl),
                     new Uri(redirectUri),
                     clientId,
@@ -55,14 +57,17 @@ namespace Thinktecture.IdentityModel.Oidc
 
             if (context.Request.AppRelativeCurrentExecutionFilePath.Equals("~/oidccallback", StringComparison.OrdinalIgnoreCase))
             {
-                var tokenUrl = WebConfigurationManager.AppSettings["oidc:tokenUrl"];
-                var clientId = WebConfigurationManager.AppSettings["oidc:clientId"];
-                var clientSecret = WebConfigurationManager.AppSettings["oidc:clientSecret"];
-                var issuerName = WebConfigurationManager.AppSettings["oidc:issuerName"];
-                var signingcert = X509.LocalMachine.TrustedPeople.SubjectDistinguishedName.Find(
-                    WebConfigurationManager.AppSettings["oidc:signingCert"]).First();
+                var config = OidcClientConfigurationSection.Instance;
 
-                var response = OidcClient.HandleOidcAuthorizeResponse(context.Request.QueryString);
+                var tokenUrl = config.Endpoints.Token;
+                var userInfoUrl = config.Endpoints.UserInfo;
+                var clientId = config.ClientId;
+                var clientSecret = config.ClientSecret;
+                var issuerName = config.IssuerName;
+                var signingcert = X509.LocalMachine.TrustedPeople.SubjectDistinguishedName.Find(
+                    config.SigningCertificate).First();
+
+                var response = OidcClient.HandleAuthorizeResponse(context.Request.QueryString);
 
                 if (response.IsError)
                 {
@@ -89,13 +94,19 @@ namespace Thinktecture.IdentityModel.Oidc
                     clientId,
                     clientSecret);
 
-                var principal = OidcClient.ValidateIdentityToken(
+                var identityClaims = OidcClient.ValidateIdentityToken(
                     tokenResponse.IdentityToken, 
                     issuerName, 
                     clientId, 
                     signingcert);
 
+                var userInfoClaims = OidcClient.GetUserInfoClaims(
+                    new Uri(userInfoUrl),
+                    tokenResponse.AccessToken);
+
                 // establish session
+                var principal = new ClaimsPrincipal(new ClaimsIdentity(userInfoClaims, "oidc"));
+
                 var sessionToken = new SessionSecurityToken(principal);
                 FederatedAuthentication.SessionAuthenticationModule.WriteSessionTokenToCookie(sessionToken);
 

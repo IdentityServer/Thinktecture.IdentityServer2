@@ -34,6 +34,7 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Services" />
@@ -59,6 +60,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="OidcAuthorizeResponse.cs" />
     <Compile Include="OidcClient.cs" />
+    <Compile Include="OidcClientConfigurationSection.cs" />
     <Compile Include="OidcTokenResponse.cs" />
     <Compile Include="OpenIdConnectAuthenticationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

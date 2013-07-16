@@ -25,7 +25,7 @@ namespace CodeFlowClient.Controllers
         }
 
         [Authorize]
-        public ActionResult Contact()
+        public ActionResult Claims()
         {
             ViewBag.Message = "Claims:";
 

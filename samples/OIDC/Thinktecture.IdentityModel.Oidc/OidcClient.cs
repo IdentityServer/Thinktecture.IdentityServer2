@@ -7,12 +7,13 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using Thinktecture.IdentityModel.Tokens;
+using System.Linq;
 
 namespace Thinktecture.IdentityModel.Oidc
 {
     public class OidcClient
     {
-        public static Uri GetRedirectToProviderUrl(Uri authorizeEndpoint, Uri redirectUri, string clientId, string scopes, string state, string responseType = "code")
+        public static Uri GetAuthorizeUrl(Uri authorizeEndpoint, Uri redirectUri, string clientId, string scopes, string state, string responseType = "code")
         {
             var queryString = string.Format("?client_id={0}&scope={1}&redirect_uri={2}&state={3}&response_type={4}",
                 clientId,
@@ -24,7 +25,7 @@ namespace Thinktecture.IdentityModel.Oidc
             return new Uri(authorizeEndpoint.AbsoluteUri + queryString);
         }
 
-        public static OidcAuthorizeResponse HandleOidcAuthorizeResponse(NameValueCollection query)
+        public static OidcAuthorizeResponse HandleAuthorizeResponse(NameValueCollection query)
         {
             var response = new OidcAuthorizeResponse
             {
@@ -75,14 +76,40 @@ namespace Thinktecture.IdentityModel.Oidc
                 SigningToken = new X509SecurityToken(signingCertificate)
             };
 
-            var ids = handler.ValidateToken(token, parameters);
-            return new ClaimsPrincipal(ids);
+            return handler.ValidateToken(token, parameters);
         }
 
-        public static string GetUserInfo(Uri userInfoEndpoint, string accessToken)
+        public static IEnumerable<Claim> GetUserInfoClaims(Uri userInfoEndpoint, string accessToken)
         {
-            throw new NotImplementedException();
-        }
+            var client = new HttpClient
+            {
+                BaseAddress = userInfoEndpoint
+            };
+            
+            client.SetBearerToken(accessToken);
 
+            var response = client.GetAsync("").Result;
+            response.EnsureSuccessStatusCode();
+
+            var dictionary = response.Content.ReadAsAsync<Dictionary<string, string>>().Result;
+
+            var claims = new List<Claim>();
+            foreach (var pair in dictionary)
+            {
+                if (pair.Value.Contains(','))
+                {
+                    foreach (var item in pair.Value.Split(','))
+                    {
+                        claims.Add(new Claim(pair.Key, item));
+                    }
+                }
+                else
+                {
+                    claims.Add(new Claim(pair.Key, pair.Value));
+                }
+            }
+
+            return claims;
+        }
     }
 }

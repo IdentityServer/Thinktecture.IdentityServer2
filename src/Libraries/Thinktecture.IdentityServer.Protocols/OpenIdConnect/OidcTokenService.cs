@@ -21,6 +21,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
         public OidcTokenResponse CreateTokenResponse(ValidatedRequest request)
         {
             var idToken = CreateIdentityToken(request.Grant.Subject, request.Grant.ClientId);
+            var accessToken = CreateAccessToken(request.Grant.Subject, "urn:userinfo", request.Grant.ClientId, request.Grant.Scopes);
 
             if (request.Grant.GrantType == StoredGrantType.AuthorizationCode)
             {
@@ -30,6 +31,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             return new OidcTokenResponse
             {
                 IdentityToken = idToken.ToJwtString(),
+                AccessToken = accessToken.ToJwtString(),
                 TokenType = "Bearer",
                 ExpiresIn = 60 * 60
             };
@@ -48,14 +50,16 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             };
         }
 
-        public AccessToken CreateAccessToken(string subject, string audience, string clientId, IEnumerable<string> scopes)
+        public AccessToken CreateAccessToken(string subject, string audience, string clientId, string scopes)
         {
+            var splitScopes = scopes.Split(' ');
+
             return new AccessToken
             {
                 Audience = audience,
                 Subject = subject,
                 ClientId = clientId,
-                Scopes = scopes,
+                Scopes = splitScopes,
 
                 Ttl = 60,
                 Issuer = _issuer,

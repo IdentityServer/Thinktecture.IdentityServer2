@@ -19,47 +19,47 @@ using Thinktecture.IdentityServer.TokenService;
 namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
     [Authorize]
-    public class UserInfoController : ApiController
+    public class OidcUserInfoController : ApiController
     {
         [Import]
         public IClaimsRepository ClaimsRepository { get; set; }
 
-        public UserInfoController()
+        public OidcUserInfoController()
         {
             Container.Current.SatisfyImportsOnce(this);
         }
 
-        public UserInfoController(IClaimsRepository claimsRepository)
+        public OidcUserInfoController(IClaimsRepository claimsRepository)
         {
             ClaimsRepository = claimsRepository;
         }
 
-        HttpResponseMessage Get()
+        public HttpResponseMessage Get()
         {
-            var requestClaims = new RequestClaimCollection();
+            //var requestClaims = new RequestClaimCollection();
 
-            var scopes = ClaimsPrincipal.Current.FindAll(OAuth2Constants.Scope);
-            foreach (var scope in scopes)
-            {
-                if (OidcConstants.Mappings.ContainsKey(scope.Value))
-                {
-                    foreach (var oidcClaim in OidcConstants.Mappings[scope.Value])
-                    {
-                        requestClaims.Add(new RequestClaim(oidcClaim));
-                    }
-                }
-                else
-                {
-                    Request.CreateErrorResponse(HttpStatusCode.BadRequest, "invalid scope");
-                }
-            }
+            //var scopes = ClaimsPrincipal.Current.FindAll(OAuth2Constants.Scope);
+            //foreach (var scope in scopes)
+            //{
+            //    if (OidcConstants.Mappings.ContainsKey(scope.Value))
+            //    {
+            //        foreach (var oidcClaim in OidcConstants.Mappings[scope.Value])
+            //        {
+            //            requestClaims.Add(new RequestClaim(oidcClaim));
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Request.CreateErrorResponse(HttpStatusCode.BadRequest, "invalid scope");
+            //    }
+            //}
 
             var details = new RequestDetails { IsOpenIdRequest = true };
-            details.ClaimsRequested = true;
-            details.RequestClaims = requestClaims;
+            //details.ClaimsRequested = true;
+            //details.RequestClaims = requestClaims;
 
             var principal = Principal.Create("OpenIdConnect",
-                new Claim(ClaimTypes.NameIdentifier, ClaimsPrincipal.Current.FindFirst("sub").Value));
+                new Claim(ClaimTypes.Name, ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value));
 
             var claims = ClaimsRepository.GetClaims(principal, details);
 
