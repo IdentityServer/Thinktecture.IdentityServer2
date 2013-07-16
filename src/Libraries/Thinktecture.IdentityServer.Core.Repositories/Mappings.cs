@@ -548,6 +548,40 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
 
         #endregion
 
+        #region StoredGrant
+        public static Entities.StoredGrant ToEntityModel(this Models.StoredGrant grant)
+        {
+            return new Entities.StoredGrant
+            {
+                ClientId = grant.ClientId,
+                Created = grant.Created,
+                Expiration = grant.Expiration,
+                GrantId = grant.GrantId,
+                GrantType = (int)grant.GrantType,
+                RedirectUri = grant.RedirectUri,
+                RefreshTokenExpiration = grant.RefreshTokenExpiration,
+                Scopes = grant.Scopes,
+                Subject = grant.Subject
+            };
+        }
+
+        public static Models.StoredGrant ToDomainModel(this Entities.StoredGrant grant)
+        {
+            return new Models.StoredGrant
+            {
+                ClientId = grant.ClientId,
+                Created = grant.Created,
+                Expiration = grant.Expiration,
+                GrantId = grant.GrantId,
+                GrantType = (StoredGrantType)grant.GrantType,
+                RedirectUri = grant.RedirectUri,
+                RefreshTokenExpiration = grant.RefreshTokenExpiration,
+                Scopes = grant.Scopes,
+                Subject = grant.Subject
+            };
+        }
+        #endregion
+
         #region CodeToken
         public static Models.CodeToken ToDomainModel(this Entities.CodeToken token)
         {

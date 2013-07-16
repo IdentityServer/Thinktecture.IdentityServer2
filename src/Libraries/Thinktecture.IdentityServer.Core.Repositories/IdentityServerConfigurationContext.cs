@@ -30,6 +30,8 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         public DbSet<Client> Clients { get; set; }
         public DbSet<CodeToken> CodeTokens { get; set; }
 
+        public DbSet<StoredGrant> StoredGrants { get; set; }
+
         public static Func<IdentityServerConfigurationContext> FactoryMethod { get; set; }
 
         public IdentityServerConfigurationContext()

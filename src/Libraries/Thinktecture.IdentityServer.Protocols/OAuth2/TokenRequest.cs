@@ -25,6 +25,9 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
 
+        [JsonProperty(PropertyName = "redirect_uri")]
+        public string Redirect_Uri { get; set; }
+
         [JsonProperty(PropertyName = "refresh_token")]
         public string Refresh_Token { get; set; }
 

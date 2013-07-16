@@ -86,6 +86,26 @@ namespace Thinktecture.IdentityServer.Web
                 );
             }
 
+            // open id connect
+            if (configuration.OAuth2.Enabled)
+            {
+                // authorize endpoint
+                routes.MapRoute(
+                    "oidcauthorize",
+                    "issue/oidc/authorize",
+                    new { controller = "OidcAuthorize", action = "index" }
+                );
+
+                // token endpoint
+                routes.MapHttpRoute(
+                    name: "oidctoken",
+                    routeTemplate: "issue/oidc/token",
+                    defaults: new { controller = "OidcToken" },
+                    constraints: null,
+                    handler: new AuthenticationHandler(clientAuthConfig, httpConfiguration)
+                );
+            }
+
             // adfs integration
             if (configuration.AdfsIntegration.Enabled)
             {

@@ -85,6 +85,7 @@
     <Compile Include="EntityModel\Configuration\WSFederationConfiguration.cs" />
     <Compile Include="EntityModel\Configuration\WSTrustConfiguration.cs" />
     <Compile Include="EntityModel\Client.cs" />
+    <Compile Include="EntityModel\StoredGrant.cs" />
     <Compile Include="IdentityServerConfigurationContext.cs" />
     <Compile Include="EntityModel\Configuration\GlobalConfiguration.cs" />
     <Compile Include="IdentityProviderRepository.cs" />
@@ -149,6 +150,7 @@
       <DependentUpon>Mappings.resx</DependentUpon>
     </Compile>
     <Compile Include="StandardClaimTypes.cs" />
+    <Compile Include="StoredGrantRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
