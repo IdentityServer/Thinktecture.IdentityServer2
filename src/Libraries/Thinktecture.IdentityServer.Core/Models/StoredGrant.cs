@@ -23,7 +23,7 @@ namespace Thinktecture.IdentityServer.Models
             GrantId = Guid.NewGuid().ToString("N");
         }
 
-        public static StoredGrant CreateAuthorizationCode(string clientId, string subject, string scopes, string redirectUri)
+        public static StoredGrant CreateAuthorizationCode(string clientId, string subject, string scopes, string redirectUri, int ttl)
         {
             return new StoredGrant
             {
@@ -34,7 +34,21 @@ namespace Thinktecture.IdentityServer.Models
                 Scopes = scopes,
                 RedirectUri = redirectUri,
                 Created = DateTime.UtcNow,
-                Expiration = DateTime.UtcNow.AddMinutes(60)
+                Expiration = DateTime.UtcNow.AddMinutes(ttl)
+            };
+        }
+
+        public static StoredGrant CreateRefreshToken(string clientId, string subject, string scopes, int ttl)
+        {
+            return new StoredGrant
+            {
+                GrantType = StoredGrantType.RefreshToken,
+
+                ClientId = clientId,
+                Subject = subject,
+                Scopes = scopes,
+                Created = DateTime.UtcNow,
+                Expiration = DateTime.UtcNow.AddMinutes(ttl)
             };
         }
     }

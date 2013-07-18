@@ -113,7 +113,50 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         private void ValidateRefreshTokenGrant(ValidatedRequest validatedRequest, TokenRequest request)
         {
-            throw new NotImplementedException();
+            if (!validatedRequest.Client.AllowRefreshToken)
+            {
+                throw new TokenRequestValidationException(
+                    "Refresh token not allowed for client",
+                    OAuth2Constants.Errors.UnauthorizedClient);
+            }
+
+            // code needs to be present
+            if (string.IsNullOrWhiteSpace(request.Refresh_Token))
+            {
+                throw new TokenRequestValidationException(
+                    "Missing refresh token",
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            Tracing.Information("Refresh token: " + request.Refresh_Token);
+
+            // check for authorization code in datastore
+            var grant = Grants.Get(request.Refresh_Token);
+            if (grant == null)
+            {
+                throw new TokenRequestValidationException(
+                    "Refresh token not found: " + request.Refresh_Token,
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            // make sure the handle is an authorization code
+            if (grant.GrantType != StoredGrantType.RefreshToken)
+            {
+                throw new TokenRequestValidationException(
+                    "Tampered refresh token: " + request.Refresh_Token,
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            validatedRequest.Grant = grant;
+            Tracing.Information("Stored grant found: " + grant.GrantId);
+
+            // check the client binding
+            if (grant.ClientId != validatedRequest.Client.ClientId)
+            {
+                throw new TokenRequestValidationException(
+                    string.Format("Client {0} is trying to request a token using a refresh token from {1}.", validatedRequest.Client.ClientId, grant.ClientId),
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
         }
 
         private void ValidateCodeGrant(ValidatedRequest validatedRequest, TokenRequest request)
@@ -133,20 +176,27 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                     OAuth2Constants.Errors.InvalidGrant);
             }
 
-            validatedRequest.AuthorizationCode = request.Code;
-            Tracing.Information("Authorization code: " + validatedRequest.AuthorizationCode);
+            //validatedRequest.AuthorizationCode = request.Code;
+            Tracing.Information("Authorization code: " + request.Code);
 
             // check for authorization code in datastore
-            var grant = Grants.Get(validatedRequest.AuthorizationCode);
+            var grant = Grants.Get(request.Code);
             if (grant == null)
             {
                 throw new TokenRequestValidationException(
-                    "Authorization code not found: " + validatedRequest.AuthorizationCode,
+                    "Authorization code not found: " + request.Code,
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            // make sure the handle is an authorization code
+            if (grant.GrantType != StoredGrantType.AuthorizationCode)
+            {
+                throw new TokenRequestValidationException(
+                    "Tampered authorization code: " + request.Code,
                     OAuth2Constants.Errors.InvalidGrant);
             }
 
             validatedRequest.Grant = grant;
-            validatedRequest.GrantsRepository = Grants;
             Tracing.Information("Token handle found: " + grant.GrantId);
 
             // check the client binding

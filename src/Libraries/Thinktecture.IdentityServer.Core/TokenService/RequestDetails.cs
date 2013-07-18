@@ -4,6 +4,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Protocols.WSTrust;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
@@ -18,6 +19,7 @@ namespace Thinktecture.IdentityServer.TokenService
         public string TokenType { get; set; }
         public bool IsActive { get; set; }
         public bool IsOpenIdRequest { get; set; }
+        public IEnumerable<string> OpenIdScopes { get; set; }
         public bool IsKnownRealm { get; set; }
         public EndpointAddress Realm { get; set; }
         public bool UsesSsl { get; set; }

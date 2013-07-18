@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IdentityModel.Tokens;
+﻿using System.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
-using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Models;
-using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
@@ -18,23 +15,23 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             _signingCert = signingCertificate;
         }
 
-        public OidcTokenResponse CreateTokenResponse(ValidatedRequest request)
+        public OidcTokenResponse CreateTokenResponse(StoredGrant grant)
         {
-            var idToken = CreateIdentityToken(request.Grant.Subject, request.Grant.ClientId);
-            var accessToken = CreateAccessToken(request.Grant.Subject, "urn:userinfo", request.Grant.ClientId, request.Grant.Scopes);
-
-            if (request.Grant.GrantType == StoredGrantType.AuthorizationCode)
+            var accessToken = CreateAccessToken(grant.Subject, _issuer + "/userinfo", grant.ClientId, grant.Scopes);
+            var response = new OidcTokenResponse
             {
-                request.GrantsRepository.Delete(request.Grant.GrantId);
-            }
-
-            return new OidcTokenResponse
-            {
-                IdentityToken = idToken.ToJwtString(),
                 AccessToken = accessToken.ToJwtString(),
                 TokenType = "Bearer",
                 ExpiresIn = 60 * 60
             };
+
+            if (grant.GrantType == StoredGrantType.AuthorizationCode)
+            {
+                var idToken = CreateIdentityToken(grant.Subject, grant.ClientId);
+                response.IdentityToken = idToken.ToJwtString();
+            }
+
+            return response;
         }
 
         public IdentityToken CreateIdentityToken(string subject, string audience)

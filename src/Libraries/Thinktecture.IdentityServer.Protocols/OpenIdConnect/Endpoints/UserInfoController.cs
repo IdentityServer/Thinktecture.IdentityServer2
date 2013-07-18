@@ -15,6 +15,7 @@ using Thinktecture.IdentityModel;
 using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.TokenService;
+using System.Linq;
 
 namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
@@ -36,27 +37,24 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         public HttpResponseMessage Get()
         {
-            //var requestClaims = new RequestClaimCollection();
-
-            //var scopes = ClaimsPrincipal.Current.FindAll(OAuth2Constants.Scope);
-            //foreach (var scope in scopes)
-            //{
-            //    if (OidcConstants.Mappings.ContainsKey(scope.Value))
-            //    {
-            //        foreach (var oidcClaim in OidcConstants.Mappings[scope.Value])
-            //        {
-            //            requestClaims.Add(new RequestClaim(oidcClaim));
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Request.CreateErrorResponse(HttpStatusCode.BadRequest, "invalid scope");
-            //    }
-            //}
-
             var details = new RequestDetails { IsOpenIdRequest = true };
-            //details.ClaimsRequested = true;
-            //details.RequestClaims = requestClaims;
+            var scopeClaims = ClaimsPrincipal.Current.FindAll(OAuth2Constants.Scope).ToList();
+            var requestedClaims = ClaimsPrincipal.Current.FindAll("requestclaim").ToList();
+
+            if (scopeClaims.Count > 0)
+            {
+                var scopes = new List<string>(scopeClaims.Select(sc => sc.Value));
+                details.OpenIdScopes = scopes;
+            }
+
+            if (requestedClaims.Count > 0)
+            {
+                var requestClaims = new RequestClaimCollection();
+                requestedClaims.ForEach(rc => requestClaims.Add(new RequestClaim(rc.Value)));
+                
+                details.ClaimsRequested = true;
+                details.RequestClaims = requestClaims;
+            }
 
             var principal = Principal.Create("OpenIdConnect",
                 new Claim(ClaimTypes.Name, ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier).Value));

@@ -88,35 +88,35 @@ namespace Thinktecture.IdentityServer.Web
 
             // open id connect
             // authorize endpoint
-            //routes.MapRoute(
-            //    "oidcauthorize",
-            //    "issue/oidc/authorize",
-            //    new { controller = "OidcAuthorize", action = "index" }
-            //);
+            routes.MapRoute(
+                "oidcauthorize",
+                "issue/oidc/authorize",
+                new { controller = "OidcAuthorize", action = "index" }
+            );
 
-            //// token endpoint
-            //routes.MapHttpRoute(
-            //    name: "oidctoken",
-            //    routeTemplate: "issue/oidc/token",
-            //    defaults: new { controller = "OidcToken" },
-            //    constraints: null,
-            //    handler: new AuthenticationHandler(clientAuthConfig, httpConfiguration)
-            //);
-            
-            //// userinfo endpoint
-            //var userInfoAuth = new AuthenticationConfiguration();
-            //userInfoAuth.AddJsonWebToken(
-            //    issuer: configuration.Global.IssuerUri,
-            //    audience: "urn:userinfo",
-            //    signingCertificate: configuration.Keys.SigningCertificate);
+            // token endpoint
+            routes.MapHttpRoute(
+                name: "oidctoken",
+                routeTemplate: "issue/oidc/token",
+                defaults: new { controller = "OidcToken" },
+                constraints: null,
+                handler: new AuthenticationHandler(clientAuthConfig, httpConfiguration)
+            );
 
-            //routes.MapHttpRoute(
-            //    name: "oidcuserinfo",
-            //    routeTemplate: "issue/oidc/userinfo",
-            //    defaults: new { controller = "OidcUserInfo" },
-            //    constraints: null,
-            //    handler: new AuthenticationHandler(userInfoAuth, httpConfiguration)
-            //);
+            // userinfo endpoint
+            var userInfoAuth = new AuthenticationConfiguration();
+            userInfoAuth.AddJsonWebToken(
+                issuer: configuration.Global.IssuerUri,
+                audience: configuration.Global.IssuerUri + "/userinfo",
+                signingCertificate: configuration.Keys.SigningCertificate);
+
+            routes.MapHttpRoute(
+                name: "oidcuserinfo",
+                routeTemplate: "issue/oidc/userinfo",
+                defaults: new { controller = "OidcUserInfo" },
+                constraints: null,
+                handler: new AuthenticationHandler(userInfoAuth, httpConfiguration)
+            );
 
             // adfs integration
             if (configuration.AdfsIntegration.Enabled)

@@ -121,6 +121,17 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             validatedRequest.ResponseType = request.response_type;
             Tracing.Information("Response type: " + validatedRequest.ResponseType);
 
+            // scope is required
+            if (string.IsNullOrWhiteSpace(request.scope))
+            {
+                throw new AuthorizeRequestClientException(
+                    "Missing scope",
+                    new Uri(validatedRequest.RedirectUri),
+                    OAuth2Constants.Errors.InvalidScope,
+                    validatedRequest.ResponseType,
+                    validatedRequest.State);
+            }
+
             // validate scopes
             if (!request.scope.StartsWith("openid"))
             {
@@ -132,19 +143,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                     validatedRequest.State);
             }
 
-            var scopes = request.scope.Split(' ');
-            if (scopes.Length == 1)
-            {
-                throw new AuthorizeRequestClientException(
-                    "Invalid scopes: " + request.scope,
-                    new Uri(validatedRequest.RedirectUri),
-                    OAuth2Constants.Errors.InvalidScope,
-                    validatedRequest.ResponseType,
-                    validatedRequest.State);
-            }
-
             validatedRequest.Scopes = request.scope; 
-
 
             if (request.response_type == OAuth2Constants.ResponseTypes.Code)
             {

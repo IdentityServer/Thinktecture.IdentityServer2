@@ -35,6 +35,8 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         public ActionResult Index(AuthorizeRequest request)
         {
+            Tracing.Start("OIDC Authorize Endpoint");
+
             ValidatedRequest validatedRequest;
 
             try
@@ -72,11 +74,14 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         private ActionResult PerformAuthorizationCodeGrant(ValidatedRequest validatedRequest)
         {
+            Tracing.Information("Processing authorization code request");
+
             var grant = StoredGrant.CreateAuthorizationCode(
                 validatedRequest.Client.ClientId,
                 ClaimsPrincipal.Current.Identity.Name,
                 validatedRequest.Scopes,
-                validatedRequest.RedirectUri);
+                validatedRequest.RedirectUri,
+                60);
 
             Grants.Add(grant);
 

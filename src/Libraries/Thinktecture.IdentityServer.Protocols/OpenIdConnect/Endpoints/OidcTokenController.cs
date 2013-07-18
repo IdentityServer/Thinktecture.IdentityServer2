@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Constants;
+using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Protocols.OAuth2;
 using Thinktecture.IdentityServer.Repositories;
 
@@ -51,23 +52,51 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             {
                 return ProcessAuthorizationCodeRequest(validatedRequest);
             }
-            //else if (string.Equals(validatedRequest.GrantType, OAuth2Constants.GrantTypes.RefreshToken))
-            //{
-            //    return ProcessRefreshTokenRequest(validatedRequest);
-            //}
-            
-            Tracing.Error("invalid grant type: " + request.Grant_Type);
+            else if (string.Equals(validatedRequest.GrantType, OAuth2Constants.GrantTypes.RefreshToken))
+            {
+                return ProcessRefreshTokenRequest(validatedRequest);
+            }
+
+            Tracing.Error("unsupported grant type: " + request.Grant_Type);
             return Request.CreateOAuthErrorResponse(OAuth2Constants.Errors.UnsupportedGrantType);
+        }
+
+        private HttpResponseMessage ProcessRefreshTokenRequest(ValidatedRequest validatedRequest)
+        {
+            Tracing.Information("Processing refresh token request");
+
+            var tokenService = new OidcTokenService(ServerConfiguration.Global.IssuerUri, ServerConfiguration.Keys.SigningCertificate);
+            var response = tokenService.CreateTokenResponse(validatedRequest.Grant);
+
+            response.RefreshToken = validatedRequest.Grant.GrantId;
+            return Request.CreateTokenResponse(response);
         }
 
         private HttpResponseMessage ProcessAuthorizationCodeRequest(ValidatedRequest validatedRequest)
         {
             Tracing.Information("Processing authorization code request");
 
-            var tokenService = new OidcTokenService(ServerConfiguration.Global.IssuerUri, ServerConfiguration.Keys.SigningCertificate);
-            var response = tokenService.CreateTokenResponse(validatedRequest);
+            var tokenService = new OidcTokenService(
+                ServerConfiguration.Global.IssuerUri, 
+                ServerConfiguration.Keys.SigningCertificate);
+
+            var response = tokenService.CreateTokenResponse(validatedRequest.Grant);
+            Grants.Delete(validatedRequest.Grant.GrantId);
+
+            if (validatedRequest.Grant.Scopes.Contains(OidcConstants.Scopes.OfflineAccess) &&
+                validatedRequest.Client.AllowRefreshToken)
+            {
+                var refreshToken = StoredGrant.CreateRefreshToken(
+                    validatedRequest.Grant.ClientId,
+                    validatedRequest.Grant.Subject,
+                    validatedRequest.Grant.Scopes,
+                    3600);
+
+                Grants.Add(refreshToken);
+                response.RefreshToken = refreshToken.GrantId;
+            }
 
             return Request.CreateTokenResponse(response);
-        } 
+        }
     }
 }
