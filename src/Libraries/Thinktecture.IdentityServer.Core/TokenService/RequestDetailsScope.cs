@@ -21,7 +21,7 @@ namespace Thinktecture.IdentityServer.TokenService
             : base(details.Realm.Uri.AbsoluteUri, signingCredentials)
         {
             RequestDetails = details;
-
+            
             if (RequestDetails.UsesEncryption)
             {
                 EncryptingCredentials = new X509EncryptingCredentials(details.EncryptingCertificate);

@@ -96,9 +96,16 @@ namespace Thinktecture.IdentityServer.TokenService
                 SecurityTokenServiceConfiguration.SigningCredentials, 
                 ConfigurationRepository.Global.RequireEncryption);
 
+            // set token type
+            if (!string.IsNullOrWhiteSpace(details.TokenType))
+            {
+                rst.TokenType = details.TokenType;
+            }
+
+
             return scope;
         }
-
+        
         protected override Lifetime GetTokenLifetime(Lifetime requestLifetime)
         {
             var scope = Scope as RequestDetailsScope;

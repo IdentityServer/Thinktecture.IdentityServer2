@@ -81,12 +81,12 @@ namespace Thinktecture.IdentityServer.TokenService
             };
 
             AnalyzeRst(rst, details);
-            AnalyzeTokenType(rst, details);
             AnalyzeKeyType(rst);
             AnalyzeRealm(rst, details);
             AnalyzeOperationContext(details);
             AnalyzeDelegation(rst, details);
             AnalyzeRelyingParty(details);
+            AnalyzeTokenType(rst, details);
             AnalyzeEncryption(details);
             AnalyzeReplyTo(details);
             AnalyzeSsl(details);
@@ -114,10 +114,6 @@ namespace Thinktecture.IdentityServer.TokenService
 
             ValidateKnownRealm(details);
             ValidateRelyingParty(details);
-            
-            // not needed anymore
-            //ValidateTokenType(details);
-            
             ValidateReplyTo(details);
             ValidateEncryption(details);
             ValidateDelegation(details);
@@ -208,15 +204,39 @@ namespace Thinktecture.IdentityServer.TokenService
 
         protected virtual void AnalyzeTokenType(RequestSecurityToken rst, RequestDetails details)
         {
-            if (string.IsNullOrWhiteSpace(rst.TokenType))
+            if (!string.IsNullOrWhiteSpace(rst.TokenType))
             {
-                details.TokenType = _configuration.Global.DefaultWSTokenType;
-                Tracing.Information("Token Type: not specified, falling back to default token type");
+                details.TokenType = rst.TokenType;
+                Tracing.Information("Token type set from RST: " + details.TokenType);
+
+                return;
+            }
+
+            if (details.RelyingPartyRegistration.TokenType != null)
+            {
+                switch (details.RelyingPartyRegistration.TokenType.Value)
+                {
+                    case TokenType.SAML11:
+                        details.TokenType = TokenTypes.Saml11TokenProfile11;
+                        break;
+                    case TokenType.SAML20:
+                        details.TokenType = TokenTypes.Saml2TokenProfile11;
+                        break;
+                    case TokenType.JWT:
+                        details.TokenType = TokenTypes.JsonWebToken;
+                        break;
+                    default:
+                        string error = "Invalid token type: " + details.RelyingPartyRegistration.TokenType.Value.ToString();
+                        Tracing.Error(error);
+                        throw new InvalidRequestException(error);
+                }
+
+                Tracing.Information("Token type set from RP registration: " + details.TokenType);
             }
             else
             {
-                Tracing.Information("Token Type: " + rst.TokenType);
-                details.TokenType = rst.TokenType;
+                details.TokenType = _configuration.Global.DefaultWSTokenType;
+                Tracing.Information("Token Type not specified, using default token type");
             }
         }
 
@@ -361,20 +381,6 @@ namespace Thinktecture.IdentityServer.TokenService
                 {
                     Tracing.Error(String.Format("ActAs mapping not found."));
                     throw new InvalidRequestException("ActAs mapping not found.");
-                }
-            }
-        }
-
-        private void ValidateTokenType(RequestDetails details)
-        {
-            if (details.TokenType == TokenTypes.SimpleWebToken || details.TokenType == TokenTypes.JsonWebToken)
-            {
-                if (details.RelyingPartyRegistration == null ||
-                    details.RelyingPartyRegistration.SymmetricSigningKey == null ||
-                    details.RelyingPartyRegistration.SymmetricSigningKey.Length == 0)
-                {
-                    Tracing.Error("Token with symmetric siganture requested, but no symmetric signing key found");
-                    throw new InvalidRequestException("Token with symmetric siganture requested, but no symmetric signing key found");
                 }
             }
         }
