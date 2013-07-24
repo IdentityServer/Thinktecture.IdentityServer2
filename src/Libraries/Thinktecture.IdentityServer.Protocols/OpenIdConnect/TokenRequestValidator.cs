@@ -9,10 +9,10 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
     class TokenRequestValidator
     {
-        public IClientsRepository Clients { get; set; }
+        public IOpenIdConnectClientsRepository Clients { get; set; }
         public IStoredGrantRepository Grants { get; set; }
 
-        public TokenRequestValidator(IClientsRepository clients, IStoredGrantRepository grants)
+        public TokenRequestValidator(IOpenIdConnectClientsRepository clients, IStoredGrantRepository grants)
         {
             Clients = clients;
             Grants = grants;
@@ -84,7 +84,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             return validatedRequest;
         }
 
-        private Client ValidateClient(ClaimsPrincipal clientPrincipal)
+        private OpenIdConnectClient ValidateClient(ClaimsPrincipal clientPrincipal)
         {
             if (!clientPrincipal.Identity.IsAuthenticated)
             {
@@ -98,9 +98,9 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                 Tracing.Error("No client secret provided.");
                 return null;
             }
-
-            Client client;
-            if (Clients.ValidateAndGetClient(
+            
+            OpenIdConnectClient client;
+            if (Clients.ValidateClient(
                     clientPrincipal.Identity.Name,
                     passwordClaim.Value,
                     out client))
@@ -139,11 +139,19 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                     OAuth2Constants.Errors.InvalidGrant);
             }
 
-            // make sure the handle is an authorization code
+            // make sure the handle is a refresh token
             if (grant.GrantType != StoredGrantType.RefreshToken)
             {
                 throw new TokenRequestValidationException(
                     "Tampered refresh token: " + request.Refresh_Token,
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            // check expiration
+            if (DateTime.UtcNow > grant.Expiration)
+            {
+                throw new TokenRequestValidationException(
+                    "Refresh token expired: " + request.Refresh_Token,
                     OAuth2Constants.Errors.InvalidGrant);
             }
 
@@ -161,7 +169,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         private void ValidateCodeGrant(ValidatedRequest validatedRequest, TokenRequest request)
         {
-            if (!validatedRequest.Client.AllowCodeFlow)
+            if (validatedRequest.Client.Flow != OpenIdConnectFlows.AuthorizationCode)
             {
                 throw new TokenRequestValidationException(
                     "Code flow not allowed for client",
@@ -176,7 +184,6 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                     OAuth2Constants.Errors.InvalidGrant);
             }
 
-            //validatedRequest.AuthorizationCode = request.Code;
             Tracing.Information("Authorization code: " + request.Code);
 
             // check for authorization code in datastore
@@ -193,6 +200,14 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             {
                 throw new TokenRequestValidationException(
                     "Tampered authorization code: " + request.Code,
+                    OAuth2Constants.Errors.InvalidGrant);
+            }
+
+            // check expiration
+            if (DateTime.UtcNow > grant.Expiration)
+            {
+                throw new TokenRequestValidationException(
+                    "Authorization code is expired: " + request.Code,
                     OAuth2Constants.Errors.InvalidGrant);
             }
 

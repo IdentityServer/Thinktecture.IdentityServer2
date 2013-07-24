@@ -3,10 +3,10 @@
  * see license.txt
  */
 
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IdentityModel.Protocols.WSTrust;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
@@ -15,7 +15,6 @@ using Thinktecture.IdentityModel;
 using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.TokenService;
-using System.Linq;
 
 namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
@@ -37,6 +36,8 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         public HttpResponseMessage Get()
         {
+            Tracing.Start("OIDC UserInfo endpoint");
+
             var details = new RequestDetails { IsOpenIdRequest = true };
             var scopeClaims = ClaimsPrincipal.Current.FindAll(OAuth2Constants.Scope).ToList();
             var requestedClaims = ClaimsPrincipal.Current.FindAll("requestclaim").ToList();

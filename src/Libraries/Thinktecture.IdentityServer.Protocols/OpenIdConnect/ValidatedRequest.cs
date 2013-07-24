@@ -4,7 +4,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
     public class ValidatedRequest
     {
-        public Client Client { get; set; }
+        public OpenIdConnectClient Client { get; set; }
 
         public string State { get; set; }
 

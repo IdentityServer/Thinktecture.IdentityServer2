@@ -75,8 +75,18 @@
     <Compile Include="CodeTokenRepository.cs" />
     <Compile Include="ConfigurationDatabaseInitializer.cs" />
     <Compile Include="ClientsRepository.cs" />
+    <Compile Include="Migrations.SqlServer\201307241918180_OIDC.cs" />
+    <Compile Include="Migrations.SqlServer\201307241918180_OIDC.Designer.cs">
+      <DependentUpon>201307241918180_OIDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.SqlCe\201307241918515_OIDC.cs" />
+    <Compile Include="Migrations.SqlCe\201307241918515_OIDC.Designer.cs">
+      <DependentUpon>201307241918515_OIDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenIdConnectClientsRepository.cs" />
     <Compile Include="EntityModel\CodeToken.cs" />
     <Compile Include="EntityModel\Configuration\AdfsIntegrationConfiguration.cs" />
+    <Compile Include="EntityModel\Configuration\OpenIdConnectConfiguration.cs" />
     <Compile Include="EntityModel\Configuration\SimpleHttpConfiguration.cs" />
     <Compile Include="EntityModel\Configuration\DiagnosticsConfiguration.cs" />
     <Compile Include="EntityModel\Configuration\FederationMetadataConfiguration.cs" />
@@ -85,6 +95,7 @@
     <Compile Include="EntityModel\Configuration\WSFederationConfiguration.cs" />
     <Compile Include="EntityModel\Configuration\WSTrustConfiguration.cs" />
     <Compile Include="EntityModel\Client.cs" />
+    <Compile Include="EntityModel\OpenIdConnectClient.cs" />
     <Compile Include="EntityModel\StoredGrant.cs" />
     <Compile Include="IdentityServerConfigurationContext.cs" />
     <Compile Include="EntityModel\Configuration\GlobalConfiguration.cs" />
@@ -215,6 +226,12 @@
     <EmbeddedResource Include="Migrations.SqlServer\201307221954492_RPTokenType.resx">
       <DependentUpon>201307221954492_RPTokenType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.SqlServer\201307241918180_OIDC.resx">
+      <DependentUpon>201307241918180_OIDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.SqlCe\201307241918515_OIDC.resx">
+      <DependentUpon>201307241918515_OIDC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\IdentityProviderRepository.fr.resx">
       <DependentUpon>IdentityProviderRepository.resx</DependentUpon>
     </EmbeddedResource>
@@ -239,12 +256,14 @@
     <Content Include="Migrations.SqlCe\Sql\201303212122270_AdfsIntegration.sql" />
     <Content Include="Migrations.SqlCe\Sql\201307221743397_StoredGrants.sql" />
     <Content Include="Migrations.SqlCe\Sql\201307221954069_RPTokenType.sql" />
+    <Content Include="Migrations.SqlCe\Sql\201307241918515_OIDC.sql" />
     <Content Include="Migrations.SqlServer\Sql\201301011810411_InitialMigration.sql" />
     <Content Include="Migrations.SqlServer\Sql\201302041414549_RefreshToken.sql" />
     <Content Include="Migrations.SqlServer\Sql\201303101659384_ClientSecretNotRequired.sql" />
     <Content Include="Migrations.SqlServer\Sql\201303212116088_AdfsIntegration.sql" />
     <Content Include="Migrations.SqlServer\Sql\201307221744463_StoredGrants.sql" />
     <Content Include="Migrations.SqlServer\Sql\201307221954492_RPTokenType.sql" />
+    <Content Include="Migrations.SqlServer\Sql\201307241918180_OIDC.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

@@ -16,5 +16,6 @@ namespace Thinktecture.IdentityServer.Repositories
         OAuth2Configuration OAuth2 { get; set; }
         AdfsIntegrationConfiguration AdfsIntegration { get; set; }
         SimpleHttpConfiguration SimpleHttp { get; set; }
+        OpenIdConnectConfiguration OpenIdConnect { get; set; }
     }
 }

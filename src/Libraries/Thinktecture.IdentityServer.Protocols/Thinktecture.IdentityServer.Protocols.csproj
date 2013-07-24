@@ -83,6 +83,7 @@
     <Compile Include="OAuth2\TokenRequestValidationException.cs" />
     <Compile Include="OpenIdConnect\AccessToken.cs" />
     <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeController.cs" />
+    <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeControllerBase.cs" />
     <Compile Include="OpenIdConnect\IdentityToken.cs" />
     <Compile Include="OpenIdConnect\OidcToken.cs" />
     <Compile Include="OpenIdConnect\OidcConstants.cs" />

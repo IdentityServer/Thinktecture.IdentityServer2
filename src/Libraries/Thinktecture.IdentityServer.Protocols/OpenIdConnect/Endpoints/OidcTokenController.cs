@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+ * Copyright (c) Dominick Baier, Brock Allen.  All rights reserved.
+ * see license.txt
+ */
+
 using System.ComponentModel.Composition;
-using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Thinktecture.IdentityModel.Constants;
 using Thinktecture.IdentityServer.Models;
@@ -20,7 +20,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
         public IStoredGrantRepository Grants { get; set; }
 
         [Import]
-        public IClientsRepository Clients { get; set; }
+        public IOpenIdConnectClientsRepository Clients { get; set; }
 
         [Import]
         public IConfigurationRepository ServerConfiguration { get; set; }
@@ -65,8 +65,11 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
         {
             Tracing.Information("Processing refresh token request");
 
-            var tokenService = new OidcTokenService(ServerConfiguration.Global.IssuerUri, ServerConfiguration.Keys.SigningCertificate);
-            var response = tokenService.CreateTokenResponse(validatedRequest.Grant);
+            var tokenService = new OidcTokenService(
+                ServerConfiguration.Global.IssuerUri, 
+                ServerConfiguration.Keys.SigningCertificate);
+            
+            var response = tokenService.CreateTokenResponse(validatedRequest.Grant, validatedRequest.Client.AccessTokenLifetime);
 
             response.RefreshToken = validatedRequest.Grant.GrantId;
             return Request.CreateTokenResponse(response);
@@ -80,7 +83,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                 ServerConfiguration.Global.IssuerUri, 
                 ServerConfiguration.Keys.SigningCertificate);
 
-            var response = tokenService.CreateTokenResponse(validatedRequest.Grant);
+            var response = tokenService.CreateTokenResponse(validatedRequest.Grant, validatedRequest.Client.AccessTokenLifetime);
             Grants.Delete(validatedRequest.Grant.GrantId);
 
             if (validatedRequest.Grant.Scopes.Contains(OidcConstants.Scopes.OfflineAccess) &&
@@ -90,7 +93,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                     validatedRequest.Grant.ClientId,
                     validatedRequest.Grant.Subject,
                     validatedRequest.Grant.Scopes,
-                    3600);
+                    validatedRequest.Client.RefreshTokenLifetime);
 
                 Grants.Add(refreshToken);
                 response.RefreshToken = refreshToken.GrantId;

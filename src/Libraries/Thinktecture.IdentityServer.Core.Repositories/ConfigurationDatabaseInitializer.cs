@@ -35,6 +35,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                         context.AdfsIntegration.Add(CreateTestAdfsIntegrationConfiguration());
                         context.SimpleHttp.Add(CreateTestSimpleHttpConfiguration());
                         context.Diagnostics.Add(CreateTestDiagnosticsConfiguration());
+                        context.OpenIdConnect.Add(CreateTestOpenIdConnectConfiguration());
 
                         // test data
                         CreateTestRelyingParties().ForEach(rp => context.RelyingParties.Add(rp));
@@ -42,6 +43,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                         CreateTestDelegationSettings().ForEach(d => context.Delegation.Add(d));
                         CreateTestClientCertificateSettings().ForEach(cc => context.ClientCertificates.Add(cc));
                         CreateTestClients().ForEach(c => context.Clients.Add(c));
+                        CreateTestOpenIdConnectClients().ForEach(c => context.OpenIdConnectClients.Add(c));
 
                         return;
                     }
@@ -57,6 +59,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             if (!context.AdfsIntegration.Any()) context.AdfsIntegration.Add(CreateDefaultAdfsIntegrationConfiguration());
             if (!context.SimpleHttp.Any()) context.SimpleHttp.Add(CreateDefaultSimpleHttpConfiguration());
             if (!context.Diagnostics.Any()) context.Diagnostics.Add(CreateDefaultDiagnosticsConfiguration());
+            if (!context.OpenIdConnect.Any()) context.OpenIdConnect.Add(CreateOpenIdConnectConfiguration());
         }
 
         protected override void Seed(IdentityServerConfigurationContext context)
@@ -162,6 +165,15 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 EnableFederationMessageTracing = false
             };
         }
+
+        private static OpenIdConnectConfiguration CreateOpenIdConnectConfiguration()
+        {
+            return new OpenIdConnectConfiguration
+            {
+                Enabled = false
+            };
+        }
+
         #endregion
 
         #region Test Configuration
@@ -264,6 +276,15 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 EnableFederationMessageTracing = true
             };
         }
+
+        private static OpenIdConnectConfiguration CreateTestOpenIdConnectConfiguration()
+        {
+            return new OpenIdConnectConfiguration
+            {
+                Enabled = true
+            };
+        }
+
         #endregion
 
         #region Test Data
@@ -434,6 +455,16 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 }
             };
         }
+
+        private static List<OpenIdConnectClientEntity> CreateTestOpenIdConnectClients()
+        {
+            return new List<OpenIdConnectClientEntity>()
+            {
+                new OpenIdConnectClientEntity{ClientId="test1", ClientSecret=Thinktecture.IdentityServer.Helper.CryptoHelper.HashPassword("secret"), Name="test1"},
+                new OpenIdConnectClientEntity{ClientId="test2", ClientSecret=Thinktecture.IdentityServer.Helper.CryptoHelper.HashPassword("secret"), Name="test2"},
+            };
+        }
+
         #endregion
     }
 }

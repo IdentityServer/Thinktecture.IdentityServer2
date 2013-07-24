@@ -1,41 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+ * Copyright (c) Dominick Baier, Brock Allen.  All rights reserved.
+ * see license.txt
+ */
+
 using System.Web.Mvc;
-using Thinktecture.IdentityModel.Constants;
-using Thinktecture.IdentityServer.Models;
 using Thinktecture.IdentityServer.Protocols.OAuth2;
 using Thinktecture.IdentityServer.Repositories;
 
-namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
+namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect.Endpoints
 {
-    [Authorize]
-    public class OidcAuthorizeController : Controller
+    public class OidcAuthorizeController : OidcAuthorizeControllerBase
     {
-        [Import]
-        public IClientsRepository Clients { get; set; }
+        public OidcAuthorizeController() : base()
+        { }
 
-        [Import]
-        public IStoredGrantRepository Grants { get; set; }
+        public OidcAuthorizeController(IOpenIdConnectClientsRepository clients, IStoredGrantRepository grants)
+            : base(clients, grants)
+        { }
 
-        public OidcAuthorizeController()
+        protected override ActionResult ShowConsent(ValidatedRequest validatedRequest)
         {
-            Container.Current.SatisfyImportsOnce(this);
+            Tracing.Information("OIDC Consent screen");
+
+            return View("Consent", validatedRequest);
         }
 
-        public OidcAuthorizeController(IClientsRepository clients, IStoredGrantRepository grants)
+        [HttpPost]
+        protected override ActionResult HandleConsent(AuthorizeRequest request)
         {
-            Clients = clients;
-            Grants = grants;
-        }
-
-        public ActionResult Index(AuthorizeRequest request)
-        {
-            Tracing.Start("OIDC Authorize Endpoint");
+            Tracing.Start("OIDC consent response");
 
             ValidatedRequest validatedRequest;
 
@@ -48,60 +41,9 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             {
                 Tracing.Error("Aborting OAuth2 authorization request");
                 return this.AuthorizeValidationError(ex);
-            }
-
-            // consent - todo
+            };
 
             return PerformGrant(validatedRequest);
-        }
-
-        private ActionResult PerformGrant(ValidatedRequest validatedRequest)
-        {
-            // implicit grant
-            if (validatedRequest.ResponseType.Equals(OAuth2Constants.ResponseTypes.Token, StringComparison.Ordinal))
-            {
-                return PerformImplicitGrant(validatedRequest);
-            }
-
-            // authorization code grant
-            if (validatedRequest.ResponseType.Equals(OAuth2Constants.ResponseTypes.Code, StringComparison.Ordinal))
-            {
-                return PerformAuthorizationCodeGrant(validatedRequest);
-            }
-
-            return null;
-        }
-
-        private ActionResult PerformAuthorizationCodeGrant(ValidatedRequest validatedRequest)
-        {
-            Tracing.Information("Processing authorization code request");
-
-            var grant = StoredGrant.CreateAuthorizationCode(
-                validatedRequest.Client.ClientId,
-                ClaimsPrincipal.Current.Identity.Name,
-                validatedRequest.Scopes,
-                validatedRequest.RedirectUri,
-                60);
-
-            Grants.Add(grant);
-
-            var tokenString = string.Format("code={0}", grant.GrantId);
-
-            if (!string.IsNullOrWhiteSpace(validatedRequest.State))
-            {
-                tokenString = string.Format("{0}&state={1}", tokenString, Server.UrlEncode(validatedRequest.State));
-            }
-
-            var redirectString = string.Format("{0}?{1}",
-                        validatedRequest.RedirectUri,
-                        tokenString);
-
-            return Redirect(redirectString);
-        }
-
-        private ActionResult PerformImplicitGrant(ValidatedRequest validatedRequest)
-        {
-            throw new NotImplementedException();
         }
     }
 }

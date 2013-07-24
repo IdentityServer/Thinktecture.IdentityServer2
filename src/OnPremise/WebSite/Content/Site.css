@@ -1,4 +1,4 @@
-body {
+﻿body {
   font-family: Calibri, Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
   color: #232323;
   background-color: #fff;
@@ -103,6 +103,7 @@ ul.hrd li button {
   margin: 5px;
 }
 .editor label {
+  vertical-align: top;
   display: inline-block;
   width: 230px;
   font-weight: bold;
@@ -129,7 +130,8 @@ ul.hrd li button {
 .editor input[type=password],
 .editor input[type=file],
 .editor input[type=url],
-.editor input[type=email] {
+.editor input[type=email],
+.editor textarea {
   width: 350px;
 }
 .editor select {

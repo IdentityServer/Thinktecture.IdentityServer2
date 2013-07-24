@@ -1,0 +1,34 @@
+@model OpenIdConnectClientIndexViewModel
+
+@{
+    ViewBag.Title = "OpenID Connect Clients";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("Error deleting clients")
+
+    <fieldset class="editor">
+        <legend>@ViewBag.Title</legend>
+        @{
+            var list = Model.Clients;
+        }
+        @for (int i = 0; i < list.Length; i++)
+        {
+            <div>
+                @Html.HiddenFor(x=>list[i].ClientId)
+                @Html.LabelFor(x => list[i].Delete, list[i].Name)
+                @Html.CheckBoxFor(x => list[i].Delete)
+            </div>
+        }
+
+        <div class="buttons">
+            <button type="submit" name="action" value="delete">Delete Selected</button>
+            <button type="submit" name="action" value="new">New</button>
+            <button type="reset">Cancel</button>
+        </div>
+
+    </fieldset>
+}
+

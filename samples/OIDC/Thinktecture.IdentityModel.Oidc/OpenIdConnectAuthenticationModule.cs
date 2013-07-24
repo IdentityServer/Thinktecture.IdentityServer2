@@ -61,7 +61,7 @@ namespace Thinktecture.IdentityModel.Oidc
                 var clientSecret = config.ClientSecret;
                 var issuerName = config.IssuerName;
                 var signingcert = X509.LocalMachine.TrustedPeople.SubjectDistinguishedName.Find(
-                    config.SigningCertificate).First();
+                    config.SigningCertificate, false).First();
 
                 // parse OIDC authorize response
                 var response = OidcClient.HandleAuthorizeResponse(context.Request.QueryString);
@@ -74,6 +74,7 @@ namespace Thinktecture.IdentityModel.Oidc
                 // read and parse state cookie
                 var cookie = new ProtectedCookie(ProtectionMode.MachineKey);
                 var storedState = cookie.Read("oidcstate");
+                ProtectedCookie.Delete("oidcstate");
 
                 var separator = storedState.IndexOf('_');
                 if (separator == -1)

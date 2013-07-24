@@ -14,10 +14,9 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 {
     public class AuthorizeRequestValidator
     {
-        [Import]
-        public IClientsRepository Clients { get; set; }
+        public IOpenIdConnectClientsRepository Clients { get; set; }
 
-        public AuthorizeRequestValidator(IClientsRepository clients)
+        public AuthorizeRequestValidator(IOpenIdConnectClientsRepository clients)
         {
             Clients = clients;
         }
@@ -44,8 +43,10 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                 throw new AuthorizeRequestResourceOwnerException("Missing client identifier");
             }
 
-            Client client;
-            if (!Clients.TryGetClient(request.client_id, out client))
+
+            var client = Clients.Get(request.client_id);
+            
+            if (client == null)
             {
                 throw new AuthorizeRequestResourceOwnerException("Invalid client: " + request.client_id);
             }
@@ -70,7 +71,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                 }
 
                 // make sure redirect uri is registered with client
-                if (!request.redirect_uri.Equals(validatedRequest.Client.RedirectUri.AbsoluteUri, StringComparison.OrdinalIgnoreCase))
+                if (!validatedRequest.Client.RedirectUris.Contains(request.redirect_uri))
                 {
                     throw new AuthorizeRequestResourceOwnerException("Invalid redirect URI: " + request.redirect_uri);
                 }
@@ -173,7 +174,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
 
         private void ValidateCodeResponseType(ValidatedRequest validatedRequest, AuthorizeRequest request)
         {
-            if (!validatedRequest.Client.AllowCodeFlow)
+            if (validatedRequest.Client.Flow != OpenIdConnectFlows.AuthorizationCode)
             {
                 throw new AuthorizeRequestClientException(
                    "response_type is not allowed: " + request.response_type,

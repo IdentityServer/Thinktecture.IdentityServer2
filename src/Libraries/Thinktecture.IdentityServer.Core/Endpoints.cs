@@ -23,6 +23,10 @@ namespace Thinktecture.IdentityServer
         public Uri WSTrustMessageCertificate { get; set; }
         public Uri WSTrustMixedCertificate { get; set; }
 
+        public Uri OidcAuthorize { get; set; }
+        public Uri OidcToken { get; set; }
+        public Uri OidcUserInfo { get; set; }
+
         public Uri SimpleHttp { get; set; }
         public Uri AdfsIntegration { get; set; }
         public Uri Wrap { get; set; }
@@ -51,6 +55,11 @@ namespace Thinktecture.IdentityServer
             public const string WSTrustMixedUserName = "mixed/username";
             public const string WSTrustMessageCertificate = "message/certificate";
             public const string WSTrustMixedCertificate = "mixed/certificate";
+
+            public const string OidcAuthorize = "issue/oidc/authorize";
+            public const string OidcToken = "issue/oidc/token";
+            public const string OidcUserInfo = "issue/oidc/userinfo";
+
         }
 
         /// <summary>
@@ -124,6 +133,24 @@ namespace Thinktecture.IdentityServer
             builder.Scheme = Uri.UriSchemeHttps;
             builder.Port = httpsPort;
             ep.OAuth2Authorize = builder.Uri;
+
+            var oidcAuthorize = new Uri(baseUriString + Paths.OidcAuthorize);
+            builder = new UriBuilder(oidcAuthorize);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.OidcAuthorize = builder.Uri;
+
+            var oidcToken = new Uri(baseUriString + Paths.OidcToken);
+            builder = new UriBuilder(oidcToken);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.OidcToken = builder.Uri;
+
+            var oidcUserInfo = new Uri(baseUriString + Paths.OidcUserInfo);
+            builder = new UriBuilder(oidcUserInfo);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            ep.OidcUserInfo = builder.Uri;
 
             var jsnotify = new Uri(baseUriString + Paths.JSNotify);
             builder = new UriBuilder(jsnotify);

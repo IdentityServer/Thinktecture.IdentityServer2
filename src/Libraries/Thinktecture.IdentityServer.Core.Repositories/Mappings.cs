@@ -598,5 +598,94 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
             };
         }
         #endregion
+
+        #region OpenIdConnectConfiguration
+        public static Models.Configuration.OpenIdConnectConfiguration ToDomainModel(this Entities.Configuration.OpenIdConnectConfiguration entity)
+        {
+            var value = new Models.Configuration.OpenIdConnectConfiguration
+            {
+                Enabled = entity.Enabled,
+            };
+
+            return value;
+        }
+
+        public static Entities.Configuration.OpenIdConnectConfiguration ToEntity(this Models.Configuration.OpenIdConnectConfiguration model)
+        {
+            var value = new Entities.Configuration.OpenIdConnectConfiguration
+            {
+                Enabled = model.Enabled,
+            };
+
+            return value;
+        }
+#endregion    
+
+        #region OpenIdConnectClients
+        public static Models.OpenIdConnectClient ToDomainModel(this Entities.OpenIdConnectClientEntity client)
+        {
+            var ret = new Models.OpenIdConnectClient
+            {
+                ClientId = client.ClientId,
+                AccessTokenLifetime = client.AccessTokenLifetime, 
+                AllowRefreshToken = client.AllowRefreshToken,
+                ClientSecretType = client.ClientSecretType, 
+                Flow = client.Flow, 
+                Name = client.Name,
+                RefreshTokenLifetime = client.RefreshTokenLifetime, 
+                RequireConsent = client.RequireConsent, 
+            };
+
+            if (client.RedirectUris != null)
+            {
+                ret.RedirectUris =
+                    (from item in client.RedirectUris
+                     select item.RedirectUri).ToArray();
+            }
+            else
+            {
+                ret.RedirectUris = new string[0];
+            }
+            
+            return ret;
+        }
+
+        public static void UpdateEntity(this Models.OpenIdConnectClient client, Entities.OpenIdConnectClientEntity target)
+        {
+            target.ClientId = client.ClientId;
+            target.AccessTokenLifetime = client.AccessTokenLifetime;
+            target.AllowRefreshToken = client.AllowRefreshToken;
+            target.ClientSecretType = client.ClientSecretType;
+            target.Flow = client.Flow;
+            target.Name = client.Name;
+            target.RefreshTokenLifetime = client.RefreshTokenLifetime;
+            target.RequireConsent = client.RequireConsent;
+            
+            if (!String.IsNullOrWhiteSpace(client.ClientSecret))
+            {
+                target.ClientSecret = Thinktecture.IdentityServer.Helper.CryptoHelper.HashPassword(client.ClientSecret);
+            }
+
+            if (client.RedirectUris != null)
+            {
+                var urlsToRemove = target.RedirectUris.Where(x => !client.RedirectUris.Contains(x.RedirectUri)).ToArray();
+                foreach (var remove in urlsToRemove)
+                {
+                    target.RedirectUris.Remove(remove);
+                }
+            }
+
+            if (client.RedirectUris != null)
+            {
+                var urlsToAdd = target.RedirectUris != null ?
+                    client.RedirectUris.Where(x => !target.RedirectUris.Any(y => y.RedirectUri == x)).ToArray() :
+                    client.RedirectUris;
+                foreach (var add in urlsToAdd)
+                {
+                    target.RedirectUris.Add(new OpenIdConnectClientRedirectUri { RedirectUri = add });
+                }
+            }
+        }
+        #endregion
     }
 }

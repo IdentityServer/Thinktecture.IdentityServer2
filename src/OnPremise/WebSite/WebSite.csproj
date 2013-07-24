@@ -420,6 +420,7 @@
       <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Controllers\ClientCertificateController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OpenIdConnectClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\OAuthClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\DelegationController.cs" />
     <Compile Include="Areas\Admin\Controllers\DiagnosticsController.cs" />
@@ -463,6 +464,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientCertificatesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OpenIdConnectClientController.Designer.cs">
+      <DependentUpon>OpenIdConnectClientController.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Areas\Admin\Resources\ProfilePropertyViewModel.Designer.cs">
       <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
@@ -629,6 +635,8 @@
     <Compile Include="Areas\Admin\ViewModels\ClientCertificatesForUserViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\ClientCertificatesViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\CertificateInputModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\OpenIdConnectClientIndexViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\OpenIdConnectClientViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\MenuViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\OAuthClientIndexViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\DelegationSettingsForUserInputModel.cs" />
@@ -733,6 +741,13 @@
     <EmbeddedResource Include="Areas\Admin\Resources\ClientCertificatesViewModel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ClientCertificatesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\Copy of OAuthClientController.fr.resx">
+      <DependentUpon>OpenIdConnectClientController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OpenIdConnectClientController.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenIdConnectClientController.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\ProfilePropertyViewModel.fr.resx">
       <DependentUpon>ProfilePropertyViewModel.resx</DependentUpon>
@@ -1165,6 +1180,8 @@
     <Content Include="Areas\Admin\Views\OAuthRefreshToken\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\ChangePassword.cshtml" />
     <Content Include="Areas\Admin\Views\Protocol\ADFSIntegration.cshtml" />
+    <Content Include="Areas\Admin\Views\OpenIdConnectClient\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\OpenIdConnectClient\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

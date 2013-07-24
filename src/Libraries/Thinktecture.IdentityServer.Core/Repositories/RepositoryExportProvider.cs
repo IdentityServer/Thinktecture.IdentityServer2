@@ -34,6 +34,7 @@ namespace Thinktecture.IdentityServer.Repositories
                 { typeof(IClaimsTransformationRulesRepository).FullName, section.ClaimsTransformationRules },
                 { typeof(IClientsRepository).FullName, section.ClientsRepository },
                 { typeof(ICodeTokenRepository).FullName, section.CodeTokenRepository },
+                { typeof(IOpenIdConnectClientsRepository).FullName, section.OpenIdConnectClientsRepository },
                 { typeof(IStoredGrantRepository).FullName, section.StoredGrantRepository }
             };
         }

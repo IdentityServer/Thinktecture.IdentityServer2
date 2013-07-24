@@ -221,5 +221,29 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
                 }
             }
         }
+
+
+        public Models.Configuration.OpenIdConnectConfiguration OpenIdConnect
+        {
+            get
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.OpenIdConnect.First<Entities.Configuration.OpenIdConnectConfiguration>();
+                    return entity.ToDomainModel();
+                }
+            }
+            set
+            {
+                using (var entities = IdentityServerConfigurationContext.Get())
+                {
+                    var entity = entities.OpenIdConnect.First<Entities.Configuration.OpenIdConnectConfiguration>();
+                    entities.OpenIdConnect.Remove(entity);
+
+                    entities.OpenIdConnect.Add(value.ToEntity());
+                    entities.SaveChanges();
+                }
+            }
+        }
     }
 }

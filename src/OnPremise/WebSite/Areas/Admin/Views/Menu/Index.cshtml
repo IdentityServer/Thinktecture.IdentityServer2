@@ -37,6 +37,13 @@
         </li>
         }
     }
+    @if(Model.ShowOpenIdConnectClients)
+    {
+        <li>
+            @Html.ActionLink("OpenID Connect Clients", "Index", "OpenIdConnectClient")
+            @Html.Action("ChildMenu", "Menu", new{controllerName="OpenIdConnectClient"})
+        </li>
+    }
 </ul>
 <ul>
     <li>@Html.ActionLink(Index_cshtml.Roles, "Index", "Role")</li>

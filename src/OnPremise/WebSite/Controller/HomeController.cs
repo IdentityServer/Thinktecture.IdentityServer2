@@ -92,6 +92,14 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                 }
             }
 
+            // openid connect
+            if (Configuration.OpenIdConnect.Enabled)
+            {
+                list.Add("OpenID Connect Authorize", endpoints.OidcAuthorize.AbsoluteUri);
+                list.Add("OpenID Connect Token", endpoints.OidcToken.AbsoluteUri);
+                list.Add("OpenID Connect UserInfo", endpoints.OidcUserInfo.AbsoluteUri);
+            }
+
             // oauth2
             if (Configuration.OAuth2.Enabled)
             {

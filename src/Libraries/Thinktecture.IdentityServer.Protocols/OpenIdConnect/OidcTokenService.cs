@@ -15,39 +15,39 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
             _signingCert = signingCertificate;
         }
 
-        public OidcTokenResponse CreateTokenResponse(StoredGrant grant)
+        public OidcTokenResponse CreateTokenResponse(StoredGrant grant, int accessTokenLifetime)
         {
-            var accessToken = CreateAccessToken(grant.Subject, _issuer + "/userinfo", grant.ClientId, grant.Scopes);
+            var accessToken = CreateAccessToken(grant.Subject, _issuer + "/userinfo", grant.ClientId, grant.Scopes, accessTokenLifetime);
             var response = new OidcTokenResponse
             {
                 AccessToken = accessToken.ToJwtString(),
                 TokenType = "Bearer",
-                ExpiresIn = 60 * 60
+                ExpiresIn = accessTokenLifetime * 60
             };
 
             if (grant.GrantType == StoredGrantType.AuthorizationCode)
             {
-                var idToken = CreateIdentityToken(grant.Subject, grant.ClientId);
+                var idToken = CreateIdentityToken(grant.Subject, grant.ClientId, 60);
                 response.IdentityToken = idToken.ToJwtString();
             }
 
             return response;
         }
 
-        public IdentityToken CreateIdentityToken(string subject, string audience)
+        public IdentityToken CreateIdentityToken(string subject, string audience, int ttl)
         {
             return new IdentityToken
             {
                 Audience = audience,
                 Subject = subject,
 
-                Ttl = 60,
+                Ttl = ttl,
                 Issuer = _issuer,
                 SigningCredential = new X509SigningCredentials(_signingCert)
             };
         }
 
-        public AccessToken CreateAccessToken(string subject, string audience, string clientId, string scopes)
+        public AccessToken CreateAccessToken(string subject, string audience, string clientId, string scopes, int ttl)
         {
             var splitScopes = scopes.Split(' ');
 
@@ -58,7 +58,7 @@ namespace Thinktecture.IdentityServer.Protocols.OpenIdConnect
                 ClientId = clientId,
                 Scopes = splitScopes,
 
-                Ttl = 60,
+                Ttl = ttl,
                 Issuer = _issuer,
                 SigningCredential = new X509SigningCredentials(_signingCert)
             };
