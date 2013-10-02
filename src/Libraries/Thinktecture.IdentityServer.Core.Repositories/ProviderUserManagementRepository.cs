@@ -99,7 +99,22 @@ namespace Thinktecture.IdentityServer.Repositories
             {
                 throw new ValidationException("Password is required");
             }
+            
+            ValidatePasswordStrength(password);
 
+            try
+            {
+                var user = Membership.GetUser(userName);
+                user.ChangePassword(user.ResetPassword(), password);
+            }
+            catch (MembershipPasswordException mex)
+            {
+                throw new ValidationException(mex.Message, mex);
+            }
+        }
+
+        private static void ValidatePasswordStrength(string password)
+        {
             var provider = Membership.Provider;
             if (password.Length < provider.MinRequiredPasswordLength)
             {
@@ -120,20 +135,10 @@ namespace Thinktecture.IdentityServer.Repositories
                     throw new ValidationException(String.Format("{0} is the minimum number of non-alphanumeric characters", provider.MinRequiredNonAlphanumericCharacters));
                 }
             }
-            if (!String.IsNullOrWhiteSpace(provider.PasswordStrengthRegularExpression) && 
-                !System.Text.RegularExpressions.Regex.IsMatch(provider.PasswordStrengthRegularExpression, password))
+            if (!String.IsNullOrWhiteSpace(provider.PasswordStrengthRegularExpression) &&
+                !System.Text.RegularExpressions.Regex.IsMatch(password, provider.PasswordStrengthRegularExpression))
             {
                 throw new ValidationException(String.Format("Password does not match the regular expression {0}", provider.PasswordStrengthRegularExpression));
-            }
-
-            try
-            {
-                var user = Membership.GetUser(userName);
-                user.ChangePassword(user.ResetPassword(), password);
-            }
-            catch (MembershipPasswordException mex)
-            {
-                throw new ValidationException(mex.Message, mex);
             }
         }
     }

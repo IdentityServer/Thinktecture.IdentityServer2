@@ -6,7 +6,7 @@
         var url = cryptoRandomUrl;
         var target = self.data("base64target");
         $.ajax({
-            url: url,
+            url: url, cache: false,
             success: function (result) {
                 $("#" + target).val(result);
             }
