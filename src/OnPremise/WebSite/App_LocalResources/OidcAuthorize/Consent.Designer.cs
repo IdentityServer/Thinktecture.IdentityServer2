@@ -61,6 +61,42 @@ namespace Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow.
+        /// </summary>
+        public static string Allow {
+            get {
+                return ResourceManager.GetString("Allow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the personal information that you want to release:.
+        /// </summary>
+        public static string ConcentScopesMessage {
+            get {
+                return ResourceManager.GetString("ConcentScopesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to sign-in to &lt;strong&gt;{0}&lt;/strong&gt;?.
+        /// </summary>
+        public static string ConsentSignInMessage {
+            get {
+                return ResourceManager.GetString("ConsentSignInMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deny.
+        /// </summary>
+        public static string Deny {
+            get {
+                return ResourceManager.GetString("Deny", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Postal address.
         /// </summary>
         public static string Scope_address_desc {

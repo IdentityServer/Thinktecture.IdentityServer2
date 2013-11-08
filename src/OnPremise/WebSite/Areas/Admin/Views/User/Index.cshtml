@@ -9,20 +9,20 @@
     <div class="nestedForm">
         @using (Html.BeginForm("Index", "User", null, FormMethod.Get, null))
         {
-            <label>Filter</label>
+            <label>@Index_cshtml.Filter</label>
             <input type="text" name="filter" value="@Model.Filter" autofocus />
-            <button>Go</button>
+            <button>@Index_cshtml.Search</button>
         }
     </div>
     <div>
         @if(Model.CurrentPage > 1)
         {
-            @Html.ActionLink("Prev", "Index", new{page=Model.CurrentPage-1, filter=Model.Filter})
+            @Html.ActionLink(Index_cshtml.Prev, "Index", new{page=Model.CurrentPage-1, filter=Model.Filter})
         }
-        Page @Model.CurrentPage of @Model.TotalPages
+        @string.Format(Index_cshtml.PageCount, Model.CurrentPage, Model.TotalPages)
         @if(Model.CurrentPage < Model.TotalPages)
         {
-            @Html.ActionLink("Next", "Index", new{page=Model.CurrentPage+1, filter=Model.Filter})
+            @Html.ActionLink(@Index_cshtml.Next, "Index", new{page=Model.CurrentPage+1, filter=Model.Filter})
         }
     </div>
     @using (Html.BeginForm("Index", "User", new { filter=@Model.Filter }, FormMethod.Post, null))
@@ -39,14 +39,14 @@
                 @Html.LabelFor(x => list[i].Delete, list[i].Username)
                 @Html.CheckBoxFor(x => list[i].Delete)
                 @Html.ActionLink(Index_cshtml.Roles, "Roles", new { username = list[i].Username })
-                @Html.ActionLink("password", "ChangePassword", new { username = list[i].Username })
+                @Html.ActionLink(Index_cshtml.Password, "ChangePassword", new { username = list[i].Username })
                 @if (Model.IsProfileEnabled)
                 {
                     @Html.ActionLink(Index_cshtml.Profile, "Profile", new { username = list[i].Username })
                 }
                 @if (Model.IsOAuthRefreshTokenEnabled)
                 {
-                    @Html.ActionLink("tokens", "Index", "OAuthRefreshToken", new { username = list[i].Username }, null)
+                    @Html.ActionLink(Index_cshtml.Tokens, "Index", "OAuthRefreshToken", new { username = list[i].Username }, null)
                 }
             </div>
         }

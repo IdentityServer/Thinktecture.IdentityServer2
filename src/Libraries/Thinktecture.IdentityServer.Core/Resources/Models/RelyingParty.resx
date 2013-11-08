@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,134 +59,134 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="Enabled" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
-  <data name="EnabledDescription" xml:space="preserve">
+	<data name="EnabledDescription" xml:space="preserve">
     <value>Enable or disable this RP.</value>
   </data>
-  <data name="Name" xml:space="preserve">
+	<data name="Name" xml:space="preserve">
     <value>Display Name</value>
   </data>
-  <data name="NameDescription" xml:space="preserve">
+	<data name="NameDescription" xml:space="preserve">
     <value>Descriptive name (shows up in trace logs).</value>
   </data>
-  <data name="Realm" xml:space="preserve">
+	<data name="Realm" xml:space="preserve">
     <value>Realm/Scope Name</value>
   </data>
-  <data name="RealmDescription" xml:space="preserve">
+	<data name="RealmDescription" xml:space="preserve">
     <value>Realm/Scope identifier URI.</value>
   </data>
-  <data name="TokenLifeTime" xml:space="preserve">
+	<data name="TokenLifeTime" xml:space="preserve">
     <value>Token life time (in minutes)</value>
   </data>
-  <data name="TokenLifeTimeDescription" xml:space="preserve">
+	<data name="TokenLifeTimeDescription" xml:space="preserve">
     <value>Can be used to override the default token lifetime (a value of 0 uses the global default).</value>
   </data>
-  <data name="ReplyTo" xml:space="preserve">
+	<data name="ReplyTo" xml:space="preserve">
     <value>Redirect URL</value>
   </data>
-  <data name="ReplyToDescription" xml:space="preserve">
+	<data name="ReplyToDescription" xml:space="preserve">
     <value>URL to return (ReplyTo parameter) to once a token is issued.</value>
   </data>
-  <data name="EncryptingCertificate" xml:space="preserve">
+	<data name="EncryptingCertificate" xml:space="preserve">
     <value>Encrypting Certificate</value>
   </data>
-  <data name="EncryptingCertificateDescription" xml:space="preserve">
+	<data name="EncryptingCertificateDescription" xml:space="preserve">
     <value>Optional X.509 certificate to encrypt outgoing tokens.</value>
   </data>
-  <data name="SymmetricSigningKey" xml:space="preserve">
+	<data name="SymmetricSigningKey" xml:space="preserve">
     <value>Symmetric Signing Key</value>
   </data>
-  <data name="SymmetricSigningKeyDescription" xml:space="preserve">
+	<data name="SymmetricSigningKeyDescription" xml:space="preserve">
     <value>Base64 encoded key used for symmetric signing of tokens.</value>
   </data>
-  <data name="ExtraData1" xml:space="preserve">
+	<data name="ExtraData1" xml:space="preserve">
     <value>Extra Data 1</value>
   </data>
-  <data name="ExtraData1Description" xml:space="preserve">
+	<data name="ExtraData1Description" xml:space="preserve">
     <value>Extra data you can associate with the RP. (1)</value>
   </data>
-  <data name="ExtraData2" xml:space="preserve">
+	<data name="ExtraData2" xml:space="preserve">
     <value>Extra Data 2</value>
   </data>
-  <data name="ExtraData2Description" xml:space="preserve">
+	<data name="ExtraData2Description" xml:space="preserve">
     <value>Extra data you can associate with the RP. (2)</value>
   </data>
-  <data name="ExtraData3" xml:space="preserve">
+	<data name="ExtraData3" xml:space="preserve">
     <value>Extra Data 3</value>
   </data>
-  <data name="ExtraData3Description" xml:space="preserve">
+	<data name="ExtraData3Description" xml:space="preserve">
     <value>Extra data you can associate with the RP. (3)</value>
   </data>
-  <data name="EncryptingCertificateThumbprint" xml:space="preserve">
+	<data name="EncryptingCertificateThumbprint" xml:space="preserve">
     <value>Encrypting Certificate Thumbprint</value>
   </data>
-  <data name="EncryptingCertificateThumbprintDescription" xml:space="preserve">
+	<data name="EncryptingCertificateThumbprintDescription" xml:space="preserve">
     <value>Encrypting Certificate Thumbprint</value>
   </data>
-  <data name="TokenType" xml:space="preserve">
+	<data name="TokenType" xml:space="preserve">
     <value>Token Type</value>
   </data>
-  <data name="TokenTypeDescription" xml:space="preserve">
+	<data name="TokenTypeDescription" xml:space="preserve">
     <value>Token type to issue for this replying party.</value>
   </data>
 </root>

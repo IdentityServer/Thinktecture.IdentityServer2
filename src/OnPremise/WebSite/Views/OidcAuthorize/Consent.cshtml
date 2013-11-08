@@ -1,15 +1,16 @@
-﻿@model Thinktecture.IdentityServer.Protocols.OpenIdConnect.OidcViewModel
+﻿@using Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize
+@model Thinktecture.IdentityServer.Protocols.OpenIdConnect.OidcViewModel
 @{
     ViewBag.HideMenu = true;
 }
 
 <p>
-    Do you want to sign-in to <strong>@Model.ValidatedRequest.Client.Name</strong>?
+    @string.Format(Consent.ConsentSignInMessage, @Model.ValidatedRequest.Client.Name)
 </p>
 
 @if(Model.GetDisplayScopes().Any())
 {
-    <p>Select the personal information that you want to release:</p>
+    <p>@Consent.ConcentScopesMessage</p>
 }
 
 @using (Html.BeginForm())
@@ -21,12 +22,12 @@
             <dt>
                 <label>
                     <input id="scope_@scope" type="checkbox" name="selectedScopes" value="@scope" checked />
-                    <strong>@Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize.Consent.ResourceManager.GetString("Scope_" + scope + "_label")</strong>
+                    <strong>@Consent.ResourceManager.GetString("Scope_" + scope + "_label")</strong>
                 </label>
             </dt>
             <dd>
                 <label for="scope_@scope">
-                    @Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize.Consent.ResourceManager.GetString("Scope_" + scope + "_desc")
+                    @Consent.ResourceManager.GetString("Scope_" + scope + "_desc")
                 </label>
             </dd>
         }
@@ -36,19 +37,19 @@
             <dt class="offline">
                 <label>
                     <input id="scope_offline" type="checkbox" name="selectedScopes" value="@Thinktecture.IdentityServer.Protocols.OpenIdConnect.OidcConstants.Scopes.OfflineAccess" checked />
-                    <strong>@Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize.Consent.Scope_offline_label</strong>
+                    <strong>@Consent.Scope_offline_label</strong>
                 </label>
             </dt>
             <dd>
                 <label for="scope_offline">
-                    @Thinktecture.IdentityServer.Web.App_LocalResources.OidcAuthorize.Consent.Scope_offline_desc
+                    @Consent.Scope_offline_desc
                 </label>
             </dd>
         }
     </dl>
     
     <p>
-        <button name="button" value="allow">Allow</button>
-        <button name="button" value="deny">Deny</button>
+        <button name="button" value="allow">@Consent.Allow</button>
+        <button name="button" value="deny">@Consent.Deny</button>
     </p>
 }

@@ -13,35 +13,35 @@ namespace Thinktecture.IdentityServer.Models.Configuration
     {
         // general settings - authentication
 
-        [Display(Name = "Enable username/password authentication", Description = "Enables the OAuth2 to ADFS authentication bridge")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "UsernameAuthenticationEnabled", Description = "UsernameAuthenticationEnabledDescription")]
         public bool UsernameAuthenticationEnabled { get; set; }
-        
-        [Display(Name = "Enable SAML authentication", Description = "Enables the OAuth2 to ADFS authentication bridge")]
+
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "SamlAuthenticationEnabled", Description = "SamlAuthenticationEnabledDescription")]
         public bool SamlAuthenticationEnabled { get; set; }
-        
-        [Display(Name = "Enable JWT authentication", Description = "Enables the OAuth2 to ADFS authentication bridge")]
+
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "JwtAuthenticationEnabled", Description = "JwtAuthenticationEnabledDescription")]
         public bool JwtAuthenticationEnabled { get; set; }
 
-        [Display(Name = "Pass-through authentication token", Description = "If enabled, the original SAML token from ADFS will be passed back, otherwise the token will be converted to a JWT.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "PassThruAuthenticationToken", Description = "PassThruAuthenticationTokenDescription")]
         public bool PassThruAuthenticationToken { get; set; }
 
-        [Display(Name = "Lifetime of the token", Description = "Specifies the lifetime of the token (in minutes)")]
-        [Range(0, Int32.MaxValue, ErrorMessage = "AuthenticationTokenLifetime cannot be negative")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "AuthenticationTokenLifetime", Description = "AuthenticationTokenLifetimeDescription")]
+        [Range(0, Int32.MaxValue, ErrorMessageResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), ErrorMessageResourceName = "AuthenticationTokenLifetimeRangeErrorMessage")]
         public int AuthenticationTokenLifetime { get; set; }
 
         // adfs settings
 
-        [Display(Name = "ADFS UserName Endpoint", Description = "Address of the ADFS UserNameMixed endoint.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "UserNameAuthenticationEndpoint", Description = "UserNameAuthenticationEndpointDescription")]
         public string UserNameAuthenticationEndpoint { get; set; }
 
-        [Display(Name = "ADFS Federation Endpoint", Description = "Address of the ADFS federation endpoint (mixed/symmetric/basic256).")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "FederationEndpoint", Description = "FederationEndpointDescription")]
         public string FederationEndpoint { get; set; }
 
-        [Display(Name = "ADFS Issuer URI", Description = "ADFS Issuer URI")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "IssuerUri", Description = "IssuerUriDescription")]
         public string IssuerUri { get; set; }
 
         string _IssuerThumbprint;
-        [Display(Name = "ADFS Signing Certificate Thumbprint", Description = "Thumbprint of the ADFS signing certificate.")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "IssuerThumbprint", Description = "IssuerThumbprintDescription")]
         public string IssuerThumbprint
         {
             get
@@ -55,7 +55,7 @@ namespace Thinktecture.IdentityServer.Models.Configuration
             }
         }
 
-        [Display(Name = "ADFS Encryption certificate", Description = "ADFS Issuer URI")]
+        [Display(ResourceType = typeof(Resources.Models.Configuration.AdfsIntegrationConfiguration), Name = "EncryptionCertificate", Description = "EncryptionCertificateDescription")]
         public X509Certificate2 EncryptionCertificate { get; set; }
 
         public System.Collections.Generic.IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -70,7 +70,7 @@ namespace Thinktecture.IdentityServer.Models.Configuration
                     if (!this.PassThruAuthenticationToken &&
                         String.IsNullOrWhiteSpace(this.IssuerThumbprint))
                     {
-                        yield return new ValidationResult("IssuerThumbprint required when PassThruAuthenticationToken is false.", new[] { "IssuerThumbprint" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.PassThruAuthenticationTokenRequiresIssuerThumbprintErrorMessage, new[] { "IssuerThumbprint" });
                     }
                 }
 
@@ -78,7 +78,7 @@ namespace Thinktecture.IdentityServer.Models.Configuration
                 {
                     if (String.IsNullOrWhiteSpace(this.UserNameAuthenticationEndpoint))
                     {
-                        yield return new ValidationResult("UserNameAuthenticationEndpoint required when UsernameAuthenticationEnabled is enabled.", new[] { "UserNameAuthenticationEndpoint" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.UserNameAuthenticationEnabledRequiresUserNameAuthenticationEndpointErrorMessage, new[] { "UserNameAuthenticationEndpoint" });
                     }
                 }
 
@@ -86,18 +86,18 @@ namespace Thinktecture.IdentityServer.Models.Configuration
                 {
                     if (String.IsNullOrWhiteSpace(this.IssuerThumbprint))
                     {
-                        yield return new ValidationResult("IssuerThumbprint required when SamlAuthenticationEnabled is enabled.", new[] { "IssuerThumbprint" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.SamlAuthenticationEnabledRequiresIssuerThumbprintErrorMessage, new[] { "IssuerThumbprint" });
                     }
 
                     // EncryptionCertificate check done in controller
 
                     if (String.IsNullOrWhiteSpace(this.IssuerUri))
                     {
-                        yield return new ValidationResult("IssuerUri required when SamlAuthenticationEnabled is enabled.", new[] { "IssuerUri" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.SamlAuthenticationEnabledRequiresIssuerUriErrorMessage, new[] { "IssuerUri" });
                     }
                     if (String.IsNullOrWhiteSpace(this.FederationEndpoint))
                     {
-                        yield return new ValidationResult("FederationEndpoint required when SamlAuthenticationEnabled is enabled.", new[] { "FederationEndpoint" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.SamlAuthenticationEnabledRequiresFederationEndpointErrorMessage, new[] { "FederationEndpoint" });
                     }
                 }
 
@@ -107,11 +107,11 @@ namespace Thinktecture.IdentityServer.Models.Configuration
 
                     if (String.IsNullOrWhiteSpace(this.IssuerUri))
                     {
-                        yield return new ValidationResult("IssuerUri required when JwtAuthenticationEnabled is enabled.", new[] { "IssuerUri" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.JwtAuthenticationEnabledRequiresIssuerUriErrorMessage, new[] { "IssuerUri" });
                     }
                     if (String.IsNullOrWhiteSpace(this.FederationEndpoint))
                     {
-                        yield return new ValidationResult("FederationEndpoint required when JwtAuthenticationEnabled is enabled.", new[] { "FederationEndpoint" });
+                        yield return new ValidationResult(Resources.Models.Configuration.AdfsIntegrationConfiguration.JwtAuthenticationEnabledRequiresFederationEndpointErrorMessage, new[] { "FederationEndpoint" });
                     }
                 }
             }

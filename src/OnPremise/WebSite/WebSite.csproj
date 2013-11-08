@@ -329,6 +329,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml.resx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.Designer.cs">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Edit.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Index.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.Designer.cs">
+      <DependentUpon>ADFSIntegration.cshtml.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\App_LocalResources\Protocol\Index.cshtml.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -398,6 +414,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_Layout.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.cshtml.resx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\App_LocalResources\User\Create.cshtml.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -469,6 +490,19 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientCertificatesViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\UserPasswordModel.Designer.cs">
+      <DependentUpon>UserPasswordModel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.Designer.cs">
+      <DependentUpon>OAuthRefreshTokenIndexViewModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Resources\OpenIdConnectClientInputModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpenIdConnectClientInputModel.resx</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Resources\OpenIdConnectClientController.Designer.cs">
       <DependentUpon>OpenIdConnectClientController.resx</DependentUpon>
@@ -610,6 +644,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RPController.resx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Resources\TokenSearchCriteria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TokenSearchCriteria.resx</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Resources\UserController.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -709,6 +748,47 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Consent.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\OidcAuthorize\Consent.fr.resx">
+      <DependentUpon>Consent.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Edit.cshtml.fr.resx">
+      <DependentUpon>Edit.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Edit.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Edit.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OpenIdConnectClient\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.fr.resx">
+      <DependentUpon>Index.cshtml.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\OAuthRefreshToken\Index.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ADFSIntegration.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\Protocol\ADFSIntegration.cshtml.fr.resx">
+      <DependentUpon>ADFSIntegration.cshtml.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.fr.resx">
+      <DependentUpon>ChangePassword.cshtml.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\ChangePassword.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePassword.cshtml.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\CertificateInputModel.fr.resx">
       <DependentUpon>CertificateInputModel.resx</DependentUpon>
     </EmbeddedResource>
@@ -751,8 +831,27 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ClientCertificatesViewModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Areas\Admin\Resources\Copy of OAuthClientController.fr.resx">
+    <EmbeddedResource Include="Areas\Admin\Resources\UserPasswordModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserPasswordModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OpenIdConnectClientInputModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenIdConnectClientInputModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OAuthRefreshTokenIndexViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OpenIdConnectClientInputModel.fr.resx">
+      <DependentUpon>OpenIdConnectClientInputModel.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OpenIdConnectClientController.fr.resx">
       <DependentUpon>OpenIdConnectClientController.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\OAuthRefreshTokenIndexViewModel.fr.resx">
+      <DependentUpon>OAuthRefreshTokenIndexViewModel.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\OpenIdConnectClientController.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -947,6 +1046,15 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RPController.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\TokenSearchCriteria.fr.resx">
+      <DependentUpon>TokenSearchCriteria.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\TokenSearchCriteria.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TokenSearchCriteria.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\UserController.fr.resx">
       <DependentUpon>UserController.resx</DependentUpon>
     </EmbeddedResource>
@@ -974,6 +1082,9 @@
     <EmbeddedResource Include="Areas\Admin\Resources\UserRolesViewModel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserRolesViewModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\Admin\Resources\UserPasswordModel.fr.resx">
+      <DependentUpon>UserPasswordModel.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\Resources\UsersViewModel.fr.resx">
       <DependentUpon>UsersViewModel.resx</DependentUpon>
@@ -1020,6 +1131,7 @@
     <None Include="Areas\Admin\Content\Admin.less" />
     <EmbeddedResource Include="App_LocalResources\Account\SignIn.cshtml.fr.resx">
       <DependentUpon>SignIn.cshtml.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Account\SignIn.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1294,6 +1406,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\ClientCertificate\Index.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -1310,6 +1423,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Delegation\Index.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Diagnostics\Index.cshtml.fr.resx">
       <DependentUpon>Index.cshtml.resx</DependentUpon>
@@ -1397,6 +1511,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Create.cshtml.fr.resx">
       <DependentUpon>Create.cshtml.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\Role\Create.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1493,6 +1608,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Index.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Profile.cshtml.fr.resx">
       <DependentUpon>Profile.cshtml.resx</DependentUpon>
@@ -1507,6 +1623,7 @@
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\User\Roles.cshtml.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Roles.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\Admin\App_LocalResources\_ViewStart.cshtml.fr.resx">
       <DependentUpon>_ViewStart.cshtml.resx</DependentUpon>

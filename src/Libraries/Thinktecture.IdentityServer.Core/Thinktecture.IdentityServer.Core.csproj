@@ -126,6 +126,16 @@
     <Compile Include="Models\CodeToken.cs" />
     <Compile Include="Models\CodeTokenType.cs" />
     <Compile Include="Models\Configuration\AdfsIntegrationConfiguration.cs" />
+    <Compile Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdfsIntegrationConfiguration.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\Configuration\OpenIdConnectClient.Designer.cs">
+      <DependentUpon>OpenIdConnectClient.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Models\Configuration\OpenIdConnectConfiguration.cs" />
     <Compile Include="Models\Configuration\SimpleHttpConfiguration.cs" />
     <Compile Include="Models\Configuration\KeyMaterialConfiguration.cs" />
@@ -293,6 +303,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Models\Configuration\OpenIdConnectClient.fr.resx">
+      <DependentUpon>OpenIdConnectClient.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\OpenIdConnectClient.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OpenIdConnectClient.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AbsoluteUriAttribute.fr.resx">
       <DependentUpon>AbsoluteUriAttribute.resx</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +328,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Client.fr.resx">
       <DependentUpon>Client.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Client.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -335,6 +355,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CodeTokenType.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.fr.resx">
+      <DependentUpon>AdfsIntegrationConfiguration.resx</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\Configuration\AdfsIntegrationConfiguration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdfsIntegrationConfiguration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\DiagnosticsConfiguration.fr.resx">
       <DependentUpon>DiagnosticsConfiguration.resx</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +384,7 @@
     <EmbeddedResource Include="Resources\Models\Configuration\GlobalConfiguration.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GlobalConfiguration.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\KeyMaterialConfiguration.fr.resx">
       <DependentUpon>KeyMaterialConfiguration.resx</DependentUpon>
@@ -395,6 +424,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\WSTrustConfiguration.fr.resx">
       <DependentUpon>WSTrustConfiguration.resx</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Configuration\WSTrustConfiguration.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -435,6 +465,7 @@
     <EmbeddedResource Include="Resources\Models\RelyingParty.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RelyingParty.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.fr.resx">
       <DependentUpon>RepositoryX509SecurityTokenHandler.resx</DependentUpon>

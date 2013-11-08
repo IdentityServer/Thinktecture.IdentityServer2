@@ -201,4 +201,16 @@
 	<data name="SsoCookieLifetimeDescription" xml:space="preserve">
 		<value>La durée (en heures) des fichiers témoins utilisés par ce site pour la signature unique.</value>
 	</data>
+	<data name="DisableSSL" xml:space="preserve">
+		<value>Désactiver SSL</value>
+	</data>
+	<data name="DisableSSLDescription" xml:space="preserve">
+		<value>Ce réglage est utilisé pour désactiver SSL dans IdentityServer et serait utilisé en conjonction avec un dispositif SSL externe.</value>
+	</data>
+	<data name="PublicHostName" xml:space="preserve">
+		<value>Nom publique d’hôte</value>
+	</data>
+	<data name="PublicHostNameDescription" xml:space="preserve">
+		<value>Le nom publique d’hôte pour ce site. Ce réglage devrait être utilisé lorsque le nom d’hôte du site web diffère du nom d’hôte publique, par exemple lorsqu’un équilibreur de charge ou une adresse IP virtuelle est utilisé.</value>
+	</data>
 </root>

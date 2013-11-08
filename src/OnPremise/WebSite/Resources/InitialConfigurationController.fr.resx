@@ -121,6 +121,6 @@
 		<value>Des erreurs se sont produites...</value>
 	</data>
 	<data name="NoReadAccessPrivateKey" xml:space="preserve">
-		<value>{0} n'a pas les droits de lecture sur la clé privée du certificat sélectionné (voir see http://technet.microsoft.com/fr-ca/library/ee662329.aspx).</value>
+		<value>{0} n’a pas les droits de lecture sur la clé privée du certificat sélectionné (voir see http://technet.microsoft.com/fr-ca/library/ee662329.aspx).</value>
 	</data>
 </root>
