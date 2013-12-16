@@ -127,6 +127,7 @@
     <Compile Include="Models\CodeTokenType.cs" />
     <Compile Include="Models\Configuration\AdfsIntegrationConfiguration.cs" />
     <Compile Include="Models\Configuration\OpenIdConnectConfiguration.cs" />
+    <Compile Include="Models\Configuration\PassiveEndpoints.cs" />
     <Compile Include="Models\Configuration\SimpleHttpConfiguration.cs" />
     <Compile Include="Models\Configuration\KeyMaterialConfiguration.cs" />
     <Compile Include="Models\Configuration\OAuth2Configuration.cs" />

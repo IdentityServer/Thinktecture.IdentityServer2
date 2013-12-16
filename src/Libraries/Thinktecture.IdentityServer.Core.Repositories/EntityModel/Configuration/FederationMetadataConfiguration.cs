@@ -9,5 +9,7 @@ namespace Thinktecture.IdentityServer.Repositories.Sql.Configuration
 
         [Required]
         public bool Enabled { get; set; }
+
+        public int? PrimaryPassiveEndpoint { get; set; }
     }
 }

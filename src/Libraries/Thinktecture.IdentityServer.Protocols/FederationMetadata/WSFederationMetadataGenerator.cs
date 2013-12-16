@@ -17,6 +17,7 @@ using System.ServiceModel.Description;
 using System.Text;
 using System.Xml;
 using Thinktecture.IdentityModel.Constants;
+using Thinktecture.IdentityServer.Models.Configuration;
 using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Protocols.FederationMetadata
@@ -104,9 +105,13 @@ namespace Thinktecture.IdentityServer.Protocols.FederationMetadata
         private Uri GetWsFedUrlForEnableFederation()
         {
             // If Federation is enabled (this server is a gateway) then use the HRD enpoint instead of the standard WsFed endpoint.
-            return ConfigurationRepository.WSFederation.EnableFederation
-                       ? _endpoints.WSFederationHRD
-                       : _endpoints.WSFederation;
+            switch (ConfigurationRepository.FederationMetadata.PrimaryPassiveEndpoint)
+            {
+                case PassiveEndpoints.Hrd:
+                    return _endpoints.WSFederationHRD;
+                default:
+                    return _endpoints.WSFederation;
+            }
         }
 
         private KeyDescriptor GetSigningKeyDescriptor()
