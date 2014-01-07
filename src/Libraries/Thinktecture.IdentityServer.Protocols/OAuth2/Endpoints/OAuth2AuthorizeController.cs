@@ -129,6 +129,13 @@ namespace Thinktecture.IdentityServer.Protocols.OAuth2
             }
 
             // validate redirect uri
+            if (client.RedirectUri == null)
+            {
+                ViewBag.Message = "A redirect uri for client_id " + request.client_id + " was not configured.";
+                Tracing.Error(ViewBag.Message);
+                return View("Error");
+            }
+
             if (string.IsNullOrEmpty(request.redirect_uri) || 
                 !string.Equals(request.redirect_uri, client.RedirectUri.AbsoluteUri, StringComparison.OrdinalIgnoreCase))
             {
