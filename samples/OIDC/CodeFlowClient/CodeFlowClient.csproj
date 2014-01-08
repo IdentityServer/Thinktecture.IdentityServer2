@@ -138,8 +138,9 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
-    <Reference Include="Thinktecture.IdentityModel">
-      <HintPath>..\packages\Thinktecture.IdentityModel.3.4.2\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityModel, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Thinktecture.IdentityModel.3.6.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
