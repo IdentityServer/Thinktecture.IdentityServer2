@@ -69,6 +69,62 @@ namespace Thinktecture.IdentityServer.Repositories
             return claims;
         }
 
+        public virtual IEnumerable<ProfileProperty> GetProfileProperties(string userName)
+        {
+            var properties = new List<ProfileProperty>();
+
+            if (ProfileManager.Enabled)
+            {
+                var profile = ProfileBase.Create(userName, true);
+                if (profile != null)
+                {
+                    foreach (SettingsProperty prop in ProfileBase.Properties)
+                    {
+                        object value = profile.GetPropertyValue(prop.Name);
+                        properties.Add(new ProfileProperty() { Name = prop.Name, PropertyType = prop.PropertyType, Value = value });
+                    }
+                }
+            }
+
+            return properties;
+        }
+
+        public void UpdateProfileProperties(string userName, ProfileProperty[] profileProperties)
+        {
+            if (profileProperties.All(x => String.IsNullOrWhiteSpace(Convert.ToString(x.Value))))
+            {
+                ProfileManager.DeleteProfile(userName);
+            }
+
+            var profile = ProfileBase.Create(userName);
+            for (int i = 0; i < profileProperties.Length; i++)
+            {
+                var prop = ProfileBase.Properties[profileProperties[i].Name];
+                if (prop != null && !(String.IsNullOrWhiteSpace(Convert.ToString(profileProperties[i].Value)) && prop.PropertyType.IsValueType))
+                {
+                    object val = Convert.ChangeType(profileProperties[i].Value, prop.PropertyType);
+                    profile.SetPropertyValue(prop.Name, val);
+                }
+            }
+
+            profile.Save();
+        }
+
+        public virtual IEnumerable<ProfileProperty> GetProfileProperties()
+        {
+            var properties = new List<ProfileProperty>();
+
+            if (ProfileManager.Enabled)
+            {
+                foreach (SettingsProperty prop in ProfileBase.Properties)
+                {
+                    properties.Add(new ProfileProperty() { Name = prop.Name, PropertyType = prop.PropertyType });
+                }
+            }
+
+            return properties;
+        }
+
         protected virtual string GetProfileClaimType(string propertyName)
         {
             if (StandardClaimTypes.Mappings.ContainsKey(propertyName))
