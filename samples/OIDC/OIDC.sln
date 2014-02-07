@@ -1,16 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFlowClient", "CodeFlowClient\CodeFlowClient.csproj", "{2B7A3A83-D22E-48D2-9345-E48018314F10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thinktecture.IdentityModel.Oidc", "Thinktecture.IdentityModel.Oidc\Thinktecture.IdentityModel.Oidc.csproj", "{9669AED6-CC75-4DA4-A639-13E084905CA7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48DEA169-6158-4AE7-91D4-9E59695AB482}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWIN Code Flow Client", "OwinCodeFlowClient\OWIN Code Flow Client.csproj", "{0B732396-0EDE-468A-A356-6D1EB950F533}"
 EndProject

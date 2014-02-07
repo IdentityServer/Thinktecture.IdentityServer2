@@ -1,197 +1,194 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C129C90C-774C-47D7-A19E-57B31C87AE18}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Thinktecture.IdentityServer.Protocols</RootNamespace>
-    <AssemblyName>Thinktecture.IdentityServer.Protocols</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <UICulture>en-US</UICulture>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="BrockAllen.OAuth2, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\BrockAllen.OAuth2.2.3.0\lib\net45\BrockAllen.OAuth2.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IdentityModel.Services" />
-    <Reference Include="System.IdentityModel.Tokens.Jwt">
-      <HintPath>..\..\..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Activation" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Thinktecture.IdentityModel, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Thinktecture.IdentityModel.3.4.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AdfsIntegration\AdfsController.cs" />
-    <Compile Include="AdfsIntegration\AdfsBridge.cs" />
-    <Compile Include="OAuth2\AuthorizeRequest.cs" />
-    <Compile Include="OAuth2\ClientValidator.cs" />
-    <Compile Include="OAuth2\Endpoints\OAuth2AuthorizeController.cs" />
-    <Compile Include="OAuth2\Endpoints\OAuth2ConsentViewModel.cs" />
-    <Compile Include="OAuth2\TokenRequestValidationException.cs" />
-    <Compile Include="OpenIdConnect\AccessToken.cs" />
-    <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeController.cs" />
-    <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeControllerBase.cs" />
-    <Compile Include="OpenIdConnect\IdentityToken.cs" />
-    <Compile Include="OpenIdConnect\OidcToken.cs" />
-    <Compile Include="OpenIdConnect\OidcConstants.cs" />
-    <Compile Include="OpenIdConnect\Endpoints\OidcTokenController.cs" />
-    <Compile Include="OpenIdConnect\OidcTokenResponse.cs" />
-    <Compile Include="OpenIdConnect\OidcTokenService.cs" />
-    <Compile Include="OpenIdConnect\OidcViewModel.cs" />
-    <Compile Include="OpenIdConnect\TokenRequestValidator.cs" />
-    <Compile Include="OpenIdConnect\Endpoints\UserInfoController.cs" />
-    <Compile Include="OAuth2\AuthorizeRequestClientException.cs" />
-    <Compile Include="OAuth2\AuthorizeRequestResourceOwnerException.cs" />
-    <Compile Include="OAuth2\AuthorizeRequestValidationException.cs" />
-    <Compile Include="OpenIdConnect\AuthorizeRequestValidator.cs" />
-    <Compile Include="OAuth2\ClientErrorResult.cs" />
-    <Compile Include="OAuth2\Extensions.cs" />
-    <Compile Include="OpenIdConnect\ValidatedRequest.cs" />
-    <Compile Include="Resources\OAuth2\OAuth2AuthorizeController.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\OAuth2\OAuthTitleGrantResult.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\SimpleHTTP\SimpleHttpController.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SimpleHttpController.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\WSFederation\HrdViewModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HrdViewModel.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\WSFederation\WSFederationResult.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WSFederationResult.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Shared\AccountControllerBase.cs" />
-    <Compile Include="Shared\AuthenticationHelper.cs" />
-    <Compile Include="FederationMetadata\FederationMetadataController.cs" />
-    <Compile Include="FederationMetadata\WSFederationMetadataGenerator.cs" />
-    <Compile Include="OAuth2\Endpoints\OAuth2TokenController.cs" />
-    <Compile Include="OAuth2\TokenRequest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shared\SignInSessionsManager.cs" />
-    <Compile Include="Shared\TokenResponse.cs" />
-    <Compile Include="Shared\STS.cs" />
-    <Compile Include="SimpleHTTP\SimpleHttpController.cs" />
-    <Compile Include="WSFederation\HrdController.cs" />
-    <Compile Include="WSFederation\HrdViewModel.cs" />
-    <Compile Include="WSFederation\WSFederationController.cs" />
-    <Compile Include="WSFederation\WSFederationResult.cs" />
-    <Compile Include="WSTrust\TokenServiceHostFactory.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
-      <Project>{38ce5c59-909e-4da6-8e1d-7eee7312ca9a}</Project>
-      <Name>Thinktecture.IdentityServer.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.fr.resx">
-      <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>OAuth2AuthorizeController.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.fr.resx">
-      <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>OAuthTitleGrantResult.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.fr.resx">
-      <DependentUpon>SimpleHttpController.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SimpleHttpController.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.fr.resx">
-      <DependentUpon>HrdViewModel.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HrdViewModel.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.fr.resx">
-      <DependentUpon>WSFederationResult.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WSFederationResult.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{C129C90C-774C-47D7-A19E-57B31C87AE18}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>Thinktecture.IdentityServer.Protocols</RootNamespace>
+        <AssemblyName>Thinktecture.IdentityServer.Protocols</AssemblyName>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <UICulture>en-US</UICulture>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="BrockAllen.OAuth2, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\..\packages\BrockAllen.OAuth2.2.3.0\lib\net45\BrockAllen.OAuth2.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.Composition" />
+        <Reference Include="System.ComponentModel.DataAnnotations" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.IdentityModel" />
+        <Reference Include="System.IdentityModel.Services" />
+        <Reference Include="System.IdentityModel.Tokens.Jwt">
+            <HintPath>..\..\..\packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+            <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http.WebRequest" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.ServiceModel" />
+        <Reference Include="System.ServiceModel.Activation" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+            <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="Thinktecture.IdentityModel, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+            <SpecificVersion>False</SpecificVersion>
+            <HintPath>..\..\..\packages\Thinktecture.IdentityModel.3.4.1\lib\net45\Thinktecture.IdentityModel.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AdfsIntegration\AdfsController.cs" />
+        <Compile Include="AdfsIntegration\AdfsBridge.cs" />
+        <Compile Include="OAuth2\AuthorizeRequest.cs" />
+        <Compile Include="OAuth2\ClientValidator.cs" />
+        <Compile Include="OAuth2\Endpoints\OAuth2AuthorizeController.cs" />
+        <Compile Include="OAuth2\Endpoints\OAuth2ConsentViewModel.cs" />
+        <Compile Include="OAuth2\TokenRequestValidationException.cs" />
+        <Compile Include="OpenIdConnect\AccessToken.cs" />
+        <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeController.cs" />
+        <Compile Include="OpenIdConnect\Endpoints\OidcAuthorizeControllerBase.cs" />
+        <Compile Include="OpenIdConnect\IdentityToken.cs" />
+        <Compile Include="OpenIdConnect\OidcToken.cs" />
+        <Compile Include="OpenIdConnect\OidcConstants.cs" />
+        <Compile Include="OpenIdConnect\Endpoints\OidcTokenController.cs" />
+        <Compile Include="OpenIdConnect\OidcTokenResponse.cs" />
+        <Compile Include="OpenIdConnect\OidcTokenService.cs" />
+        <Compile Include="OpenIdConnect\OidcViewModel.cs" />
+        <Compile Include="OpenIdConnect\TokenRequestValidator.cs" />
+        <Compile Include="OpenIdConnect\Endpoints\UserInfoController.cs" />
+        <Compile Include="OAuth2\AuthorizeRequestClientException.cs" />
+        <Compile Include="OAuth2\AuthorizeRequestResourceOwnerException.cs" />
+        <Compile Include="OAuth2\AuthorizeRequestValidationException.cs" />
+        <Compile Include="OpenIdConnect\AuthorizeRequestValidator.cs" />
+        <Compile Include="OAuth2\ClientErrorResult.cs" />
+        <Compile Include="OAuth2\Extensions.cs" />
+        <Compile Include="OpenIdConnect\ValidatedRequest.cs" />
+        <Compile Include="Resources\OAuth2\OAuth2AuthorizeController.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resources\OAuth2\OAuthTitleGrantResult.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resources\SimpleHTTP\SimpleHttpController.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>SimpleHttpController.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resources\WSFederation\HrdViewModel.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>HrdViewModel.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resources\WSFederation\WSFederationResult.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>WSFederationResult.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Shared\AccountControllerBase.cs" />
+        <Compile Include="Shared\AuthenticationHelper.cs" />
+        <Compile Include="FederationMetadata\FederationMetadataController.cs" />
+        <Compile Include="FederationMetadata\WSFederationMetadataGenerator.cs" />
+        <Compile Include="OAuth2\Endpoints\OAuth2TokenController.cs" />
+        <Compile Include="OAuth2\TokenRequest.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Shared\SignInSessionsManager.cs" />
+        <Compile Include="Shared\TokenResponse.cs" />
+        <Compile Include="Shared\STS.cs" />
+        <Compile Include="SimpleHTTP\SimpleHttpController.cs" />
+        <Compile Include="WSFederation\HrdController.cs" />
+        <Compile Include="WSFederation\HrdViewModel.cs" />
+        <Compile Include="WSFederation\WSFederationController.cs" />
+        <Compile Include="WSFederation\WSFederationResult.cs" />
+        <Compile Include="WSTrust\TokenServiceHostFactory.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
+            <Project>{38ce5c59-909e-4da6-8e1d-7eee7312ca9a}</Project>
+            <Name>Thinktecture.IdentityServer.Core</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.fr.resx">
+            <DependentUpon>OAuth2AuthorizeController.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\OAuth2\OAuth2AuthorizeController.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>OAuth2AuthorizeController.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.fr.resx">
+            <DependentUpon>OAuthTitleGrantResult.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\OAuth2\OAuthTitleGrantResult.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>OAuthTitleGrantResult.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.fr.resx">
+            <DependentUpon>SimpleHttpController.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\SimpleHTTP\SimpleHttpController.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>SimpleHttpController.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.fr.resx">
+            <DependentUpon>HrdViewModel.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\WSFederation\HrdViewModel.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>HrdViewModel.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.fr.resx">
+            <DependentUpon>WSFederationResult.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\WSFederation\WSFederationResult.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>WSFederationResult.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup />
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
