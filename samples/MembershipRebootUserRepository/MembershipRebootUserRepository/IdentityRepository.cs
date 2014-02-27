@@ -1,4 +1,6 @@
-﻿using BrockAllen.MembershipReboot;
+﻿using System.Configuration;
+using System.Web.Profile;
+using BrockAllen.MembershipReboot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +18,13 @@ namespace MembershipRebootUserRepository
         IClientCertificatesRepository,
         IClaimsRepository
     {
+        private const string ProfileClaimPrefix = "http://identityserver.thinktecture.com/claims/profileclaims/";
+
         UserAccountService userSvc;
         GroupService groupSvc;
         IUserAccountQuery userQuery;
         IGroupQuery groupQuery;
-
+        
         public IdentityRepository()
         {
             var settings = SecuritySettings.FromConfiguration();
@@ -215,7 +219,7 @@ namespace MembershipRebootUserRepository
         #endregion
 
         #region IClaimsRepository
-        public IEnumerable<System.Security.Claims.Claim> GetClaims(
+        public IEnumerable<Claim> GetClaims(
             ClaimsPrincipal principal, RequestDetails requestDetails)
         {
             var user = userSvc.GetByUsername(principal.Identity.Name);
@@ -254,6 +258,91 @@ namespace MembershipRebootUserRepository
                 new string[] { ClaimTypes.Name, ClaimTypes.Email, ClaimTypes.MobilePhone, ClaimTypes.Role };
                 //.Union(query.Distinct()).Distinct();
         }
+
+        public IEnumerable<ProfileProperty> GetProfileProperties()
+        {
+            var properties = new List<ProfileProperty>();
+
+            if (ProfileManager.Enabled)
+            {
+                foreach (SettingsProperty prop in ProfileBase.Properties)
+                {
+                    properties.Add(new ProfileProperty() { Name = prop.Name, PropertyType = prop.PropertyType });
+                }
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+
+            return properties;
+        }
+
+        public virtual IEnumerable<ProfileProperty> GetProfileProperties(string userName)
+        {
+            
+            var user = userSvc.GetByUsername(userName);
+            if (user == null) throw new ArgumentException("Invalid Username");
+
+            var profileClaims =
+                (from uc in user.Claims
+                 select new ProfileProperty() { Name = GetProfileClaimName(uc.Type), PropertyType = typeof(String), Value = uc.Value }).ToList();
+
+            var properties = new List<ProfileProperty>();
+
+            if (ProfileManager.Enabled)
+            {
+                foreach (SettingsProperty prop in ProfileBase.Properties)
+                {
+                    if (profileClaims.Exists(claim => claim.Name.Equals(prop.Name, StringComparison.InvariantCultureIgnoreCase)))
+                    {
+                        var profileClaim = profileClaims.Single(claim => claim.Name.Equals(prop.Name, StringComparison.InvariantCultureIgnoreCase));
+                        profileClaim.Name = prop.Name;
+                        properties.Add(profileClaim);
+                    }
+                    else
+                    {
+                        properties.Add(new ProfileProperty() { Name = prop.Name, PropertyType = prop.PropertyType});
+                    }
+                }
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+            
+            return properties;
+        }
+
+        public void UpdateProfileProperties(string userName, ProfileProperty[] profileProperties)
+        {
+            var user = userSvc.GetByUsername(userName);
+            if (user == null) throw new ArgumentException("Invalid Username");
+
+            for (int i = 0; i < profileProperties.Length; i++)
+            {
+                if (String.IsNullOrWhiteSpace(Convert.ToString(profileProperties[i].Value)))
+                {
+                    userSvc.RemoveClaim(user.ID, GetProfileClaimType(profileProperties[i].Name));
+                }
+                else
+                {
+                    userSvc.RemoveClaim(user.ID, GetProfileClaimType(profileProperties[i].Name));
+                    userSvc.AddClaim(user.ID, GetProfileClaimType(profileProperties[i].Name), Convert.ToString(profileProperties[i].Value));
+                }
+            }
+        }
+
         #endregion
+
+        protected string GetProfileClaimName(string propertyType)
+        {
+            return propertyType.Split('/').Last();
+        }
+
+        protected string GetProfileClaimType(string propertyName)
+        {
+            return string.Format("{0}{1}", ProfileClaimPrefix, propertyName.ToLower());
+        }
     }
 }

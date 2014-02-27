@@ -14,15 +14,18 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
     {
         [Import]
         public IUserManagementRepository UserManagementRepository { get; set; }
+        [Import]
+        public IClaimsRepository ClaimsRepository { get; set; }
 
         public UserController()
         {
             Container.Current.SatisfyImportsOnce(this);
         }
 
-        public UserController(IUserManagementRepository userManagementRepository)
+        public UserController(IUserManagementRepository userManagementRepository, IClaimsRepository claimsRepository)
         {
             UserManagementRepository = userManagementRepository;
+            ClaimsRepository = claimsRepository;
         }
 
         public ActionResult Index(int page = 1, string filter = null)
@@ -145,7 +148,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
 
         public new ActionResult Profile(string username)
         {
-            var vm = new UserProfileViewModel(username);
+            var vm = new UserProfileViewModel(ClaimsRepository,username);
             return View(vm);
         }
         
@@ -153,7 +156,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public new ActionResult Profile(string username, ProfilePropertyInputModel[] profileValues)
         {
-            var vm = new UserProfileViewModel(username, profileValues);
+            var vm = new UserProfileViewModel(ClaimsRepository, username, profileValues);
 
             if (vm.UpdateProfileFromValues(ModelState))
             {

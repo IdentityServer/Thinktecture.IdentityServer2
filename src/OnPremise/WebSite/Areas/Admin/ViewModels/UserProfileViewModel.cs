@@ -3,64 +3,67 @@ using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Profile;
+using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
 {
     public class UserProfileViewModel
     {
-        public UserProfileViewModel(string username, ProfilePropertyInputModel[] values)
-        {
-            this.Username = username;
-            this.ProfileValues = new ProfilePropertyViewModel[values.Length];
 
-            for (int i = 0; i < this.ProfileValues.Length; i++)
+        private readonly IClaimsRepository _claimsRepository;
+
+        public UserProfileViewModel(IClaimsRepository claimsRepository, string username, ProfilePropertyInputModel[] values)
+        {
+            _claimsRepository = claimsRepository;
+
+            Username = username;
+            
+            ProfileValues = new ProfilePropertyViewModel[values.Length];
+            
+            var profileProperties =
+                _claimsRepository.GetProfileProperties(username).ToDictionary(property => property.Name);
+
+            for (int i = 0; i < ProfileValues.Length; i++)
             {
-                var prop = ProfileBase.Properties[values[i].Name];
-                this.ProfileValues[i] = new ProfilePropertyViewModel(prop, values[i]);
+                var prop = profileProperties[values[i].Name];
+                ProfileValues[i] = new ProfilePropertyViewModel(prop.Name, values[i].Value, prop.PropertyType);
             }
         }
 
-        public UserProfileViewModel(string username)
+        public UserProfileViewModel(IClaimsRepository claimsRepository, string username)
         {
-            this.Username = username;
+            _claimsRepository = claimsRepository;
 
-            if (ProfileBase.Properties != null && ProfileBase.Properties.Count > 0)
+            Username = username;
+
+            if(claimsRepository.GetProfileProperties(username).Any())
             {
-                var propertyList = ProfileBase.Properties.Cast<SettingsProperty>().ToArray();
-                var profile = ProfileBase.Create(username);
+                var profileProperties = claimsRepository.GetProfileProperties(username).ToArray();
                 var values =
-                    from property in propertyList
-                    where 
-                        (property.PropertyType.IsValueType && !property.PropertyType.IsGenericType) || 
-                        property.PropertyType == typeof(string)
-                    select new ProfilePropertyViewModel(property, Convert.ToString(profile[property.Name]));
+                    from property in profileProperties
+                    select new ProfilePropertyViewModel(property.Name, Convert.ToString(property.Value), property.PropertyType);
                 ProfileValues = values.ToArray();
             }
         }
 
         public bool UpdateProfileFromValues(ModelStateDictionary errors)
         {
-            if (ProfileValues.All(x => String.IsNullOrWhiteSpace(x.Data.Value)))
-            {
-                ProfileManager.DeleteProfile(Username);
-                return true;
-            }
+            var profileProperties =
+                _claimsRepository.GetProfileProperties().ToDictionary(property => property.Name);
 
-            var profile = ProfileBase.Create(Username);
             for (int i = 0; i < ProfileValues.Length; i++)
             {
-                var prop = ProfileBase.Properties[ProfileValues[i].Data.Name];
+                var prop = profileProperties[ProfileValues[i].Data.Name];
                 try
                 {
-                    if (String.IsNullOrWhiteSpace(ProfileValues[i].Data.Value) && 
+                    if (String.IsNullOrWhiteSpace(ProfileValues[i].Data.Value) &&
                         prop.PropertyType.IsValueType)
                     {
                         errors.AddModelError("profileValues[" + i + "].value", string.Format(Resources.UserProfileViewModel.RequiredProperty, prop.Name));
                     }
                     else
                     {
-                        object val = Convert.ChangeType(ProfileValues[i].Data.Value, prop.PropertyType);
-                        profile.SetPropertyValue(prop.Name, val);
+                        profileProperties[prop.Name].Value = Convert.ChangeType(ProfileValues[i].Data.Value, prop.PropertyType);
                     }
                 }
                 catch (FormatException ex)
@@ -77,7 +80,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
             {
                 try
                 {
-                    profile.Save();
+                    _claimsRepository.UpdateProfileProperties(Username, profileProperties.Values.ToArray());
                 }
                 catch (Exception ex)
                 {
@@ -95,14 +98,14 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
 
     public class ProfilePropertyViewModel
     {
-        public ProfilePropertyViewModel(SettingsProperty property, ProfilePropertyInputModel value)
+        public ProfilePropertyViewModel(SettingsProperty property, ProfilePropertyInputModel value) 
         {
+
             Type = PropTypeFromPropertyType(property);
             Description = string.Format(property.PropertyType.IsValueType
                                             ? Resources.ProfilePropertyViewModel.RequiredPropertyMustBeOfType
                                             : Resources.ProfilePropertyViewModel.RequiredProperty,
                                         property.Name, property.PropertyType.Name);
-
             Data = value;
         }
 
@@ -115,10 +118,31 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
                     })
         {
         }
-        
-        ProfilePropertyViewModel.ProfilePropertyType PropTypeFromPropertyType(SettingsProperty prop)
+
+        public ProfilePropertyViewModel(string name, string value, Type type)
         {
-            return prop.PropertyType == typeof(Boolean) ?
+            Type = PropTypeFromPropertyType(type);
+            
+            Description = string.Format(type.IsValueType
+                                            ? Resources.ProfilePropertyViewModel.RequiredPropertyMustBeOfType
+                                            : Resources.ProfilePropertyViewModel.RequiredProperty,
+                                        name, type.Name);
+
+            Data = new ProfilePropertyInputModel
+            {
+                Name = name,
+                Value = value
+            };
+        }
+
+        ProfilePropertyType PropTypeFromPropertyType(SettingsProperty prop)
+        {
+            return PropTypeFromPropertyType(prop.PropertyType);
+        }
+
+        ProfilePropertyType PropTypeFromPropertyType(Type type)
+        {
+            return type == typeof(Boolean) ?
                     ProfilePropertyViewModel.ProfilePropertyType.Boolean :
                     ProfilePropertyViewModel.ProfilePropertyType.String;
         }
