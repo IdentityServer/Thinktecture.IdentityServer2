@@ -192,7 +192,8 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         {
             return new Models.Configuration.FederationMetadataConfiguration
             {
-                Enabled = entity.Enabled
+                Enabled = entity.Enabled,
+                PrimaryPassiveEndpoint = (Models.Configuration.PassiveEndpoints?)entity.PrimaryPassiveEndpoint
             };
         }
 
@@ -200,7 +201,8 @@ namespace Thinktecture.IdentityServer.Repositories.Sql
         {
             return new Entities.Configuration.FederationMetadataConfiguration
             {
-                Enabled = model.Enabled
+                Enabled = model.Enabled,
+                PrimaryPassiveEndpoint = (int?)model.PrimaryPassiveEndpoint
             };
         }
         #endregion

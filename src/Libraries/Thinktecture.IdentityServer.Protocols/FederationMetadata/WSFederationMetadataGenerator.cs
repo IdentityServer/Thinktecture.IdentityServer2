@@ -17,6 +17,7 @@ using System.ServiceModel.Description;
 using System.Text;
 using System.Xml;
 using Thinktecture.IdentityModel.Constants;
+using Thinktecture.IdentityServer.Models.Configuration;
 using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Protocols.FederationMetadata
@@ -64,7 +65,7 @@ namespace Thinktecture.IdentityServer.Protocols.FederationMetadata
             tokenService.ServiceDescription = ConfigurationRepository.Global.SiteName;
             tokenService.Keys.Add(GetSigningKeyDescriptor());
 
-            tokenService.PassiveRequestorEndpoints.Add(new EndpointReference(_endpoints.WSFederation.AbsoluteUri));
+            tokenService.PassiveRequestorEndpoints.Add(new EndpointReference(GetWsFedUrlForEnableFederation().AbsoluteUri));
 
             tokenService.TokenTypesOffered.Add(new Uri(TokenTypes.OasisWssSaml11TokenProfile11));
             tokenService.TokenTypesOffered.Add(new Uri(TokenTypes.OasisWssSaml2TokenProfile11));
@@ -99,6 +100,18 @@ namespace Thinktecture.IdentityServer.Protocols.FederationMetadata
                 tokenService.SecurityTokenServiceEndpoints.Add(new EndpointReference(_endpoints.WSFederation.AbsoluteUri));
 
             return tokenService;
+        }
+
+        private Uri GetWsFedUrlForEnableFederation()
+        {
+            // If Federation is enabled (this server is a gateway) then use the HRD enpoint instead of the standard WsFed endpoint.
+            switch (ConfigurationRepository.FederationMetadata.PrimaryPassiveEndpoint)
+            {
+                case PassiveEndpoints.Hrd:
+                    return _endpoints.WSFederationHRD;
+                default:
+                    return _endpoints.WSFederation;
+            }
         }
 
         private KeyDescriptor GetSigningKeyDescriptor()

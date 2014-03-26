@@ -91,6 +91,14 @@
     <Compile Include="Migrations.SqlCe\201308171332371_DisableSSL.Designer.cs">
       <DependentUpon>201308171332371_DisableSSL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations.SqlCe\201312131157039_PrimaryPassiveEndpoint.cs" />
+    <Compile Include="Migrations.SqlCe\201312131157039_PrimaryPassiveEndpoint.Designer.cs">
+      <DependentUpon>201312131157039_PrimaryPassiveEndpoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.SqlServer\201312161134178_PrimaryPassiveEndpoint.cs" />
+    <Compile Include="Migrations.SqlServer\201312161134178_PrimaryPassiveEndpoint.Designer.cs">
+      <DependentUpon>201312161134178_PrimaryPassiveEndpoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpenIdConnectClientsRepository.cs" />
     <Compile Include="EntityModel\CodeToken.cs" />
     <Compile Include="EntityModel\Configuration\AdfsIntegrationConfiguration.cs" />
@@ -246,6 +254,12 @@
     <EmbeddedResource Include="Migrations.SqlCe\201308171332371_DisableSSL.resx">
       <DependentUpon>201308171332371_DisableSSL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.SqlCe\201312131157039_PrimaryPassiveEndpoint.resx">
+      <DependentUpon>201312131157039_PrimaryPassiveEndpoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.SqlServer\201312161134178_PrimaryPassiveEndpoint.resx">
+      <DependentUpon>201312161134178_PrimaryPassiveEndpoint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\IdentityProviderRepository.fr.resx">
       <DependentUpon>IdentityProviderRepository.resx</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +286,7 @@
     <Content Include="Migrations.SqlCe\Sql\201307221954069_RPTokenType.sql" />
     <Content Include="Migrations.SqlCe\Sql\201307241918515_OIDC.sql" />
     <Content Include="Migrations.SqlCe\Sql\201308171332371_DisableSSL.sql" />
+    <Content Include="Migrations.SqlCe\Sql\201312131157039_PrimaryPassiveEndpoint.sql" />
     <Content Include="Migrations.SqlServer\Sql\201301011810411_InitialMigration.sql" />
     <Content Include="Migrations.SqlServer\Sql\201302041414549_RefreshToken.sql" />
     <Content Include="Migrations.SqlServer\Sql\201303101659384_ClientSecretNotRequired.sql" />
@@ -280,6 +295,7 @@
     <Content Include="Migrations.SqlServer\Sql\201307221954492_RPTokenType.sql" />
     <Content Include="Migrations.SqlServer\Sql\201307241918180_OIDC.sql" />
     <Content Include="Migrations.SqlServer\Sql\201308171332094_DisableSSL.sql" />
+    <Content Include="Migrations.SqlServer\Sql\201312161134178_PrimaryPassiveEndpoint.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
