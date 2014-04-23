@@ -38,7 +38,7 @@ namespace Thinktecture.IdentityServer.Models
         public string WSFederationEndpoint { get; set; }
 
         string _IssuerThumbprint;
-        [UIHint("Thumbprint")]
+        [UIHint("MultipleThumbprints")]
         [Display(Order = 7, ResourceType = typeof (Resources.Models.IdentityProvider), Name = "IssuerThumbprint", Description = "IssuerThumbprintDescription")]
         public string IssuerThumbprint
         {

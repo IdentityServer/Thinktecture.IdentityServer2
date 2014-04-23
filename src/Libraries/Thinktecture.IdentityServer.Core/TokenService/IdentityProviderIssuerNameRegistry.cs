@@ -21,8 +21,8 @@ namespace Thinktecture.IdentityServer.TokenService
             if (x509token != null)
             {
                 var idp = (from i in _idps
-                           where i.IssuerThumbprint.Equals(x509token.Certificate.Thumbprint, StringComparison.OrdinalIgnoreCase)
-                                 && i.Enabled
+                           where i.Enabled && 
+                                 IsValidThumbprint(i.IssuerThumbprint, x509token.Certificate.Thumbprint)
                            select i).FirstOrDefault();
 
                 if (idp != null)
@@ -32,6 +32,12 @@ namespace Thinktecture.IdentityServer.TokenService
             }
 
             return null;
+        }
+
+        private bool IsValidThumbprint(string issuerThumbprints, string x509Thumbprint)
+        {
+            return issuerThumbprints.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries)
+                .Any(x => x.Equals(x509Thumbprint, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
