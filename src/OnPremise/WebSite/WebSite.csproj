@@ -1179,6 +1179,7 @@
     <Content Include="Areas\Admin\Views\IP\Index.cshtml" />
     <Content Include="Areas\Admin\Views\IP\IP.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Thumbprint.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MultipleThumbprints.cshtml" />
     <Content Include="Content\Mobile.less" />
     <Content Include="Areas\Admin\Views\OAuthClient\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OAuthClient\Edit.cshtml" />
@@ -1190,43 +1191,6 @@
     <Content Include="Areas\Admin\Views\Protocol\ADFSIntegration.cshtml" />
     <Content Include="Areas\Admin\Views\OpenIdConnectClient\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OpenIdConnectClient\Index.cshtml" />
-    <Content Include="Configuration\connectionStrings.local.config" />
-    <Content Include="Configuration\identity.local.config" />
-    <Content Include="Configuration\identityServices.local.config" />
-    <Content Include="Configuration\profile.local.config" />
-    <Content Include="Configuration\repositories.local.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Configuration\tracing.local.config" />
-    <Content Include="Areas\Admin\Views\Invitations\Index.cshtml" />
-    <Content Include="RoleStartup\NoRecycle.cmd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Areas\ApiExplorer\Views\Home\AccessApi.cshtml" />
-    <Content Include="Areas\ApiExplorer\Views\Home\ProvidedClaims.cshtml" />
-    <Content Include="Areas\ApiExplorer\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\ApiExplorer\Views\Web.config" />
-    <Content Include="Areas\ApiExplorer\Views\_ViewStart.cshtml" />
-    <Content Include="Configuration\connectionStrings.uatlocal.config" />
-    <Content Include="Configuration\identity.uatlocal.config" />
-    <Content Include="Areas\ApiExplorer\Views\Home\ApiExplorerDisabled.cshtml" />
-    <Content Include="Content\fonts\FjkFont.eot" />
-    <Content Include="Content\fonts\FjkFont.ttf" />
-    <Content Include="Content\fonts\FjkFont.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\Admin\Views\Application\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Application\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Group\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Group\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Group\ApplicationGroup.cshtml" />
-    <Content Include="Areas\Admin\Views\Role\ApplicationRole.cshtml" />
-    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\User\GroupUser.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MultipleThumbprints.cshtml" />
-    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
