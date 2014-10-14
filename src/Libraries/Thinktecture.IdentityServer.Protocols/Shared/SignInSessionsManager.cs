@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Services.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -95,7 +96,7 @@ namespace Thinktecture.IdentityServer.Protocols
 
             var cookie = new HttpCookie(_cookieName, realmString)
             {
-                Secure = true,
+                Secure = SystemIdentityModelServicesSection.DefaultFederationConfigurationElement.CookieHandler.RequireSsl,
                 HttpOnly = true,
                 Path = HttpRuntime.AppDomainAppVirtualPath
             };
