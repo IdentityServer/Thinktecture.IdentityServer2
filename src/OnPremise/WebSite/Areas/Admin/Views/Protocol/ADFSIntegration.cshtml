@@ -1,7 +1,8 @@
 ﻿@model ProtocolViewModel
+@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.Protocol
 
 @{
-    ViewBag.Title = "Protocol Configuration : " + Model.DisplayName;
+    ViewBag.Title = string.Format(ADFSIntegration_cshtml.ProtocolConfiguration, Model.DisplayName);
 }
 
 @using (Html.BeginForm("UpdateADFSIntegration", "Protocol", new { id = Model.ID },
@@ -15,8 +16,8 @@
         @Html.EditorFor(x => x.Protocol)
 
         <div class="buttons">
-            <button type="submit">Save Changes</button>
-            <button type="reset">Cancel</button>
+            <button type="submit">@ADFSIntegration_cshtml.SaveChanges</button>
+            <button type="reset">@ADFSIntegration_cshtml.Cancel</button>
         </div>
     </fieldset>
 }

@@ -104,7 +104,7 @@
 		<value>Diagnostiques</value>
 	</data>
 	<data name="ApplicationRecycle" xml:space="preserve">
-		<value>Recycler l'application</value>
+		<value>Recycler l’application</value>
 	</data>
 	<data name="ClientCertificates" xml:space="preserve">
 		<value>Certificats client</value>
@@ -122,7 +122,7 @@
 		<value>Parties utilisatrices &amp; ressources</value>
 	</data>
 	<data name="IdentityProviders" xml:space="preserve">
-		<value>Fournisseurs d'identité</value>
+		<value>Fournisseurs d’identité</value>
 	</data>
 	<data name="OAuthClients" xml:space="preserve">
 		<value>Clients OAuth</value>

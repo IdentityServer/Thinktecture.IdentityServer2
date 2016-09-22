@@ -104,7 +104,7 @@
 		<value>Utilisateur créé</value>
 	</data>
 	<data name="ErrorCreatingUser" xml:space="preserve">
-		<value>Erreur de création de l'utilisateur.</value>
+		<value>Erreur de création de l’utilisateur.</value>
 	</data>
 	<data name="UsersDeleted" xml:space="preserve">
 		<value>Utilisateurs supprimés</value>

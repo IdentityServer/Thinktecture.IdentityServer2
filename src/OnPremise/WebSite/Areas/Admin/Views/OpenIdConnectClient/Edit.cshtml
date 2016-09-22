@@ -1,13 +1,14 @@
+@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.OpenIdConnectClient
 @model OpenIdConnectClientViewModel
 @using Thinktecture.IdentityServer.Web.Utility
 @{
     if (Model.IsNew)
     {
-        ViewBag.Title = "New";
+        ViewBag.Title = Edit_cshtml.NewOpenIDConnectClient;
     }
     else
     {
-        ViewBag.Title = "Edit " + Model.Client.Name;
+        ViewBag.Title = string.Format(Edit_cshtml.OpenIDConnectClient, Model.Client.Name);
     }
 }
 @{
@@ -16,7 +17,7 @@
 @using (Html.BeginForm(action, "OpenIdConnectClient"))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("Error updating client")
+    @Html.ValidationSummary(Edit_cshtml.ErrorUpdatingClient)
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
 
@@ -46,20 +47,20 @@
         <div class="buttons">
             @if (!Model.IsNew)
             {
-                <button type="submit" name="action" value="save">Save Changes</button>
+                <button type="submit" name="action" value="save">@Edit_cshtml.SaveChanges</button>
             }
             else
             {
-                <button type="submit" name="action" value="create">Create</button>
+                <button type="submit" name="action" value="create">@Edit_cshtml.Create</button>
             }
-            <button type="reset">Cancel</button>
+            <button type="reset">@Edit_cshtml.Cancel</button>
         </div>
 
         @if (Model.IsOAuthRefreshTokenEnabled)
         {
             <nav class="links">
                 <ul>
-                    <li>@Html.ActionLink("tokens", "Index", "OAuthRefreshToken", new { ClientID=Model.Client.ClientId}, null)</li>
+                    <li>@Html.ActionLink(Edit_cshtml.Tokens, "Index", "OAuthRefreshToken", new { ClientID=Model.Client.ClientId}, null)</li>
                 </ul>
             </nav>
         }

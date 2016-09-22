@@ -9,6 +9,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         public string Username { get; set; }
 
         [Required]
+        [Display(ResourceType = typeof(Resources.UserPasswordModel), Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }

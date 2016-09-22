@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,158 +59,158 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="SiteNameDescription" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="SiteNameDescription" xml:space="preserve">
     <value>Descriptive name of your STS.</value>
   </data>
-  <data name="IssuerUri" xml:space="preserve">
+	<data name="IssuerUri" xml:space="preserve">
     <value>Site ID</value>
   </data>
-  <data name="IssuerUriDescription" xml:space="preserve">
+	<data name="IssuerUriDescription" xml:space="preserve">
     <value>Unique identifier for your STS. Must be a URI and will be the identifier issued in tokens and replying parties will use to identify your identity provider (this STS).</value>
   </data>
-  <data name="SiteName" xml:space="preserve">
+	<data name="SiteName" xml:space="preserve">
     <value>Site Name</value>
   </data>
-  <data name="IssuerContactEmail" xml:space="preserve">
+	<data name="IssuerContactEmail" xml:space="preserve">
     <value>Contact Email</value>
   </data>
-  <data name="IssuerContactEmailDescription" xml:space="preserve">
+	<data name="IssuerContactEmailDescription" xml:space="preserve">
     <value>Email of the contact person that administrates this STS.</value>
   </data>
-  <data name="DefaultWSTokenType" xml:space="preserve">
+	<data name="DefaultWSTokenType" xml:space="preserve">
     <value>Default WS* Token</value>
   </data>
-  <data name="DefaultWSTokenTypeDescription" xml:space="preserve">
+	<data name="DefaultWSTokenTypeDescription" xml:space="preserve">
     <value>Default token type to be issued for WS-Federation and WS-Trust token requests.</value>
   </data>
-  <data name="DefaultHttpTokenTypeDescription" xml:space="preserve">
+	<data name="DefaultHttpTokenTypeDescription" xml:space="preserve">
     <value>Default token type to be issued for HTTP (non WS-*) token requests.</value>
   </data>
-  <data name="DefaultHttpTokenType" xml:space="preserve">
+	<data name="DefaultHttpTokenType" xml:space="preserve">
     <value>Default HTTP Token</value>
   </data>
-  <data name="DefaultTokenLifetime" xml:space="preserve">
+	<data name="DefaultTokenLifetime" xml:space="preserve">
     <value>Default Token Lifetime</value>
   </data>
-  <data name="DefaultTokenLifetimeDescription" xml:space="preserve">
+	<data name="DefaultTokenLifetimeDescription" xml:space="preserve">
     <value>The default lifetime (in hours) of tokens issued from this STS.</value>
   </data>
-  <data name="MaximumTokenLifetime" xml:space="preserve">
+	<data name="MaximumTokenLifetime" xml:space="preserve">
     <value>Maximum Token Lifetime</value>
   </data>
-  <data name="MaximumTokenLifetimeDescription" xml:space="preserve">
+	<data name="MaximumTokenLifetimeDescription" xml:space="preserve">
     <value>The maximum lifetime (in hours) of tokens issued from this STS if a relying party requests a lifetime longer than the default.</value>
   </data>
-  <data name="SsoCookieLifetime" xml:space="preserve">
+	<data name="SsoCookieLifetime" xml:space="preserve">
     <value>SSO Duration</value>
   </data>
-  <data name="SsoCookieLifetimeDescription" xml:space="preserve">
+	<data name="SsoCookieLifetimeDescription" xml:space="preserve">
     <value>The duration (in hours) of the single sign-on cookies used for this web site.</value>
   </data>
-  <data name="RequireEncryption" xml:space="preserve">
+	<data name="RequireEncryption" xml:space="preserve">
     <value>Require Token Encryption</value>
   </data>
-  <data name="RequireEncryptionDescription" xml:space="preserve">
+	<data name="RequireEncryptionDescription" xml:space="preserve">
     <value>When enabled this setting requires all outgoing tokens to be encrypted.</value>
   </data>
-  <data name="RequireRelyingPartyRegistration" xml:space="preserve">
+	<data name="RequireRelyingPartyRegistration" xml:space="preserve">
     <value>Require RP Registration</value>
   </data>
-  <data name="RequireRelyingPartyRegistrationDescription" xml:space="preserve">
+	<data name="RequireRelyingPartyRegistrationDescription" xml:space="preserve">
     <value>When enabled the STS will only issue tokens for relying parties that are registed.</value>
   </data>
-  <data name="EnableClientCertificateAuthentication" xml:space="preserve">
+	<data name="EnableClientCertificateAuthentication" xml:space="preserve">
     <value>Enable Client Certificates</value>
   </data>
-  <data name="EnableClientCertificateAuthenticationDescription" xml:space="preserve">
+	<data name="EnableClientCertificateAuthenticationDescription" xml:space="preserve">
     <value>Allow users to authenticate in the web frontend with client certificates.</value>
   </data>
-  <data name="HttpPort" xml:space="preserve">
+	<data name="HttpPort" xml:space="preserve">
     <value>HTTP Port</value>
   </data>
-  <data name="HttpPortDescription" xml:space="preserve">
+	<data name="HttpPortDescription" xml:space="preserve">
     <value>Port number the STS using for HTTP.</value>
   </data>
-  <data name="HttpsPort" xml:space="preserve">
+	<data name="HttpsPort" xml:space="preserve">
     <value>HTTPS Port</value>
   </data>
-  <data name="HttpsPortDescription" xml:space="preserve">
+	<data name="HttpsPortDescription" xml:space="preserve">
     <value>Port number the STS is using for HTTPS.</value>
   </data>
-  <data name="EnforceUsersGroupMembership" xml:space="preserve">
+	<data name="EnforceUsersGroupMembership" xml:space="preserve">
     <value>Only Users in the 'IdentityServerUsers' role can request tokens</value>
   </data>
-  <data name="EnforceUsersGroupMembershipDescription" xml:space="preserve">
+	<data name="EnforceUsersGroupMembershipDescription" xml:space="preserve">
     <value>When enabled this setting will cause the STS to only issue tokens for users that are in the 'IdentityServerUsers' role.</value>
   </data>
-  <data name="DisableSSL" xml:space="preserve">
+	<data name="DisableSSL" xml:space="preserve">
     <value>Disable SSL</value>
   </data>
-  <data name="DisableSSLDescription" xml:space="preserve">
+	<data name="DisableSSLDescription" xml:space="preserve">
     <value>This setting is used to disable SSL in IdentityServer and would be used if you are using an external SSL device.</value>
   </data>
-  <data name="PublicHostName" xml:space="preserve">
+	<data name="PublicHostName" xml:space="preserve">
     <value>Public Host Name</value>
   </data>
-  <data name="PublicHostNameDescription" xml:space="preserve">
+	<data name="PublicHostNameDescription" xml:space="preserve">
     <value>The public host name for this web site. Should be used when the web site host name is not the same as the public facing host name. Useful when using load balancers or a virtual IP address.</value>
   </data>
 </root>

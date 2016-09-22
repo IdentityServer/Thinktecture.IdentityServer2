@@ -110,7 +110,7 @@
 		<value>Active la délégation d’identité.</value>
 	</data>
 	<data name="EnableFederatedAuthentication" xml:space="preserve">
-		<value>Activer l’authentification fédérée.</value>
+		<value>Activer l’authentification fédérée</value>
 	</data>
 	<data name="EnableFederatedAuthenticationDescription" xml:space="preserve">
 		<value>Active l’authentification fédérée en utilisant un jeton d’un fournisseur d’identité de confiance.</value>

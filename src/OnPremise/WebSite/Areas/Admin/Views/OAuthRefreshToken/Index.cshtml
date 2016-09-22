@@ -1,13 +1,14 @@
-﻿@model OAuthRefreshTokenIndexViewModel
+﻿@using Thinktecture.IdentityServer.Web.Areas.Admin.App_LocalResources.OAuthRefreshToken
+@model OAuthRefreshTokenIndexViewModel
 
 @{
-    ViewBag.Title = "OAuth Refresh Tokens";
+    ViewBag.Title = Index_cshtml.OAuthRefreshTokens;
 }
 
 @using (Html.BeginForm("Index", "OAuthRefreshToken"))
 {
     <fieldset class="editor small">
-        <legend>Refresh Tokens</legend>
+        <legend>@Index_cshtml.RefreshTokens</legend>
 
         @Html.EditorFor(x => x.SearchCriteria)
 
@@ -17,7 +18,7 @@
         </div>
 
         <div class="buttons">
-            <button>Search</button>
+            <button>@Index_cshtml.Search</button>
         </div>
     </fieldset>
 }
@@ -26,19 +27,19 @@
 {
     if (!Model.SearchResults.Any())
     {
-    <h2>No Results Found</h2>
+    <h2>@Index_cshtml.NoResultsFound</h2>
     }
     else
     {
-    <h2>Search Results</h2>
+    <h2>@Index_cshtml.SearchResults</h2>
     <table>
         <thead>
             <tr>
                 <th></th>
-                <th>TimeStamp</th>
-                <th>UserName</th>
-                <th>Client</th>
-                <th>Scope</th>
+                <th>@Index_cshtml.TimeStamp</th>
+                <th>@Index_cshtml.UserName</th>
+                <th>@Index_cshtml.Client</th>
+                <th>@Index_cshtml.Scope</th>
             </tr>
         </thead>
         <tbody>
@@ -50,7 +51,7 @@
                         {
                             @Html.AntiForgeryToken()
                             @Html.Hidden("token", token.Code)
-                            <button>delete</button>
+                            <button>@Index_cshtml.Delete</button>
                         }
                     </td>
                     <td>@token.TimeStamp</td>

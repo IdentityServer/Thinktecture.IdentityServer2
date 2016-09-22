@@ -21,7 +21,7 @@ namespace Thinktecture.IdentityServer.Web.Areas.Admin.ViewModels
         }
         
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Redirect Uris", Description = "List of URIs allowed to redirect to in OAuth2 protocol.")]
+        [Display(Name = "RedirectUris", ResourceType = typeof(Resources.OpenIdConnectClientInputModel))]
         public string RedirectUris { get; set; }
         
         public string[] ParsedRedirectUris
