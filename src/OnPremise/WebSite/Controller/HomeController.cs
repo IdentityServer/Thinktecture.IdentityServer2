@@ -86,6 +86,10 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                     {
                         list.Add("WS-Trust message security (client certificate)", endpoints.WSTrustMessageCertificate.AbsoluteUri);
                     }
+
+                    if (Configuration.WSTrust.EnableFederatedAuthentication) {
+                        list.Add("WS-Trust message security (federation)", endpoints.WSTrustMessageIssuedToken.AbsoluteUri);
+                    }
                 }
 
                 if (Configuration.WSTrust.EnableMixedModeSecurity)
@@ -95,6 +99,11 @@ namespace Thinktecture.IdentityServer.Web.Controllers
                     if (Configuration.WSTrust.EnableClientCertificateAuthentication)
                     {
                         list.Add("WS-Trust mixed mode security (client certificate)", endpoints.WSTrustMixedCertificate.AbsoluteUri);
+                    }
+
+                    if (Configuration.WSTrust.EnableFederatedAuthentication)
+                    {
+                        list.Add("WS-Trust mixed mode security (federation)", endpoints.WSTrustMixedIssuedToken.AbsoluteUri);
                     }
                 }
             }

@@ -4,31 +4,18 @@
  */
 
 using System;
-using System.ComponentModel.Composition;
-using System.IdentityModel.Configuration;
-using System.Reflection;
 using System.ServiceModel;
-using System.ServiceModel.Activation;
 using System.ServiceModel.Description;
 using System.ServiceModel.Security;
 using Thinktecture.IdentityModel.WSTrust;
-using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Protocols.WSTrust
 {
     /// <summary>
     /// Abstracts away the details of the WS-Trust ServiceHost creation and configuration
     /// </summary>
-    public class TokenServiceHostFactory : ServiceHostFactory
+    public class TokenServiceHostFactory : TokenServiceHostFactoryBase
     {
-        [Import]
-        public IConfigurationRepository ConfigurationRepository { get; set; }
-
-        public TokenServiceHostFactory() : base()
-        {
-            Container.Current.SatisfyImportsOnce(this);
-        }
-
         /// <summary>
         /// Creates a service host to process WS-Trust 1.3 requests
         /// </summary>
@@ -37,7 +24,6 @@ namespace Thinktecture.IdentityServer.Protocols.WSTrust
         /// <returns>A WS-Trust ServiceHost</returns>
         public override ServiceHostBase CreateServiceHost(string constructorString, Uri[] baseAddresses)
         {
-            var globalConfiguration = ConfigurationRepository.Global;
             var config = CreateSecurityTokenServiceConfiguration(constructorString);
             var host = new WSTrustServiceHost(config, baseAddresses);
             
@@ -101,22 +87,6 @@ namespace Thinktecture.IdentityServer.Protocols.WSTrust
             }
 
             return host;
-        }
-
-        protected virtual SecurityTokenServiceConfiguration CreateSecurityTokenServiceConfiguration(string constructorString)
-        {
-            Type type = Type.GetType(constructorString, true);
-            if (!type.IsSubclassOf(typeof(SecurityTokenServiceConfiguration)))
-            {
-                throw new InvalidOperationException("SecurityTokenServiceConfiguration");
-            }
-
-            return (Activator.CreateInstance(
-                type, 
-                BindingFlags.CreateInstance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, 
-                null, 
-                null, 
-                null) as SecurityTokenServiceConfiguration);
         }
     }
 }

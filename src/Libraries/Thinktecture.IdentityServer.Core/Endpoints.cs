@@ -23,6 +23,8 @@ namespace Thinktecture.IdentityServer
         public Uri WSTrustMixedUserName { get; set; }
         public Uri WSTrustMessageCertificate { get; set; }
         public Uri WSTrustMixedCertificate { get; set; }
+        public Uri WSTrustMixedIssuedToken { get; set; }
+        public Uri WSTrustMessageIssuedToken { get; set; }
 
         public Uri OidcAuthorize { get; set; }
         public Uri OidcToken { get; set; }
@@ -47,6 +49,7 @@ namespace Thinktecture.IdentityServer
             public const string WSFedRPMetadata = "FederationMetadataRP/2007-06/FederationMetadata.xml";
             public const string PrivacyNotice = "privacyNotice.txt";
             public const string WSTrustBase = "issue/wstrust";
+            public const string WSTrustFederationBase = "issue/federated/wstrust";
             public const string SimpleHttp = "issue/simple";
             public const string Wrap = "issue/wrap";
             public const string OAuth2Token = "issue/oauth2/token";
@@ -58,6 +61,8 @@ namespace Thinktecture.IdentityServer
             public const string WSTrustMixedUserName = "mixed/username";
             public const string WSTrustMessageCertificate = "message/certificate";
             public const string WSTrustMixedCertificate = "mixed/certificate";
+            public const string WSTrustMessageIssuedToken = "message/token";
+            public const string WSTrustMixedIssuedToken = "mixed/token";
 
             public const string OidcAuthorize = "issue/oidc/authorize";
             public const string OidcToken = "issue/oidc/token";
@@ -190,11 +195,25 @@ namespace Thinktecture.IdentityServer
             builder.Port = httpsPort;
             var activeSsl = builder.Uri;
 
+            var activeFederatedClear = new Uri(baseUriString + Paths.WSTrustFederationBase);
+            builder = new UriBuilder(activeFederatedClear);
+            builder.Scheme = Uri.UriSchemeHttp;
+            builder.Port = httpPort;
+            activeFederatedClear = builder.Uri;
+
+            builder = new UriBuilder(activeFederatedClear);
+            builder.Scheme = Uri.UriSchemeHttps;
+            builder.Port = httpsPort;
+            var activeFederatedSsl = builder.Uri;
+
             ep.WSTrustMessageUserName = new Uri(activeClear + "/" + Paths.WSTrustMessageUserName);
             ep.WSTrustMixedUserName = new Uri(activeSsl + "/" + Paths.WSTrustMixedUserName);
 
             ep.WSTrustMessageCertificate = new Uri(activeClear + "/" + Paths.WSTrustMessageCertificate);
             ep.WSTrustMixedCertificate = new Uri(activeSsl + "/" + Paths.WSTrustMixedCertificate);
+
+            ep.WSTrustMessageIssuedToken = new Uri(activeFederatedClear + "/" + Paths.WSTrustMessageIssuedToken);
+            ep.WSTrustMixedIssuedToken = new Uri(activeFederatedSsl + "/" + Paths.WSTrustMixedIssuedToken);
 
             ep.WSTrustMex = new Uri(activeSsl + "/" + Paths.Mex);
 

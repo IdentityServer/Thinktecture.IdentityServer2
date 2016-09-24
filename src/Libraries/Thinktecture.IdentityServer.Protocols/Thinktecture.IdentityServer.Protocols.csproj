@@ -138,7 +138,10 @@
     <Compile Include="WSFederation\HrdViewModel.cs" />
     <Compile Include="WSFederation\WSFederationController.cs" />
     <Compile Include="WSFederation\WSFederationResult.cs" />
+    <Compile Include="WSTrust\FederatedClaimsAuthenticationManager.cs" />
+    <Compile Include="WSTrust\FederatedTokenServiceHostFactory.cs" />
     <Compile Include="WSTrust\TokenServiceHostFactory.cs" />
+    <Compile Include="WSTrust\TokenServiceHostFactoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Thinktecture.IdentityServer.Core\Thinktecture.IdentityServer.Core.csproj">
