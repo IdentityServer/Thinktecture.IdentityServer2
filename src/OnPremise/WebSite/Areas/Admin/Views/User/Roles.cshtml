@@ -11,12 +11,12 @@
 
     <fieldset class="editor">
         <legend>@ViewBag.Title</legend>
-        @for (int i = 0; i < Model.RoleAssignments.Length; i++)
+        @foreach(var roleAssignment in  Model.RoleAssignments)
         {
             <div>
-                @Html.HiddenFor(x => Model.RoleAssignments[i].Role)
-                @Html.LabelFor(x => Model.RoleAssignments[i].InRole, Model.RoleAssignments[i].Role)
-                @Html.CheckBoxFor(x => Model.RoleAssignments[i].InRole)
+                @Html.HiddenFor(x => roleAssignment.Role)
+                @Html.LabelFor(x => roleAssignment.InRole, roleAssignment.Role)
+                @Html.CheckBoxFor(x => roleAssignment.InRole)
             </div>
         }
         <div class="buttons">
