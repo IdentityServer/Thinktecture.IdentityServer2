@@ -1179,6 +1179,7 @@
     <Content Include="Areas\Admin\Views\IP\Index.cshtml" />
     <Content Include="Areas\Admin\Views\IP\IP.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\Thumbprint.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MultipleThumbprints.cshtml" />
     <Content Include="Content\Mobile.less" />
     <Content Include="Areas\Admin\Views\OAuthClient\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OAuthClient\Edit.cshtml" />

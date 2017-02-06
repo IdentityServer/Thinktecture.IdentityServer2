@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,128 +59,128 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="metadata">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" />
-							</xsd:sequence>
-							<xsd:attribute name="name" use="required" type="xsd:string" />
-							<xsd:attribute name="type" type="xsd:string" />
-							<xsd:attribute name="mimetype" type="xsd:string" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="assembly">
-						<xsd:complexType>
-							<xsd:attribute name="alias" type="xsd:string" />
-							<xsd:attribute name="name" type="xsd:string" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-							<xsd:attribute ref="xml:space" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>2.0</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="Name" xml:space="preserve">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Name" xml:space="preserve">
     <value>Identifier</value>
   </data>
-	<data name="NameDescription" xml:space="preserve">
+  <data name="NameDescription" xml:space="preserve">
     <value>Unique identifier of the identity provider.</value>
   </data>
-	<data name="DisplayName" xml:space="preserve">
+  <data name="DisplayName" xml:space="preserve">
     <value>Display Name</value>
   </data>
-	<data name="DisplayNameDescription" xml:space="preserve">
+  <data name="DisplayNameDescription" xml:space="preserve">
     <value>Descriptive Name of the identity provider (for logging).</value>
   </data>
-	<data name="Enabled" xml:space="preserve">
+  <data name="Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
-	<data name="EnabledDescription" xml:space="preserve">
+  <data name="EnabledDescription" xml:space="preserve">
     <value>Specifies whether this provider will used.</value>
   </data>
-	<data name="ShowInHrdSelection" xml:space="preserve">
+  <data name="ShowInHrdSelection" xml:space="preserve">
     <value>Include in Home Realm Discovery</value>
   </data>
-	<data name="ShowInHrdSelectionDescription" xml:space="preserve">
+  <data name="ShowInHrdSelectionDescription" xml:space="preserve">
     <value>Specifies whether this provider will be shown in the HRD screen.</value>
   </data>
-	<data name="Type" xml:space="preserve">
+  <data name="Type" xml:space="preserve">
     <value>Type</value>
   </data>
-	<data name="TypeDescription" xml:space="preserve">
+  <data name="TypeDescription" xml:space="preserve">
     <value>Specifies the type of the identity provider.</value>
   </data>
-	<data name="IssuerThumbprint" xml:space="preserve">
+  <data name="IssuerThumbprint" xml:space="preserve">
     <value>Issuer Thumbprint</value>
   </data>
-	<data name="IssuerThumbprintDescription" xml:space="preserve">
-    <value>Specifies the issuer thumbprint for X.509 certificate based signature validation.</value>
+  <data name="IssuerThumbprintDescription" xml:space="preserve">
+    <value>Specifies the issuer thumbprints for X.509 certificate based signature validation. One valid thumbprint per line.</value>
   </data>
-	<data name="ProviderType" xml:space="preserve">
+  <data name="ProviderType" xml:space="preserve">
     <value>OAuth2 Provider</value>
   </data>
-	<data name="ClientID" xml:space="preserve">
+  <data name="ClientID" xml:space="preserve">
     <value>Client ID</value>
   </data>
-	<data name="ClientSecret" xml:space="preserve">
+  <data name="ClientSecret" xml:space="preserve">
     <value>Client Secret</value>
   </data>
-	<data name="WSFederationEndpointRequiredError" xml:space="preserve">
+  <data name="WSFederationEndpointRequiredError" xml:space="preserve">
     <value>WS-Federation Endpoint is required.</value>
   </data>
-	<data name="WSFederationEndpoint" xml:space="preserve">
+  <data name="WSFederationEndpoint" xml:space="preserve">
     <value>WS-Federation Endpoint</value>
   </data>
-	<data name="WSFederationEndpointDescription" xml:space="preserve">
+  <data name="WSFederationEndpointDescription" xml:space="preserve">
     <value>Specifies the endpoint of for the WS-Federation protocol.</value>
   </data>
-	<data name="IssuerThumbprintRequiredError" xml:space="preserve">
+  <data name="IssuerThumbprintRequiredError" xml:space="preserve">
     <value>Issuer Thumbprint is required.</value>
   </data>
-	<data name="ClientIDRequiredError" xml:space="preserve">
+  <data name="ClientIDRequiredError" xml:space="preserve">
     <value>Client ID is required.</value>
   </data>
-	<data name="ClientSecretRequiredError" xml:space="preserve">
+  <data name="ClientSecretRequiredError" xml:space="preserve">
     <value>Client Secret is required.</value>
   </data>
-	<data name="ProviderTypeRequiredError" xml:space="preserve">
+  <data name="ProviderTypeRequiredError" xml:space="preserve">
     <value>Profile Type is required.</value>
   </data>
 </root>
