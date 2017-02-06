@@ -304,7 +304,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
         private ActionResult RedirectToWSFedIdentityProvider(IdentityProvider identityProvider, SignInRequestMessage request)
         {
             var message = new SignInRequestMessage(new Uri(identityProvider.WSFederationEndpoint), ConfigurationRepository.Global.IssuerUri);
-            SetContextCookie(request.Context, request.Realm, identityProvider.WSFederationEndpoint);
+            SetContextCookie(request.Context, request.Reply, request.Realm, identityProvider.WSFederationEndpoint);
 
             return new RedirectResult(message.WriteQueryString());
         }
@@ -314,6 +314,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             var ctx = new OAuth2Context
             {
                 Wctx = request.Context,
+                Wreply = request.Reply,
                 Realm = request.Realm,
                 IdP = ip.ID
             };
@@ -347,6 +348,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             var context = GetContextCookie();
             var message = new SignInRequestMessage(new Uri("http://foo"), context.Realm);
             message.Context = context.Wctx;
+            message.Reply = context.Wreply;
 
             // issue token and create ws-fed response
             var wsFedResponse = FederatedPassiveSecurityTokenServiceOperations.ProcessSignInRequest(
@@ -368,6 +370,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
         {
             var message = new SignInRequestMessage(new Uri("http://foo"), context.Realm);
             message.Context = context.Wctx;
+            message.Reply = context.Wreply;
 
             // issue token and create ws-fed response
             var wsFedResponse = FederatedPassiveSecurityTokenServiceOperations.ProcessSignInRequest(
@@ -502,9 +505,9 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
             return idp;
         }
 
-        private void SetContextCookie(string wctx, string realm, string wsfedEndpoint)
+        private void SetContextCookie(string wctx, string wreply, string realm, string wsfedEndpoint)
         {
-            var j = JObject.FromObject(new Context { Wctx = wctx, Realm = realm, WsFedEndpoint = wsfedEndpoint });
+            var j = JObject.FromObject(new Context { Wctx = wctx, Wreply = wreply, Realm = realm, WsFedEndpoint = wsfedEndpoint });
 
             var cookie = new HttpCookie(_cookieContext, HttpUtility.UrlEncode(j.ToString()))
             {
@@ -614,6 +617,7 @@ namespace Thinktecture.IdentityServer.Protocols.WSFederation
         internal class Context
         {
             public string Wctx { get; set; }
+            public string Wreply { get; set; }
             public string Realm { get; set; }
             public string WsFedEndpoint { get; set; }
         }
